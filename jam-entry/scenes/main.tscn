@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://btblk0ofsg13n"]
+
+[ext_resource type="PackedScene" uid="uid://b5865cpxmph88" path="res://scenes/player.tscn" id="1_g44cn"]
+[ext_resource type="Script" path="res://scenes/world_border.gd" id="2_hhtvy"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_7akr0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5lnhm"]
+size = Vector2(832, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fpg2i"]
+size = Vector2(3069, 44.5)
+
+[node name="Main" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_g44cn")]
+position = Vector2(569, 368)
+
+[node name="Environment" type="Node2D" parent="."]
+
+[node name="TestFloor" type="StaticBody2D" parent="Environment"]
+position = Vector2(579, 510)
+metadata/_edit_group_ = true
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Environment/TestFloor"]
+position = Vector2(0, -32)
+scale = Vector2(832, 64)
+mesh = SubResource("QuadMesh_7akr0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/TestFloor"]
+position = Vector2(0, -32)
+shape = SubResource("RectangleShape2D_5lnhm")
+
+[node name="World Border" type="Area2D" parent="Environment"]
+script = ExtResource("2_hhtvy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/World Border"]
+position = Vector2(559, 1661)
+shape = SubResource("RectangleShape2D_fpg2i")
+
+[node name="RespawnMarker" type="Marker2D" parent="Environment"]
+position = Vector2(570, 368)
