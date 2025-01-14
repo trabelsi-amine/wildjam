@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://btblk0ofsg13n"]
+[gd_scene load_steps=7 format=3 uid="uid://btblk0ofsg13n"]
 
 [ext_resource type="PackedScene" uid="uid://b5865cpxmph88" path="res://scenes/player.tscn" id="1_g44cn"]
 [ext_resource type="Script" path="res://scenes/world_border.gd" id="2_hhtvy"]
+[ext_resource type="PackedScene" uid="uid://b4ob8mrd1h661" path="res://scenes/UI/player_interface.tscn" id="3_f3pln"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_7akr0"]
 
@@ -12,6 +13,7 @@ size = Vector2(832, 64)
 size = Vector2(3069, 44.5)
 
 [node name="Main" type="Node2D"]
+process_mode = 1
 
 [node name="Player" parent="." instance=ExtResource("1_g44cn")]
 position = Vector2(569, 368)
@@ -40,3 +42,8 @@ shape = SubResource("RectangleShape2D_fpg2i")
 
 [node name="RespawnMarker" type="Marker2D" parent="Environment"]
 position = Vector2(570, 368)
+
+[node name="UILayer" type="CanvasLayer" parent="."]
+
+[node name="PlayerInterface" parent="UILayer" instance=ExtResource("3_f3pln")]
+process_mode = 3
