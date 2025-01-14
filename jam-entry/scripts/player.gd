@@ -29,20 +29,17 @@ func manage_states(delta):
 		STATES.Solid:
 			solid_state(delta)
 		STATES.Liquid:
-			liquid_state()
+			liquid_state(delta)
 		STATES.Gas:
-			gas_state()
+			gas_state(delta)
 
 func solid_state(delta):
+	#visual
 	playerSprite.modulate.r = 255
 	playerSprite.modulate.b = 0
 	playerSprite.modulate.g = 0
 	
-	solid_movement(delta)
-	
-	
-
-func solid_movement(delta):
+	#movement
 	var speed = 1200
 	var gravity = 4000
 	var jump_speed = -1800
@@ -54,18 +51,41 @@ func solid_movement(delta):
 	move_and_slide()
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = jump_speed
+	
+	
 
-func liquid_state():
+func liquid_state(delta):
+	#visual
 	playerSprite.modulate.r = 0
 	playerSprite.modulate.b = 255
 	playerSprite.modulate.g = 0
+	
+	#movement
+	var speed = 1000
+	var gravity = 4000
+	
+	velocity.y += gravity * delta
+	velocity.x = Input.get_axis("left", "right") * speed
+	move_and_slide()
 
 
-
-func gas_state():
+func gas_state(delta):
+	#visual
 	playerSprite.modulate.r = 0
 	playerSprite.modulate.b = 0
 	playerSprite.modulate.g = 255
+	
+	#movement
+	var speed = 650
+	var gravity = 1000
+	var jump_speed = -500
+	
+	velocity.y += gravity * delta
+	velocity.x = Input.get_axis("left", "right") * speed
+	move_and_slide()
+	
+	if Input.is_action_pressed("jump"):
+		velocity.y = jump_speed
 
 func change_state():
 	match current_state:
