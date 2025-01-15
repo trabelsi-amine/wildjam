@@ -17,6 +17,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
+Global="*res://scripts/Globals/Global.gd"
 LootLocker="*res://scripts/Globals/LootLocker.gd"
 
 [global_group]

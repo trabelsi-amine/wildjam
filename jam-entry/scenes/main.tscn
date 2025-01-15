@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://btblk0ofsg13n"]
+[gd_scene load_steps=8 format=3 uid="uid://btblk0ofsg13n"]
 
 [ext_resource type="PackedScene" uid="uid://b5865cpxmph88" path="res://scenes/player.tscn" id="1_g44cn"]
 [ext_resource type="Script" path="res://scenes/world_border.gd" id="2_hhtvy"]
 [ext_resource type="PackedScene" uid="uid://b4ob8mrd1h661" path="res://scenes/UI/player_interface.tscn" id="3_f3pln"]
+[ext_resource type="PackedScene" uid="uid://cod520n54caj4" path="res://scenes/grate.tscn" id="3_pdpf0"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_7akr0"]
 
@@ -42,6 +43,13 @@ shape = SubResource("RectangleShape2D_fpg2i")
 
 [node name="RespawnMarker" type="Marker2D" parent="Environment"]
 position = Vector2(570, 368)
+
+[node name="Grate" parent="Environment" instance=ExtResource("3_pdpf0")]
+position = Vector2(880, 368)
+
+[node name="Grate2" parent="Environment" instance=ExtResource("3_pdpf0")]
+position = Vector2(1072, 450)
+rotation = 1.5708
 
 [node name="UILayer" type="CanvasLayer" parent="."]
 

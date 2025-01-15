@@ -14,6 +14,7 @@ var current_state = STATES.Solid
 
 
 func _ready() -> void:
+	Global.player = self
 	global_position = respawn_marker.global_position
 
 
