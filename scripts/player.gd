@@ -14,6 +14,7 @@ var current_state = STATES.Solid
 
 
 func _ready() -> void:
+	Global.player = self
 	global_position = respawn_marker.global_position
 
 
@@ -69,6 +70,14 @@ func liquid_state():
 	set_collision_layer_value(1,false)#solid
 	set_collision_layer_value(2,true)#liquid
 	set_collision_layer_value(3,false)#gas
+	
+	#movement
+	#var speed = 1000
+	#var gravity = 4000
+	#
+	#velocity.y += gravity * delta
+	#velocity.x = Input.get_axis("left", "right") * speed
+	#move_and_slide()
 
 func gas_state(delta):
 	set_collision_layer_value(1,false)#solid
@@ -86,11 +95,20 @@ func gas_state(delta):
 		
 	velocity.y += gravity * delta
 	velocity.x = Input.get_axis("left", "right") * speed
+	#velocity.x += Input.get_axis("left", "right") * speed
+	#velocity.x = clamp(velocity.x, -speed, speed)
 	#print(Input.get_axis("left", "right"))
 		
 	move_and_slide()
 	if Input.is_action_just_pressed("jump"):
 		velocity.y = jump_speed
+
+# Called by the Fan node
+var blown_force = 80
+func be_blown_away(dir):
+	if current_state == STATES.Gas:
+		velocity += blown_force * dir
+
 func change_state():
 	match current_state:
 		STATES.Solid:

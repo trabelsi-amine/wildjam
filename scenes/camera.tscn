@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://c4fvyx6tpkewg"]
 
 [ext_resource type="Script" path="res://scenes/camera.gd" id="1_8qrqf"]
-[ext_resource type="Texture2D" uid="uid://jqrts6xm0qe1" path="res://art/camera.svg" id="1_66wql"]
+[ext_resource type="Texture2D" uid="uid://jqrts6xm0qe1" path="res://assets/art/camera.svg" id="1_66wql"]
 
 [node name="camera" type="Node2D"]
 script = ExtResource("1_8qrqf")
