@@ -1,0 +1,211 @@
+[gd_scene load_steps=14 format=3 uid="uid://b4ob8mrd1h661"]
+
+[ext_resource type="FontFile" uid="uid://w45sjqaw4e7a" path="res://assets/fonts/Minimal3x5.ttf" id="1_4ri1q"]
+[ext_resource type="Script" path="res://scripts/UI/PlayerUI.gd" id="1_td86v"]
+[ext_resource type="FontFile" uid="uid://i4ecybfsrwct" path="res://assets/fonts/Minimal5x5Monospaced.ttf" id="2_yu31m"]
+[ext_resource type="FontFile" uid="uid://02q74hthmcin" path="res://assets/fonts/Minimal5x7.ttf" id="3_owu2w"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fdy4y"]
+bg_color = Color(0.205117, 0.205117, 0.205117, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.510776, 0.804945, 1, 1)
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="LabelSettings" id="LabelSettings_i4ii2"]
+font = ExtResource("2_yu31m")
+font_size = 23
+
+[sub_resource type="LabelSettings" id="LabelSettings_dcbq8"]
+font = ExtResource("1_4ri1q")
+font_size = 27
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_clqgj"]
+bg_color = Color(0, 0, 0, 0.368627)
+
+[sub_resource type="LabelSettings" id="LabelSettings_8crj0"]
+font = ExtResource("1_4ri1q")
+font_size = 31
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_itlhc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_krwhp"]
+bg_color = Color(0.164706, 0.164706, 0.164706, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+corner_radius_top_left = 17
+corner_radius_top_right = 17
+corner_radius_bottom_right = 17
+corner_radius_bottom_left = 17
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3jl76"]
+bg_color = Color(0.212305, 0.212305, 0.212305, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+corner_radius_top_left = 17
+corner_radius_top_right = 17
+corner_radius_bottom_right = 17
+corner_radius_bottom_left = 17
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_irkxp"]
+bg_color = Color(0.147672, 0.147672, 0.147672, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+corner_radius_top_left = 17
+corner_radius_top_right = 17
+corner_radius_bottom_right = 17
+corner_radius_bottom_left = 17
+
+[node name="PlayerInterface" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_td86v")
+metadata/_edit_lock_ = true
+
+[node name="Timer" type="PanelContainer" parent="."]
+layout_mode = 1
+offset_right = 137.0
+offset_bottom = 54.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_fdy4y")
+
+[node name="Time" type="Label" parent="Timer"]
+texture_filter = 1
+layout_mode = 2
+size_flags_vertical = 3
+text = "4.321"
+label_settings = SubResource("LabelSettings_i4ii2")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="State" type="Label" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -157.0
+offset_top = -67.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_vertical = 1
+text = "SOLID"
+label_settings = SubResource("LabelSettings_dcbq8")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Pause" type="Control" parent="."]
+process_mode = 3
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="Panel" parent="Pause"]
+process_mode = 3
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_clqgj")
+
+[node name="PauseMenu" type="Control" parent="Pause"]
+process_mode = 3
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -173.0
+offset_top = -156.5
+offset_right = 173.0
+offset_bottom = 156.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TitleButtons" type="VBoxContainer" parent="Pause/PauseMenu"]
+process_mode = 3
+layout_mode = 2
+offset_left = 24.0
+offset_top = 24.0
+offset_right = 322.0
+offset_bottom = 289.0
+theme_override_constants/separation = 15
+
+[node name="Title" type="Label" parent="Pause/PauseMenu/TitleButtons"]
+process_mode = 3
+layout_mode = 2
+size_flags_vertical = 3
+text = "PAUSED"
+label_settings = SubResource("LabelSettings_8crj0")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Buttons" type="VBoxContainer" parent="Pause/PauseMenu/TitleButtons"]
+process_mode = 3
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 4.44
+
+[node name="Resume" type="Button" parent="Pause/PauseMenu/TitleButtons/Buttons"]
+process_mode = 3
+texture_filter = 1
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("3_owu2w")
+theme_override_font_sizes/font_size = 36
+theme_override_styles/focus = SubResource("StyleBoxEmpty_itlhc")
+theme_override_styles/hover = SubResource("StyleBoxFlat_krwhp")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_3jl76")
+theme_override_styles/normal = SubResource("StyleBoxFlat_irkxp")
+text = "RESUME
+"
+
+[node name="Settings" type="Button" parent="Pause/PauseMenu/TitleButtons/Buttons"]
+process_mode = 3
+texture_filter = 1
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("3_owu2w")
+theme_override_font_sizes/font_size = 36
+theme_override_styles/focus = SubResource("StyleBoxEmpty_itlhc")
+theme_override_styles/hover = SubResource("StyleBoxFlat_krwhp")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_3jl76")
+theme_override_styles/normal = SubResource("StyleBoxFlat_irkxp")
+text = "SETTINGS"
+
+[node name="Quit" type="Button" parent="Pause/PauseMenu/TitleButtons/Buttons"]
+process_mode = 3
+texture_filter = 1
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("3_owu2w")
+theme_override_font_sizes/font_size = 36
+theme_override_styles/focus = SubResource("StyleBoxEmpty_itlhc")
+theme_override_styles/hover = SubResource("StyleBoxFlat_krwhp")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_3jl76")
+theme_override_styles/normal = SubResource("StyleBoxFlat_irkxp")
+text = "QUIT"
+
+[connection signal="pressed" from="Pause/PauseMenu/TitleButtons/Buttons/Resume" to="." method="ClosePause"]
+[connection signal="pressed" from="Pause/PauseMenu/TitleButtons/Buttons/Quit" to="." method="Quit"]
