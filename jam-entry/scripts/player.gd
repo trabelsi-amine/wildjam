@@ -82,11 +82,20 @@ func gas_state(delta):
 	var jump_speed = -500
 	
 	velocity.y += gravity * delta
-	velocity.x = Input.get_axis("left", "right") * speed
+	#velocity.x = Input.get_axis("left", "right") * speed
+	velocity.x += Input.get_axis("left", "right") * speed
+	velocity.x = clamp(velocity.x, -speed, speed)
+	
 	move_and_slide()
 	
 	if Input.is_action_pressed("jump"):
 		velocity.y = jump_speed
+
+# Called by the Fan node
+var blown_force = 80
+func be_blown_away(dir):
+	if current_state == STATES.Gas:
+		velocity += blown_force * dir
 
 func change_state():
 	match current_state:

@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://btblk0ofsg13n"]
+[gd_scene load_steps=9 format=3 uid="uid://btblk0ofsg13n"]
 
 [ext_resource type="PackedScene" uid="uid://b5865cpxmph88" path="res://scenes/player.tscn" id="1_g44cn"]
 [ext_resource type="Script" path="res://scenes/world_border.gd" id="2_hhtvy"]
+[ext_resource type="PackedScene" uid="uid://dt3mwciq6va0n" path="res://scenes/fan.tscn" id="2_tl1sp"]
 [ext_resource type="PackedScene" uid="uid://b4ob8mrd1h661" path="res://scenes/UI/player_interface.tscn" id="3_f3pln"]
 [ext_resource type="PackedScene" uid="uid://cod520n54caj4" path="res://scenes/grate.tscn" id="3_pdpf0"]
 
@@ -50,6 +51,25 @@ position = Vector2(880, 368)
 [node name="Grate2" parent="Environment" instance=ExtResource("3_pdpf0")]
 position = Vector2(1072, 450)
 rotation = 1.5708
+
+[node name="Fan" parent="Environment" instance=ExtResource("2_tl1sp")]
+position = Vector2(98, 511)
+
+[node name="Fan2" parent="Environment" instance=ExtResource("2_tl1sp")]
+position = Vector2(226, -289)
+rotation = -1.5708
+
+[node name="Fan3" parent="Environment" instance=ExtResource("2_tl1sp")]
+position = Vector2(-1006, -838)
+rotation = 3.14159
+
+[node name="Fan4" parent="Environment" instance=ExtResource("2_tl1sp")]
+position = Vector2(-1436, 33)
+rotation = 1.5708
+
+[node name="Fan5" parent="Environment" instance=ExtResource("2_tl1sp")]
+position = Vector2(-1182, 678)
+rotation = 0.785398
 
 [node name="UILayer" type="CanvasLayer" parent="."]
 
