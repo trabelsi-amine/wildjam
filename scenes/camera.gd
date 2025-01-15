@@ -7,7 +7,6 @@ extends Node2D
 
 func _physics_process(delta: float) -> void:
 	ray.target_position = target.to_local(target.global_position)
-	print(ray.get_collision_point())
 	if(ray.is_colliding()):
 		line.set_point_position(0,to_local(ray.get_collision_point()))
 	else:

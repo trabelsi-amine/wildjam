@@ -1,117 +1,73 @@
-[gd_scene load_steps=10 format=3 uid="uid://btblk0ofsg13n"]
+[gd_scene load_steps=9 format=3 uid="uid://btblk0ofsg13n"]
 
 [ext_resource type="PackedScene" uid="uid://b5865cpxmph88" path="res://scenes/player.tscn" id="1_g44cn"]
 [ext_resource type="Script" path="res://scripts/world_border.gd" id="2_hhtvy"]
 [ext_resource type="Texture2D" uid="uid://c3kb4oqyo5as1" path="res://art/tileset.png" id="3_imjvw"]
 [ext_resource type="PackedScene" uid="uid://c4fvyx6tpkewg" path="res://scenes/camera.tscn" id="4_rkhj8"]
 
-[sub_resource type="QuadMesh" id="QuadMesh_7akr0"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5lnhm"]
-size = Vector2(392, 30)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fpg2i"]
 size = Vector2(2503, 28.25)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rqfef"]
 texture = ExtResource("3_imjvw")
-0:0/0 = 0
-1:0/0 = 0
-2:0/0 = 0
-3:0/0 = 0
-4:0/0 = 0
-5:0/0 = 0
-6:0/0 = 0
-7:0/0 = 0
-8:0/0 = 0
-9:0/0 = 0
-10:0/0 = 0
-11:0/0 = 0
-12:0/0 = 0
-13:0/0 = 0
-14:0/0 = 0
-15:0/0 = 0
-16:0/0 = 0
-17:0/0 = 0
-18:0/0 = 0
-19:0/0 = 0
-20:0/0 = 0
-21:0/0 = 0
-22:0/0 = 0
-23:0/0 = 0
-24:0/0 = 0
 0:2/0 = 0
-0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -8, 8, 8, -8, 8, -8, -0.375, -1.875, -8)
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 8, 8, 8, 8, -8, -2.125, -8, -8, -1.5)
 1:2/0 = 0
-1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -8, 8, 8, -8, 8, -8, -8)
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 8, 8, 8, 8, -8, -8, -8)
 2:2/0 = 0
-2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -8, 8, 8, -8, 8, -8, -8)
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 8, 8, 8, 8, -8, -8, -8)
 3:2/0 = 0
-3:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -2.625, 8, 8, -8, 8, -8, -8, 1.625, -8)
+3:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 8, 8, 8, 8, -2, 1.875, -8, -8, -8)
 0:3/0 = 0
-0:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -8, 8, 8, -8, 8, -8, -8)
+0:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 8, 8, 8, 8, -8, -8, -8)
 1:3/0 = 0
-1:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -8, 8, 8, -8, 8, -8, -8)
+1:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 8, 8, 8, 8, -8, -8, -8)
 2:3/0 = 0
-2:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -8, 8, 8, -8, 8, -8, -8)
+2:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 8, 8, 8, 8, -8, -8, -8)
 3:3/0 = 0
-3:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -8, 8, 8, -8, 8, -8, -8)
+3:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 8, 8, 8, 8, -8, -8, -8)
 0:4/0 = 0
-0:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -8, 8, 8, -8, 8, -8, -8)
+0:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 8, 8, 8, 8, -8, -8, -8)
 1:4/0 = 0
-1:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -8, 8, 8, -8, 8, -8, -8)
+1:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 8, 8, 8, 8, -8, -8, -8)
 2:4/0 = 0
-2:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -8, 8, 8, -8, 8, -8, -8)
+2:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 8, 8, 8, 8, -8, -8, -8)
 3:4/0 = 0
-3:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -8, 8, 8, -8, 8, -8, -8)
+3:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 8, 8, 8, 8, -8, -8, -8)
 0:5/0 = 0
-0:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -8, 8, 8, -3.125, 8, -8, 2.5, -8, -8)
+0:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, 8, 8, -8, -8, -8, -8, 1.875, -1.75, 8)
 1:5/0 = 0
-1:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -8, 8, 8, -8, 8, -8, -8)
+1:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 8, 8, 8, 8, -8, -8, -8)
 2:5/0 = 0
-2:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -8, 8, 8, -8, 8, -8, -8)
+2:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 8, 8, 8, 8, -8, -8, -8)
 3:5/0 = 0
-3:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -8, 8, 1.75, 2.25, 8, -8, 8, -8, -8)
-13:2/0 = 0
-13:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 0.883883, -8, -8, 8, -8, 8, 1.06066)
-14:2/0 = 0
-14:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -4.125, -8, -8, 8, -8, 8, -4.125)
-14:3/0 = 0
-15:3/0 = 0
-16:3/0 = 0
-14:4/0 = 0
+3:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 8, 2.125, 8, 8, 1.875, 8, -8, -8, -8)
 15:4/0 = 0
-15:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 4.24264, 8, 4.24264, 8, -8, -8, -8)
+15:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 4.5, -8, 4.5)
 16:4/0 = 0
-16:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 4.125, 8, 4, 8, -8, -8, -8)
+16:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 4.5, -8, 4.5)
+13:2/0 = 0
+13:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 0.875, 8, 1, 8, -8, -8, -8)
+14:2/0 = 0
+14:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, -4.125, -8, -4.125)
 
 [sub_resource type="TileSet" id="TileSet_oe4df"]
 physics_layer_0/collision_layer = 1
+physics_layer_0/collision_mask = 7
 sources/0 = SubResource("TileSetAtlasSource_rqfef")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ey666"]
+size = Vector2(15.7706, 3.58423)
 
 [node name="Main" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_g44cn")]
 position = Vector2(99, 177)
 scale = Vector2(0.35, 0.35)
-collision_layer = 2
 
 [node name="Environment" type="Node2D" parent="."]
 position = Vector2(-494, 277)
 scale = Vector2(0.35, 0.35)
-
-[node name="TestFloor" type="StaticBody2D" parent="Environment"]
-position = Vector2(348, 399)
-metadata/_edit_group_ = true
-
-[node name="MeshInstance2D" type="MeshInstance2D" parent="Environment/TestFloor"]
-position = Vector2(219.5, -15.1154)
-scale = Vector2(393, 30.2308)
-mesh = SubResource("QuadMesh_7akr0")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/TestFloor"]
-position = Vector2(214, -15)
-shape = SubResource("RectangleShape2D_5lnhm")
 
 [node name="World Border" type="Area2D" parent="Environment"]
 position = Vector2(5402.86, 417.143)
@@ -122,7 +78,7 @@ position = Vector2(-457.146, 882.857)
 shape = SubResource("RectangleShape2D_fpg2i")
 
 [node name="RespawnMarker" type="Marker2D" parent="Environment"]
-position = Vector2(2120, 728.571)
+position = Vector2(2002.86, -14.2858)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(579, 328)
@@ -133,7 +89,373 @@ texture_filter = 1
 scale = Vector2(2.79, 2.79)
 tile_set = SubResource("TileSet_oe4df")
 format = 2
-layer_0/tile_data = PackedInt32Array(65536, 196608, 4, 131072, 196608, 4, 196608, 196608, 3, 262144, 196608, 4, 327680, 196608, 3, 393216, 196608, 4, 458752, 196608, 3, 524288, 196608, 4, 589824, 196608, 3, 655360, 196608, 4, 720896, 196608, 4, 786432, 196608, 4, 851968, 196608, 3, 917504, 65536, 3, 0, 131072, 3, 917505, 65536, 2, 917506, 131072, 2, 917507, 65536, 2, 917508, 131072, 2, 917509, 131072, 2, 917510, 131072, 2, 917511, 131072, 2, 917512, 131072, 2, 917513, 65536, 2, 917514, 131072, 2, 917515, 65536, 2, 917516, 131072, 2, 917517, 65536, 2, 917518, 65536, 2, 917519, 65536, 2, 917520, 65536, 2, 917521, 65536, 2, 917522, 65536, 2, 917523, 65536, 2, 917524, 131072, 2, 917525, 65536, 2, 917526, 131072, 2, 917527, 131072, 2, 917528, 65536, 2, 917529, 65536, 4, 851993, 0, 3, 786457, 0, 3, 720921, 0, 4, 655385, 0, 3, 589849, 0, 4, 524313, 0, 3, 262169, 0, 3, 196633, 0, 3, 131097, 0, 4, 65561, 0, 3, 25, 65536, 4, 24, 131072, 5, 23, 131072, 5, 22, 131072, 5, 21, 131072, 5, 20, 131072, 3, 19, 131072, 5, 18, 131072, 5, 17, 65536, 5, 16, 131072, 5, 15, 131072, 5, 14, 131072, 5, 13, 131072, 4, 12, 131072, 4, 11, 131072, 5, 10, 65536, 5, 9, 131072, 5, 8, 65536, 5, 7, 65536, 5, 6, 131072, 5, 5, 65536, 5, 4, 131072, 5, 3, 65536, 5, 2, 131072, 5, 1, 131072, 5, 262145, 851968, 2, 262146, 851968, 2, 262147, 851968, 2, 262148, 851968, 2, 262149, 851968, 2, 262150, 851968, 2, 262151, 851968, 2, 262152, 851968, 2, 262156, 0, 3, 524289, 851968, 2, 524293, 917504, 2, 524294, 917504, 2, 524295, 917504, 2, 524296, 917504, 2, 524297, 917504, 2, 524298, 917504, 2, 524299, 851968, 2, 524300, 131072, 5, 524291, 917504, 2, 524292, 917504, 2, 65548, 0, 3, 131084, 0, 3, 327692, 0, 3, 393228, 0, 3, 458764, 983040, 4, 65549, 196608, 3, 131085, 196608, 3, 262157, 196608, 3, 327693, 196608, 3, 393229, 196608, 3, 458765, 1048576, 4, 524301, 131072, 5, 196621, 1048576, 4, 196620, 983040, 4, 262155, 851968, 2, 262154, 851968, 2, 262153, 851968, 2, 524302, 851968, 2, 524303, 917504, 2, 524304, 917504, 2, 524305, 917504, 2, 524306, 917504, 2, 524307, 917504, 2, 524308, 917504, 2, 524309, 917504, 2, 524310, 917504, 2, 524311, 917504, 2, 524312, 851968, 2, 327705, 0, 4, 524290, 917504, 2, 196622, 917504, 2, 196623, 917504, 2, 196624, 917504, 2, 196625, 917504, 2, 196626, 917504, 2, 196627, 917504, 2, 196628, 131072, 5, 65556, 131072, 5, 983039, 65536, 3, 917503, 65536, 3, 851967, 65536, 3, 786431, 65536, 3, 720895, 65536, 3, 655359, 65536, 3, 589823, 65536, 3, 524287, 65536, 3, 458751, 65536, 3, 393215, 65536, 3, 327679, 65536, 3, 262143, 65536, 3, 196607, 65536, 3, 131071, 65536, 3, 65535, 65536, 3, -1, 65536, 3, -2, 65536, 3, 65534, 65536, 3, 131070, 65536, 3, 196606, 65536, 3, 262142, 65536, 3, 327678, 65536, 3, 393214, 65536, 3, 458750, 65536, 3, 524286, 65536, 3, 589822, 65536, 3, 655358, 65536, 3, 720894, 65536, 3, 786430, 65536, 3, 851966, 65536, 3, 917502, 65536, 3, 983038, 65536, 3, 1048574, 65536, 3, 1048575, 65536, 3, 983040, 65536, 3, 983041, 65536, 3, 983042, 65536, 3, 983043, 65536, 3, 983044, 65536, 3, 983045, 65536, 3, 983046, 65536, 3, 983047, 65536, 3, 983048, 65536, 3, 983049, 65536, 3, 983050, 65536, 3, 983051, 65536, 3, 983052, 65536, 3, 983053, 65536, 3, 983054, 65536, 3, 983055, 65536, 3, 983056, 65536, 3, 983057, 65536, 3, 983058, 65536, 3, 983059, 65536, 3, 983060, 65536, 3, 983061, 65536, 3, 983062, 65536, 3, 983063, 65536, 3, 983064, 65536, 3, 983065, 65536, 3, 983066, 65536, 3, 983067, 65536, 3, 917530, 65536, 3, 851994, 65536, 3, 786458, 65536, 3, 720922, 65536, 3, 655386, 65536, 3, 589850, 65536, 3, 524314, 65536, 3, 458778, 65536, 3, 393242, 65536, 3, 327706, 65536, 3, 262170, 65536, 3, 196634, 65536, 3, 131098, 65536, 3, 65562, 65536, 3, 26, 65536, 3, -65510, 65536, 3, -65509, 65536, 3, 27, 65536, 3, 65563, 65536, 3, 131099, 65536, 3, 196635, 65536, 3, 262171, 65536, 3, 327707, 65536, 3, 393243, 65536, 3, 458779, 65536, 3, 524315, 65536, 3, 589851, 65536, 3, 655387, 65536, 3, 720923, 65536, 3, 786459, 65536, 3, 851995, 65536, 3, 917531, 65536, 3, -65511, 65536, 3, -65512, 65536, 3, -65513, 65536, 3, -65514, 65536, 3, -65515, 65536, 3, -65516, 65536, 3, -65517, 65536, 3, -65518, 65536, 3, -65519, 65536, 3, -65520, 65536, 3, -65521, 65536, 3, -65522, 65536, 3, -65523, 65536, 3, -65524, 65536, 3, -65525, 65536, 3, -65526, 65536, 3, -65527, 65536, 3, -65528, 65536, 3, -65529, 65536, 3, -65530, 65536, 3, -65531, 65536, 3, -65532, 65536, 3, -65533, 65536, 3, -65534, 65536, 3, -65535, 65536, 3, -65536, 65536, 3, -65538, 65536, 3, -65537, 65536, 3, -131072, 65536, 3, -131071, 65536, 3, -131070, 65536, 3, -131069, 65536, 3, -131068, 65536, 3, -131067, 65536, 3, -131066, 65536, 3, -131065, 65536, 3, -131064, 65536, 3, -131063, 65536, 3, -131062, 65536, 3, -131061, 65536, 3, -131060, 65536, 3, -131059, 65536, 3, -131058, 65536, 3, -131057, 65536, 3, -131056, 65536, 3, -131055, 65536, 3, -131054, 65536, 3, -131053, 65536, 3, -131052, 65536, 3, -131051, 65536, 3, -131050, 65536, 3, -131049, 65536, 3, -131048, 65536, 3, -131047, 65536, 3, -131046, 65536, 3, -131045, 65536, 3)
+layer_0/name = "anti-all"
+layer_0/tile_data = PackedInt32Array(65536, 196608, 4, 131072, 196608, 4, 196608, 196608, 3, 262144, 196608, 4, 327680, 196608, 3, 393216, 196608, 4, 458752, 196608, 3, 524288, 196608, 4, 589824, 196608, 3, 655360, 196608, 4, 720896, 196608, 4, 786432, 196608, 4, 851968, 196608, 3, 917504, 65536, 3, 0, 131072, 3, 917505, 65536, 2, 917506, 131072, 2, 917507, 65536, 2, 917508, 131072, 2, 917509, 131072, 2, 917510, 131072, 2, 917511, 131072, 2, 917512, 131072, 2, 917513, 65536, 2, 917514, 131072, 2, 917515, 65536, 2, 917516, 131072, 2, 917517, 65536, 2, 917518, 65536, 2, 917519, 65536, 2, 917520, 65536, 2, 917521, 65536, 2, 917522, 65536, 2, 917523, 65536, 2, 917524, 131072, 2, 917525, 65536, 2, 917526, 131072, 2, 917527, 131072, 2, 917528, 65536, 2, 917529, 65536, 4, 851993, 0, 3, 786457, 0, 3, 720921, 0, 4, 655385, 0, 3, 589849, 0, 4, 524313, 0, 3, 262169, 0, 3, 196633, 0, 3, 131097, 0, 4, 65561, 0, 3, 25, 65536, 4, 24, 131072, 5, 23, 131072, 5, 22, 131072, 5, 21, 131072, 5, 20, 131072, 3, 19, 131072, 5, 18, 131072, 5, 17, 65536, 5, 16, 131072, 5, 15, 131072, 5, 14, 131072, 5, 13, 131072, 4, 12, 131072, 4, 11, 131072, 5, 10, 65536, 5, 9, 131072, 5, 8, 65536, 5, 7, 65536, 5, 6, 131072, 5, 5, 65536, 5, 4, 131072, 5, 3, 65536, 5, 2, 131072, 5, 1, 131072, 5, 262145, 851968, 2, 262146, 851968, 2, 262147, 851968, 2, 262148, 851968, 2, 262149, 851968, 2, 262150, 851968, 2, 262151, 851968, 2, 262152, 851968, 2, 262156, 0, 3, 524289, 851968, 2, 524299, 851968, 2, 524300, 131072, 5, 65548, 0, 3, 131084, 0, 3, 327692, 0, 3, 393228, 0, 3, 458764, 983040, 4, 65549, 196608, 3, 131085, 196608, 3, 262157, 196608, 3, 327693, 196608, 3, 393229, 196608, 3, 458765, 1048576, 4, 524301, 131072, 5, 196621, 1048576, 4, 196620, 983040, 4, 262155, 851968, 2, 262154, 851968, 2, 262153, 851968, 2, 524302, 851968, 2, 524312, 851968, 2, 327705, 0, 4, 196628, 131072, 5, 65556, 131072, 5, 983039, 65536, 3, 917503, 65536, 3, 851967, 65536, 3, 786431, 65536, 3, 720895, 65536, 3, 655359, 65536, 3, 589823, 65536, 3, 524287, 65536, 3, 458751, 65536, 3, 393215, 65536, 3, 327679, 65536, 3, 262143, 65536, 3, 196607, 65536, 3, 131071, 65536, 3, 65535, 65536, 3, -1, 65536, 3, -2, 65536, 3, 65534, 65536, 3, 131070, 65536, 3, 196606, 65536, 3, 262142, 65536, 3, 327678, 65536, 3, 393214, 65536, 3, 458750, 65536, 3, 524286, 65536, 3, 589822, 65536, 3, 655358, 65536, 3, 720894, 65536, 3, 786430, 65536, 3, 851966, 65536, 3, 917502, 65536, 3, 983038, 65536, 3, 1048574, 65536, 3, 1048575, 65536, 3, 983040, 65536, 3, 983041, 65536, 3, 983042, 65536, 3, 983043, 65536, 3, 983044, 65536, 3, 983045, 65536, 3, 983046, 65536, 3, 983047, 65536, 3, 983048, 65536, 3, 983049, 65536, 3, 983050, 65536, 3, 983051, 65536, 3, 983052, 65536, 3, 983053, 65536, 3, 983054, 65536, 3, 983055, 65536, 3, 983056, 65536, 3, 983057, 65536, 3, 983058, 65536, 3, 983059, 65536, 3, 983060, 65536, 3, 983061, 65536, 3, 983062, 65536, 3, 983063, 65536, 3, 983064, 65536, 3, 983065, 65536, 3, 983066, 65536, 3, 983067, 65536, 3, 917530, 65536, 3, 851994, 65536, 3, 786458, 65536, 3, 720922, 65536, 3, 655386, 65536, 3, 589850, 65536, 3, 524314, 65536, 3, 458778, 65536, 3, 393242, 65536, 3, 327706, 65536, 3, 262170, 65536, 3, 196634, 65536, 3, 131098, 65536, 3, 65562, 65536, 3, 26, 65536, 3, -65510, 65536, 3, -65509, 65536, 3, 27, 65536, 3, 65563, 65536, 3, 131099, 65536, 3, 196635, 65536, 3, 262171, 65536, 3, 327707, 65536, 3, 393243, 65536, 3, 458779, 65536, 3, 524315, 65536, 3, 589851, 65536, 3, 655387, 65536, 3, 720923, 65536, 3, 786459, 65536, 3, 851995, 65536, 3, 917531, 65536, 3, -65511, 65536, 3, -65512, 65536, 3, -65513, 65536, 3, -65514, 65536, 3, -65515, 65536, 3, -65516, 65536, 3, -65517, 65536, 3, -65518, 65536, 3, -65519, 65536, 3, -65520, 65536, 3, -65521, 65536, 3, -65522, 65536, 3, -65523, 65536, 3, -65524, 65536, 3, -65525, 65536, 3, -65526, 65536, 3, -65527, 65536, 3, -65528, 65536, 3, -65529, 65536, 3, -65530, 65536, 3, -65531, 65536, 3, -65532, 65536, 3, -65533, 65536, 3, -65534, 65536, 3, -65535, 65536, 3, -65536, 65536, 3, -65538, 65536, 3, -65537, 65536, 3, -131072, 65536, 3, -131071, 65536, 3, -131070, 65536, 3, -131069, 65536, 3, -131068, 65536, 3, -131067, 65536, 3, -131066, 65536, 3, -131065, 65536, 3, -131064, 65536, 3, -131063, 65536, 3, -131062, 65536, 3, -131061, 65536, 3, -131060, 65536, 3, -131059, 65536, 3, -131058, 65536, 3, -131057, 65536, 3, -131056, 65536, 3, -131055, 65536, 3, -131054, 65536, 3, -131053, 65536, 3, -131052, 65536, 3, -131051, 65536, 3, -131050, 65536, 3, -131049, 65536, 3, -131048, 65536, 3, -131047, 65536, 3, -131046, 65536, 3, -131045, 65536, 3)
+
+[node name="big ahh platform" type="Node2D" parent="TileMap"]
+
+[node name="anti-solid" type="StaticBody2D" parent="TileMap/big ahh platform"]
+position = Vector2(39.4265, 129.749)
+
+[node name="Sprite2D" type="Sprite2D" parent="TileMap/big ahh platform/anti-solid"]
+texture = ExtResource("3_imjvw")
+region_enabled = true
+region_rect = Rect2(223.942, 32.0102, 15.931, 3.83597)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/big ahh platform/anti-solid"]
+visible = false
+position = Vector2(0, 7.62939e-06)
+shape = SubResource("RectangleShape2D_ey666")
+
+[node name="anti-solid2" type="StaticBody2D" parent="TileMap/big ahh platform"]
+position = Vector2(55.1971, 129.749)
+
+[node name="Sprite2D" type="Sprite2D" parent="TileMap/big ahh platform/anti-solid2"]
+texture = ExtResource("3_imjvw")
+region_enabled = true
+region_rect = Rect2(223.942, 32.0102, 15.931, 3.83597)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/big ahh platform/anti-solid2"]
+visible = false
+position = Vector2(0, 7.62939e-06)
+shape = SubResource("RectangleShape2D_ey666")
+
+[node name="anti-solid3" type="StaticBody2D" parent="TileMap/big ahh platform"]
+position = Vector2(70.9677, 129.749)
+
+[node name="Sprite2D" type="Sprite2D" parent="TileMap/big ahh platform/anti-solid3"]
+texture = ExtResource("3_imjvw")
+region_enabled = true
+region_rect = Rect2(223.942, 32.0102, 15.931, 3.83597)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/big ahh platform/anti-solid3"]
+visible = false
+position = Vector2(0, 7.62939e-06)
+shape = SubResource("RectangleShape2D_ey666")
+
+[node name="anti-solid4" type="StaticBody2D" parent="TileMap/big ahh platform"]
+position = Vector2(86.7383, 129.749)
+
+[node name="Sprite2D" type="Sprite2D" parent="TileMap/big ahh platform/anti-solid4"]
+texture = ExtResource("3_imjvw")
+region_enabled = true
+region_rect = Rect2(223.942, 32.0102, 15.931, 3.83597)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/big ahh platform/anti-solid4"]
+visible = false
+position = Vector2(0, 7.62939e-06)
+shape = SubResource("RectangleShape2D_ey666")
+
+[node name="anti-solid5" type="StaticBody2D" parent="TileMap/big ahh platform"]
+position = Vector2(102.509, 129.749)
+
+[node name="Sprite2D" type="Sprite2D" parent="TileMap/big ahh platform/anti-solid5"]
+texture = ExtResource("3_imjvw")
+region_enabled = true
+region_rect = Rect2(223.942, 32.0102, 15.931, 3.83597)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/big ahh platform/anti-solid5"]
+visible = false
+position = Vector2(0, 7.62939e-06)
+shape = SubResource("RectangleShape2D_ey666")
+
+[node name="anti-solid6" type="StaticBody2D" parent="TileMap/big ahh platform"]
+position = Vector2(118.28, 129.749)
+
+[node name="Sprite2D" type="Sprite2D" parent="TileMap/big ahh platform/anti-solid6"]
+texture = ExtResource("3_imjvw")
+region_enabled = true
+region_rect = Rect2(223.942, 32.0102, 15.931, 3.83597)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/big ahh platform/anti-solid6"]
+visible = false
+position = Vector2(0, 7.62939e-06)
+shape = SubResource("RectangleShape2D_ey666")
+
+[node name="anti-solid7" type="StaticBody2D" parent="TileMap/big ahh platform"]
+position = Vector2(134.05, 129.749)
+
+[node name="Sprite2D" type="Sprite2D" parent="TileMap/big ahh platform/anti-solid7"]
+texture = ExtResource("3_imjvw")
+region_enabled = true
+region_rect = Rect2(223.942, 32.0102, 15.931, 3.83597)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/big ahh platform/anti-solid7"]
+visible = false
+position = Vector2(0, 7.62939e-06)
+shape = SubResource("RectangleShape2D_ey666")
+
+[node name="anti-solid8" type="StaticBody2D" parent="TileMap/big ahh platform"]
+position = Vector2(149.821, 129.749)
+
+[node name="Sprite2D" type="Sprite2D" parent="TileMap/big ahh platform/anti-solid8"]
+texture = ExtResource("3_imjvw")
+region_enabled = true
+region_rect = Rect2(223.942, 32.0102, 15.931, 3.83597)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/big ahh platform/anti-solid8"]
+visible = false
+position = Vector2(0, 7.62939e-06)
+shape = SubResource("RectangleShape2D_ey666")
+
+[node name="anti-solid9" type="StaticBody2D" parent="TileMap/big ahh platform"]
+position = Vector2(164.875, 129.749)
+
+[node name="Sprite2D" type="Sprite2D" parent="TileMap/big ahh platform/anti-solid9"]
+position = Vector2(-1.07527, -1.09382e-05)
+texture = ExtResource("3_imjvw")
+region_enabled = true
+region_rect = Rect2(223.942, 32.0102, 15.931, 3.83597)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/big ahh platform/anti-solid9"]
+visible = false
+position = Vector2(0, 7.62939e-06)
+shape = SubResource("RectangleShape2D_ey666")
+
+[node name="anti-solid10" type="StaticBody2D" parent="TileMap/big ahh platform"]
+position = Vector2(168.1, 129.749)
+
+[node name="Sprite2D" type="Sprite2D" parent="TileMap/big ahh platform/anti-solid10"]
+position = Vector2(0, -1.04904e-05)
+texture = ExtResource("3_imjvw")
+region_enabled = true
+region_rect = Rect2(223.942, 32.0102, 15.931, 3.83597)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/big ahh platform/anti-solid10"]
+visible = false
+position = Vector2(0, 7.62939e-06)
+shape = SubResource("RectangleShape2D_ey666")
+
+[node name="big ahh platform2" type="Node2D" parent="TileMap"]
+position = Vector2(207.885, 0)
+
+[node name="anti-solid" type="StaticBody2D" parent="TileMap/big ahh platform2"]
+position = Vector2(39.4265, 129.749)
+
+[node name="Sprite2D" type="Sprite2D" parent="TileMap/big ahh platform2/anti-solid"]
+texture = ExtResource("3_imjvw")
+region_enabled = true
+region_rect = Rect2(223.942, 32.0102, 15.931, 3.83597)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/big ahh platform2/anti-solid"]
+visible = false
+position = Vector2(0, 7.62939e-06)
+shape = SubResource("RectangleShape2D_ey666")
+
+[node name="anti-solid2" type="StaticBody2D" parent="TileMap/big ahh platform2"]
+position = Vector2(55.1971, 129.749)
+
+[node name="Sprite2D" type="Sprite2D" parent="TileMap/big ahh platform2/anti-solid2"]
+texture = ExtResource("3_imjvw")
+region_enabled = true
+region_rect = Rect2(223.942, 32.0102, 15.931, 3.83597)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/big ahh platform2/anti-solid2"]
+visible = false
+position = Vector2(0, 7.62939e-06)
+shape = SubResource("RectangleShape2D_ey666")
+
+[node name="anti-solid3" type="StaticBody2D" parent="TileMap/big ahh platform2"]
+position = Vector2(70.9677, 129.749)
+
+[node name="Sprite2D" type="Sprite2D" parent="TileMap/big ahh platform2/anti-solid3"]
+texture = ExtResource("3_imjvw")
+region_enabled = true
+region_rect = Rect2(223.942, 32.0102, 15.931, 3.83597)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/big ahh platform2/anti-solid3"]
+visible = false
+position = Vector2(0, 7.62939e-06)
+shape = SubResource("RectangleShape2D_ey666")
+
+[node name="anti-solid4" type="StaticBody2D" parent="TileMap/big ahh platform2"]
+position = Vector2(86.7383, 129.749)
+
+[node name="Sprite2D" type="Sprite2D" parent="TileMap/big ahh platform2/anti-solid4"]
+texture = ExtResource("3_imjvw")
+region_enabled = true
+region_rect = Rect2(223.942, 32.0102, 15.931, 3.83597)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/big ahh platform2/anti-solid4"]
+visible = false
+position = Vector2(0, 7.62939e-06)
+shape = SubResource("RectangleShape2D_ey666")
+
+[node name="anti-solid5" type="StaticBody2D" parent="TileMap/big ahh platform2"]
+position = Vector2(102.509, 129.749)
+
+[node name="Sprite2D" type="Sprite2D" parent="TileMap/big ahh platform2/anti-solid5"]
+texture = ExtResource("3_imjvw")
+region_enabled = true
+region_rect = Rect2(223.942, 32.0102, 15.931, 3.83597)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/big ahh platform2/anti-solid5"]
+visible = false
+position = Vector2(0, 7.62939e-06)
+shape = SubResource("RectangleShape2D_ey666")
+
+[node name="anti-solid6" type="StaticBody2D" parent="TileMap/big ahh platform2"]
+position = Vector2(118.28, 129.749)
+
+[node name="Sprite2D" type="Sprite2D" parent="TileMap/big ahh platform2/anti-solid6"]
+texture = ExtResource("3_imjvw")
+region_enabled = true
+region_rect = Rect2(223.942, 32.0102, 15.931, 3.83597)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/big ahh platform2/anti-solid6"]
+visible = false
+position = Vector2(0, 7.62939e-06)
+shape = SubResource("RectangleShape2D_ey666")
+
+[node name="anti-solid7" type="StaticBody2D" parent="TileMap/big ahh platform2"]
+position = Vector2(134.05, 129.749)
+
+[node name="Sprite2D" type="Sprite2D" parent="TileMap/big ahh platform2/anti-solid7"]
+texture = ExtResource("3_imjvw")
+region_enabled = true
+region_rect = Rect2(223.942, 32.0102, 15.931, 3.83597)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/big ahh platform2/anti-solid7"]
+visible = false
+position = Vector2(0, 7.62939e-06)
+shape = SubResource("RectangleShape2D_ey666")
+
+[node name="anti-solid8" type="StaticBody2D" parent="TileMap/big ahh platform2"]
+position = Vector2(149.821, 129.749)
+
+[node name="Sprite2D" type="Sprite2D" parent="TileMap/big ahh platform2/anti-solid8"]
+texture = ExtResource("3_imjvw")
+region_enabled = true
+region_rect = Rect2(223.942, 32.0102, 15.931, 3.83597)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/big ahh platform2/anti-solid8"]
+visible = false
+position = Vector2(0, 7.62939e-06)
+shape = SubResource("RectangleShape2D_ey666")
+
+[node name="anti-solid9" type="StaticBody2D" parent="TileMap/big ahh platform2"]
+position = Vector2(164.875, 129.749)
+
+[node name="Sprite2D" type="Sprite2D" parent="TileMap/big ahh platform2/anti-solid9"]
+position = Vector2(0.716846, -1.14441e-05)
+texture = ExtResource("3_imjvw")
+region_enabled = true
+region_rect = Rect2(223.942, 32.0102, 15.931, 3.83597)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/big ahh platform2/anti-solid9"]
+visible = false
+position = Vector2(0, 7.62939e-06)
+shape = SubResource("RectangleShape2D_ey666")
+
+[node name="anti-solid10" type="StaticBody2D" parent="TileMap/big ahh platform2"]
+position = Vector2(168.1, 129.749)
+
+[node name="Sprite2D" type="Sprite2D" parent="TileMap/big ahh platform2/anti-solid10"]
+position = Vector2(1.43369, -1.04904e-05)
+texture = ExtResource("3_imjvw")
+region_enabled = true
+region_rect = Rect2(223.942, 32.0102, 15.931, 3.83597)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/big ahh platform2/anti-solid10"]
+visible = false
+position = Vector2(0, 7.62939e-06)
+shape = SubResource("RectangleShape2D_ey666")
+
+[node name="big ahh platform3" type="Node2D" parent="TileMap"]
+position = Vector2(191.756, -79.9283)
+
+[node name="anti-solid" type="StaticBody2D" parent="TileMap/big ahh platform3"]
+position = Vector2(39.4265, 129.749)
+
+[node name="Sprite2D" type="Sprite2D" parent="TileMap/big ahh platform3/anti-solid"]
+texture = ExtResource("3_imjvw")
+region_enabled = true
+region_rect = Rect2(223.942, 32.0102, 15.931, 3.83597)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/big ahh platform3/anti-solid"]
+visible = false
+position = Vector2(0, 7.62939e-06)
+shape = SubResource("RectangleShape2D_ey666")
+
+[node name="anti-solid2" type="StaticBody2D" parent="TileMap/big ahh platform3"]
+position = Vector2(55.1971, 129.749)
+
+[node name="Sprite2D" type="Sprite2D" parent="TileMap/big ahh platform3/anti-solid2"]
+texture = ExtResource("3_imjvw")
+region_enabled = true
+region_rect = Rect2(223.942, 32.0102, 15.931, 3.83597)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/big ahh platform3/anti-solid2"]
+visible = false
+position = Vector2(0, 7.62939e-06)
+shape = SubResource("RectangleShape2D_ey666")
+
+[node name="anti-solid3" type="StaticBody2D" parent="TileMap/big ahh platform3"]
+position = Vector2(70.9677, 129.749)
+
+[node name="Sprite2D" type="Sprite2D" parent="TileMap/big ahh platform3/anti-solid3"]
+texture = ExtResource("3_imjvw")
+region_enabled = true
+region_rect = Rect2(223.942, 32.0102, 15.931, 3.83597)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/big ahh platform3/anti-solid3"]
+visible = false
+position = Vector2(0, 7.62939e-06)
+shape = SubResource("RectangleShape2D_ey666")
+
+[node name="anti-solid4" type="StaticBody2D" parent="TileMap/big ahh platform3"]
+position = Vector2(86.7383, 129.749)
+
+[node name="Sprite2D" type="Sprite2D" parent="TileMap/big ahh platform3/anti-solid4"]
+texture = ExtResource("3_imjvw")
+region_enabled = true
+region_rect = Rect2(223.942, 32.0102, 15.931, 3.83597)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/big ahh platform3/anti-solid4"]
+visible = false
+position = Vector2(0, 7.62939e-06)
+shape = SubResource("RectangleShape2D_ey666")
+
+[node name="anti-solid5" type="StaticBody2D" parent="TileMap/big ahh platform3"]
+position = Vector2(102.509, 129.749)
+
+[node name="Sprite2D" type="Sprite2D" parent="TileMap/big ahh platform3/anti-solid5"]
+texture = ExtResource("3_imjvw")
+region_enabled = true
+region_rect = Rect2(223.942, 32.0102, 15.931, 3.83597)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/big ahh platform3/anti-solid5"]
+visible = false
+position = Vector2(0, 7.62939e-06)
+shape = SubResource("RectangleShape2D_ey666")
+
+[node name="anti-solid6" type="StaticBody2D" parent="TileMap/big ahh platform3"]
+position = Vector2(118.28, 129.749)
+
+[node name="Sprite2D" type="Sprite2D" parent="TileMap/big ahh platform3/anti-solid6"]
+position = Vector2(0, -1.09382e-05)
+texture = ExtResource("3_imjvw")
+region_enabled = true
+region_rect = Rect2(223.942, 32.0102, 15.931, 3.83597)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/big ahh platform3/anti-solid6"]
+visible = false
+position = Vector2(0, 7.62939e-06)
+shape = SubResource("RectangleShape2D_ey666")
+
+[node name="anti-solid7" type="StaticBody2D" parent="TileMap/big ahh platform3"]
+position = Vector2(120.43, 129.749)
+
+[node name="Sprite2D" type="Sprite2D" parent="TileMap/big ahh platform3/anti-solid7"]
+position = Vector2(0, -1.09382e-05)
+texture = ExtResource("3_imjvw")
+region_enabled = true
+region_rect = Rect2(223.942, 32.0102, 15.931, 3.83597)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/big ahh platform3/anti-solid7"]
+visible = false
+position = Vector2(0, 7.62939e-06)
+shape = SubResource("RectangleShape2D_ey666")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 modulate = Color(0.423529, 0.486275, 0.564706, 1)
