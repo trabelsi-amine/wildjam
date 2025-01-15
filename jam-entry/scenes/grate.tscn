@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://cod520n54caj4"]
+
+[ext_resource type="Texture2D" uid="uid://2ru6msbwd2v6" path="res://icon.svg" id="1_7lou7"]
+[ext_resource type="Script" path="res://scripts/grate.gd" id="1_y0tgq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6uprh"]
+size = Vector2(12.8, 150)
+
+[node name="Grate" type="StaticBody2D"]
+script = ExtResource("1_y0tgq")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.1, 1)
+texture = ExtResource("1_7lou7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_6uprh")
