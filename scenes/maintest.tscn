@@ -2,9 +2,9 @@
 
 [ext_resource type="PackedScene" uid="uid://b5865cpxmph88" path="res://scenes/player.tscn" id="1_g44cn"]
 [ext_resource type="Script" path="res://scenes/world_border.gd" id="2_hhtvy"]
-[ext_resource type="PackedScene" path="res://scenes/fan.tscn" id="2_tl1sp"]
+[ext_resource type="PackedScene" uid="uid://dvd062gxtl3qe" path="res://scenes/fan.tscn" id="2_tl1sp"]
 [ext_resource type="PackedScene" uid="uid://b4ob8mrd1h661" path="res://scenes/UI/player_interface.tscn" id="3_f3pln"]
-[ext_resource type="PackedScene" path="res://scenes/grate.tscn" id="3_pdpf0"]
+[ext_resource type="PackedScene" uid="uid://cut0ygf3l1tby" path="res://scenes/grate.tscn" id="3_pdpf0"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_7akr0"]
 
@@ -20,10 +20,14 @@ process_mode = 1
 [node name="Player" parent="." instance=ExtResource("1_g44cn")]
 position = Vector2(569, 368)
 
+[node name="Camera2D" type="Camera2D" parent="Player"]
+
 [node name="Environment" type="Node2D" parent="."]
 
 [node name="TestFloor" type="StaticBody2D" parent="Environment"]
 position = Vector2(579, 510)
+collision_layer = 7
+collision_mask = 0
 metadata/_edit_group_ = true
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="Environment/TestFloor"]
@@ -36,6 +40,8 @@ position = Vector2(0, -32)
 shape = SubResource("RectangleShape2D_5lnhm")
 
 [node name="World Border" type="Area2D" parent="Environment"]
+collision_layer = 0
+collision_mask = 7
 script = ExtResource("2_hhtvy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/World Border"]

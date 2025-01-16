@@ -20,6 +20,10 @@ config/icon="res://assets/art/icon.svg"
 Global="*res://scripts/Globals/Global.gd"
 LootLocker="*res://scripts/Globals/LootLocker.gd"
 
+[display]
+
+window/stretch/mode="canvas_items"
+
 [global_group]
 
 Player=""
@@ -60,5 +64,6 @@ Pause={
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
