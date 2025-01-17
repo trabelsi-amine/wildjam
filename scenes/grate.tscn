@@ -7,7 +7,6 @@ size = Vector2(16, 4)
 
 [node name="Grate" type="StaticBody2D"]
 scale = Vector2(3, 3)
-collision_layer = 5
 collision_mask = 0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

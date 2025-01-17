@@ -5,15 +5,7 @@
 [ext_resource type="FontFile" uid="uid://i4ecybfsrwct" path="res://assets/fonts/Minimal5x5Monospaced.ttf" id="2_yu31m"]
 [ext_resource type="FontFile" uid="uid://02q74hthmcin" path="res://assets/fonts/Minimal5x7.ttf" id="3_owu2w"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fdy4y"]
-bg_color = Color(0.205117, 0.205117, 0.205117, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(0.510776, 0.804945, 1, 1)
-corner_radius_bottom_right = 25
-corner_radius_bottom_left = 25
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0b1up"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_i4ii2"]
 font = ExtResource("2_yu31m")
@@ -73,13 +65,12 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_td86v")
-metadata/_edit_lock_ = true
 
 [node name="Timer" type="PanelContainer" parent="."]
 layout_mode = 1
 offset_right = 137.0
 offset_bottom = 54.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_fdy4y")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_0b1up")
 
 [node name="Time" type="Label" parent="Timer"]
 texture_filter = 1

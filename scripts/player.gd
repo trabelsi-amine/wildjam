@@ -3,6 +3,7 @@ extends CharacterBody2D
 
 @onready var playerSprite: Sprite2D = $Sprite2D
 @onready var respawn_marker: Marker2D = $"../Environment/RespawnMarker"
+@onready var anim: AnimationPlayer = $AnimationPlayer
 
 var speed = 500
 var gravity = 1000
@@ -15,16 +16,16 @@ enum STATES {
 }
 
 var current_state = STATES.Solid
-
 func _ready() -> void:
 	Global.player = self
-	#global_position = respawn_marker.global_position
+	global_position = respawn_marker.global_position
 
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("ChangeState"):
 		change_state()
 	
 	#manage state stuff
+	manage_anims()
 	manage_states(delta)
 
 func manage_states(delta):
@@ -78,7 +79,7 @@ func enter_liquid_state():
 	playerSprite.modulate = Color.BLUE
 	set_collision_layer(2) # 010 (False True False)
 	set_collision_mask(2)
-	speed = 1000
+	speed = 500
 	gravity = 4000
 
 func liquid_state(delta):
@@ -105,7 +106,7 @@ func enter_gas_state():
 	set_collision_layer(4) # 001 (False False True)
 	set_collision_mask(4)
 	speed = 250
-	gravity = 500
+	gravity = -250
 	jump_speed = -250
 
 func gas_state(delta):
@@ -155,3 +156,18 @@ func change_state():
 
 func teleport_back_to_spawn():
 	global_position = respawn_marker.global_position
+
+func manage_anims():
+	if(Input.is_action_just_pressed("left")):
+		scale.x = -0.35
+	if(Input.is_action_just_pressed("right")):
+		scale.x = 0.35
+	
+	if(is_on_floor()):
+		if(abs(velocity.x)==0):
+			anim.play("idle")
+		else:
+			anim.play("run")
+		
+	
+	

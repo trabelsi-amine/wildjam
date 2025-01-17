@@ -1,7 +1,7 @@
 extends Control
 
 @onready var state: Label = $State
-@onready var player: Player = $"../../Player"
+@onready var player: Player = $"../Player"
 
 var time:float
 var TimerEnabled := true
