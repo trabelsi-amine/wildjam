@@ -1,14 +1,24 @@
 extends Control
 
 @onready var state: Label = $State
-@onready var player: Player = $"../Player"
 
+var player = null
 var time:float
 var TimerEnabled := true
 
-func _process(_delta: float) -> void:
+func _ready():
+	set_player_ref()
+
+func set_player_ref():
+	if Global.player: # Not null
+		player = Global.player
+	else:
+		await get_tree().create_timer(0.5).timeout
+		set_player_ref()
+
+func _process(delta: float) -> void:
 	ShowInformationUI()
-	RunTimer(_delta)
+	RunTimer(delta)
 	DetectInterfaceInput()
 	change_state()
 
@@ -24,7 +34,6 @@ func ShowTime():
 func RunTimer(delta:float):
 	if TimerEnabled: time += delta
 
-
 func ClosePause() -> void:
 	$Pause.visible = false
 	get_tree().paused = false
@@ -36,15 +45,15 @@ func DetectInterfaceInput():
 		get_tree().paused = true
 		TimerEnabled = false
 
-
 func Quit() -> void:
 	get_tree().quit()
 
 func change_state():
-	match player.current_state:
-		player.STATES.Solid:
-			state.text = "Solid"
-		player.STATES.Liquid:
-			state.text = "Liquid"
-		player.STATES.Gas:
-			state.text = "Gas"
+	if player: # Not null
+		match player.current_state:
+			player.STATES.Solid:
+				state.text = "Solid"
+			player.STATES.Liquid:
+				state.text = "Liquid"
+			player.STATES.Gas:
+				state.text = "Gas"

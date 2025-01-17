@@ -16,9 +16,14 @@ enum STATES {
 }
 
 var current_state = STATES.Solid
+
 func _ready() -> void:
+	# Sets a reference to the player in the Global script, facilitating access by other nodes
 	Global.player = self
+	# Moves player to the marker position
 	global_position = respawn_marker.global_position
+	# Sets some variables, like color, to the solid state
+	enter_solid_state()
 
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("ChangeState"):
@@ -51,28 +56,14 @@ func enter_solid_state():
 	jump_speed = -500
 
 func solid_state(delta):
-	#playerSprite.modulate.r = 255
-	#playerSprite.modulate.b = 0
-	#playerSprite.modulate.g = 0
-	
-	solid_movement(delta)
-
-func solid_movement(delta):
-	#set_collision_layer_value(1,true)#solid
-	#set_collision_layer_value(2,false)#liquid
-	#set_collision_layer_value(3,false)#gas
-	
-	#var speed = 500
-	#var gravity = 1000
-	#var jump_speed = -500
-		
-	velocity.y += gravity * delta
 	velocity.x = Input.get_axis("left", "right") * speed
-	#print(Input.get_axis("left", "right"))
-		
-	move_and_slide()
+	
+	velocity.y += gravity * delta
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = jump_speed
+	
+	test_colision()
+	move_and_slide()
 
 # Sets all liquid state variables upon entering liquid state
 func enter_liquid_state():
@@ -83,21 +74,10 @@ func enter_liquid_state():
 	gravity = 4000
 
 func liquid_state(delta):
-	
-	#playerSprite.modulate.r = 0
-	#playerSprite.modulate.b = 255
-	#playerSprite.modulate.g = 0
-#
-	#set_collision_layer_value(1,false)#solid
-	#set_collision_layer_value(2,true)#liquid
-	#set_collision_layer_value(3,false)#gas
-	
-	#movement
-	#var speed = 1000
-	#var gravity = 4000
-	
-	velocity.y += gravity * delta
 	velocity.x = Input.get_axis("left", "right") * speed
+	velocity.y += gravity * delta
+	
+	test_colision()
 	move_and_slide()
 
 # Sets all gas state variables upon entering gas state
@@ -110,31 +90,27 @@ func enter_gas_state():
 	jump_speed = -250
 
 func gas_state(delta):
-	#set_collision_layer_value(1,false)#solid
-	#set_collision_layer_value(2,false)#liquid
-	#set_collision_layer_value(3,true)#gas
-	#
-	#
-	#playerSprite.modulate.r = 0
-	#playerSprite.modulate.b = 0
-	#playerSprite.modulate.g = 255
-	
-	#const speed = 250
-	#const gravity = 500
-	#const jump_speed = -250
-		
-	velocity.y += gravity * delta
 	#velocity.x = Input.get_axis("left", "right") * speed
 	var hor_input = Input.get_axis("left", "right")
 	velocity.x += hor_input * speed
 	velocity.x = clamp(velocity.x, -speed, speed)
 	if not hor_input: # No input
 		velocity.x = move_toward(velocity.x, 0.0, speed)
-	#print(Input.get_axis("left", "right"))
-		
-	move_and_slide()
+	
+	velocity.y += gravity * delta
 	if Input.is_action_just_pressed("jump"):
 		velocity.y = jump_speed
+	
+	move_and_slide()
+
+var push_force = 50
+var max_velocity = 100
+func test_colision():
+	for i in get_slide_collision_count():
+		var collision = get_slide_collision(i)
+		var collider = collision.get_collider()
+		if collider.is_in_group("MovableBox") and abs(collider.get_linear_velocity().x) < max_velocity:
+			collider.apply_central_impulse(collision.get_normal() * -push_force)
 
 # Called by the Fan node
 var blown_force = 80
@@ -158,16 +134,14 @@ func teleport_back_to_spawn():
 	global_position = respawn_marker.global_position
 
 func manage_anims():
-	if(Input.is_action_just_pressed("left")):
-		scale.x = -0.35
-	if(Input.is_action_just_pressed("right")):
-		scale.x = 0.35
-	
-	if(is_on_floor()):
-		if(abs(velocity.x)==0):
+	if is_on_floor():
+		if abs(velocity.x) == 0:
 			anim.play("idle")
 		else:
 			anim.play("run")
-		
-	
-	
+			if velocity.x < 0:
+				# Look to the left
+				playerSprite.flip_h = true
+			else:
+				# Look to the right
+				playerSprite.flip_h = false

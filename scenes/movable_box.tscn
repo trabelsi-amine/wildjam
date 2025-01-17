@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://cu5ml0u63n771"]
+
+[ext_resource type="Texture2D" uid="uid://2ru6msbwd2v6" path="res://assets/art/icon.svg" id="1_3cwtq"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ogl3e"]
+polygon = PackedVector2Array(-32, 0, -32, -64, 32, -64, 32, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o6j7m"]
+size = Vector2(64, 32)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_26i4v"]
+radius = 32.0
+
+[node name="MovableBox" type="RigidBody2D" groups=["MovableBox"]]
+collision_layer = 7
+lock_rotation = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_3cwtq")
+offset = Vector2(0, -64)
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_ogl3e")
+
+[node name="TopCollision" type="CollisionShape2D" parent="."]
+position = Vector2(0, -48)
+shape = SubResource("RectangleShape2D_o6j7m")
+
+[node name="BotCollision" type="CollisionShape2D" parent="."]
+position = Vector2(0, -32)
+shape = SubResource("CircleShape2D_26i4v")

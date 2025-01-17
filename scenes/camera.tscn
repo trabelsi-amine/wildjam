@@ -7,19 +7,40 @@
 [node name="camera" type="Node2D"]
 script = ExtResource("1_8qrqf")
 
-[node name="PointLight2D" type="PointLight2D" parent="."]
-rotation = -1.5708
-color = Color(1, 0, 0, 1)
-energy = 2.0
-texture = ExtResource("3_buy14")
-offset = Vector2(0, 48)
-texture_scale = 0.1
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+offset_left = -25.0
+offset_top = -171.0
+offset_right = 1189.0
+offset_bottom = 284.0
+color = Color(0.233925, 0.233925, 0.233925, 1)
 
 [node name="sprite" type="Sprite2D" parent="."]
 texture_filter = 1
 rotation = -1.5708
 texture = ExtResource("1_66wql")
 
+[node name="PointLight2D" type="PointLight2D" parent="."]
+rotation = -1.5708
+scale = Vector2(0.5, 1)
+color = Color(1, 0, 0, 1)
+energy = 2.0
+shadow_enabled = true
+texture = ExtResource("3_buy14")
+offset = Vector2(0, 467)
+
 [node name="RayCast2D" type="RayCast2D" parent="."]
-target_position = Vector2(100, 0)
+target_position = Vector2(1000, 0)
 collision_mask = 3
+
+[node name="LineView" type="Line2D" parent="."]
+visible = false
+points = PackedVector2Array(0, 0, 0, 0)
+width = 1.0
+default_color = Color(0, 1, 0, 1)
+
+[node name="LinePlayer" type="Line2D" parent="."]
+visible = false
+points = PackedVector2Array(0, 0, 0, 0)
+width = 1.0
+default_color = Color(1, 0, 0, 1)
