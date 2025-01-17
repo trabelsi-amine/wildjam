@@ -1,0 +1,87 @@
+[gd_scene load_steps=2 format=3 uid="uid://ohiqqbrbmf2x"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ka5ci"]
+font_size = 80
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MainPanel" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MainMargin" type="MarginContainer" parent="MainPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 110
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 110
+theme_override_constants/margin_bottom = 30
+
+[node name="MainElements" type="VBoxContainer" parent="MainPanel/MainMargin"]
+layout_mode = 2
+size_flags_vertical = 5
+
+[node name="Title" type="Label" parent="MainPanel/MainMargin/MainElements"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_type_variation = &"M55MonoLabel"
+text = "PLACEHOLDER NAME"
+label_settings = SubResource("LabelSettings_ka5ci")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Bottom" type="HBoxContainer" parent="MainPanel/MainMargin/MainElements"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Credits" type="VBoxContainer" parent="MainPanel/MainMargin/MainElements/Bottom"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Title" type="Label" parent="MainPanel/MainMargin/MainElements/Bottom/Credits"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_type_variation = &"M35Label"
+theme_override_font_sizes/font_size = 36
+text = "CREATED BY:"
+
+[node name="People" type="Label" parent="MainPanel/MainMargin/MainElements/Bottom/Credits"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "drifter
+Lumii
+Noskire
+craftak4
+chillin with da boys
+
+"
+
+[node name="Buttons" type="VBoxContainer" parent="MainPanel/MainMargin/MainElements/Bottom"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 25
+
+[node name="Play" type="Button" parent="MainPanel/MainMargin/MainElements/Bottom/Buttons"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "PLAY"
+
+[node name="Leaderboard" type="Button" parent="MainPanel/MainMargin/MainElements/Bottom/Buttons"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "LEADERBOARD"
+
+[node name="Quit" type="Button" parent="MainPanel/MainMargin/MainElements/Bottom/Buttons"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "QUIT"

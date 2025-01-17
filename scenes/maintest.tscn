@@ -80,4 +80,3 @@ rotation = 0.785398
 [node name="UILayer" type="CanvasLayer" parent="."]
 
 [node name="PlayerInterface" parent="UILayer" instance=ExtResource("3_f3pln")]
-process_mode = 3

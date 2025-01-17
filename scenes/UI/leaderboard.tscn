@@ -1,0 +1,122 @@
+[gd_scene load_steps=8 format=3 uid="uid://babc3qdg0bd41"]
+
+[ext_resource type="FontFile" uid="uid://w45sjqaw4e7a" path="res://assets/fonts/Minimal3x5.ttf" id="1_2u5m7"]
+[ext_resource type="Script" path="res://scenes/UI/leaderboard.gd" id="1_av3e0"]
+[ext_resource type="FontFile" uid="uid://02q74hthmcin" path="res://assets/fonts/Minimal5x7.ttf" id="2_6s3al"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_wuyam"]
+font = ExtResource("1_2u5m7")
+font_size = 86
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gw0p3"]
+content_margin_left = 7.0
+content_margin_top = 7.0
+content_margin_right = 7.0
+content_margin_bottom = 7.0
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2mkkq"]
+content_margin_left = 47.0
+content_margin_top = 27.0
+content_margin_right = 47.0
+content_margin_bottom = 27.0
+bg_color = Color(0.141176, 0.141176, 0.141176, 0.462745)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="LabelSettings" id="LabelSettings_ynao2"]
+font = ExtResource("2_6s3al")
+font_size = 56
+
+[node name="Leaderboard" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_av3e0")
+
+[node name="MainPanel" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MainMargin" type="MarginContainer" parent="MainPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 110
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 110
+theme_override_constants/margin_bottom = 30
+
+[node name="MainElements" type="VBoxContainer" parent="MainPanel/MainMargin"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="MainPanel/MainMargin/MainElements"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "LEADERBOARD"
+label_settings = SubResource("LabelSettings_wuyam")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Leaderboard" type="PanelContainer" parent="MainPanel/MainMargin/MainElements"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 3.02
+theme_override_styles/panel = SubResource("StyleBoxFlat_gw0p3")
+
+[node name="Scroll" type="ScrollContainer" parent="MainPanel/MainMargin/MainElements/Leaderboard"]
+layout_mode = 2
+
+[node name="Players" type="VBoxContainer" parent="MainPanel/MainMargin/MainElements/Leaderboard/Scroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 7
+
+[node name="Temp" type="PanelContainer" parent="MainPanel/MainMargin/MainElements/Leaderboard/Scroll/Players"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_2mkkq")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MainPanel/MainMargin/MainElements/Leaderboard/Scroll/Players/Temp"]
+layout_mode = 2
+
+[node name="Rank" type="Label" parent="MainPanel/MainMargin/MainElements/Leaderboard/Scroll/Players/Temp/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.14
+text = "1"
+label_settings = SubResource("LabelSettings_ynao2")
+
+[node name="Name" type="Label" parent="MainPanel/MainMargin/MainElements/Leaderboard/Scroll/Players/Temp/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Test"
+label_settings = SubResource("LabelSettings_ynao2")
+
+[node name="Score" type="Label" parent="MainPanel/MainMargin/MainElements/Leaderboard/Scroll/Players/Temp/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "123"
+label_settings = SubResource("LabelSettings_ynao2")
+horizontal_alignment = 2

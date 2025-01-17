@@ -1,9 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://b4ob8mrd1h661"]
+[gd_scene load_steps=19 format=3 uid="uid://b4ob8mrd1h661"]
 
 [ext_resource type="FontFile" uid="uid://w45sjqaw4e7a" path="res://assets/fonts/Minimal3x5.ttf" id="1_4ri1q"]
 [ext_resource type="Script" path="res://scripts/UI/PlayerUI.gd" id="1_td86v"]
 [ext_resource type="FontFile" uid="uid://i4ecybfsrwct" path="res://assets/fonts/Minimal5x5Monospaced.ttf" id="2_yu31m"]
 [ext_resource type="FontFile" uid="uid://02q74hthmcin" path="res://assets/fonts/Minimal5x7.ttf" id="3_owu2w"]
+[ext_resource type="Theme" uid="uid://bexu2qxtq0eq8" path="res://assets/tres/MainTheme.tres" id="5_xvnl1"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0b1up"]
 
@@ -24,40 +25,59 @@ font_size = 31
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_itlhc"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_krwhp"]
-bg_color = Color(0.164706, 0.164706, 0.164706, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-corner_radius_top_left = 17
-corner_radius_top_right = 17
-corner_radius_bottom_right = 17
-corner_radius_bottom_left = 17
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m30kd"]
+bg_color = Color(0.32549, 0, 0, 0.45098)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3jl76"]
-bg_color = Color(0.212305, 0.212305, 0.212305, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-corner_radius_top_left = 17
-corner_radius_top_right = 17
-corner_radius_bottom_right = 17
-corner_radius_bottom_left = 17
+[sub_resource type="LabelSettings" id="LabelSettings_r56a3"]
+font = ExtResource("2_yu31m")
+font_size = 52
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_irkxp"]
-bg_color = Color(0.147672, 0.147672, 0.147672, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-corner_radius_top_left = 17
-corner_radius_top_right = 17
-corner_radius_bottom_right = 17
-corner_radius_bottom_left = 17
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_16hfh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dk3ed"]
+bg_color = Color(1, 1, 1, 0.101961)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0ilcq"]
+bg_color = Color(1, 1, 1, 0.423529)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gcjxn"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2gipb"]
+bg_color = Color(1, 0, 0, 0)
+border_width_left = 130
+border_width_top = 130
+border_width_right = 130
+border_width_bottom = 130
+border_color = Color(1, 0, 0, 0.152941)
+border_blend = true
 
 [node name="PlayerInterface" type="Control"]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -67,6 +87,7 @@ grow_vertical = 2
 script = ExtResource("1_td86v")
 
 [node name="Timer" type="PanelContainer" parent="."]
+process_mode = 1
 layout_mode = 1
 offset_right = 137.0
 offset_bottom = 54.0
@@ -82,6 +103,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="State" type="Label" parent="."]
+process_mode = 1
 texture_filter = 1
 layout_mode = 1
 anchors_preset = 3
@@ -163,26 +185,21 @@ process_mode = 3
 texture_filter = 1
 layout_mode = 2
 size_flags_vertical = 3
+theme_type_variation = &"FilledButton"
 theme_override_fonts/font = ExtResource("3_owu2w")
 theme_override_font_sizes/font_size = 36
 theme_override_styles/focus = SubResource("StyleBoxEmpty_itlhc")
-theme_override_styles/hover = SubResource("StyleBoxFlat_krwhp")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_3jl76")
-theme_override_styles/normal = SubResource("StyleBoxFlat_irkxp")
-text = "RESUME
-"
+text = "RESUME [R]"
 
 [node name="Settings" type="Button" parent="Pause/PauseMenu/TitleButtons/Buttons"]
 process_mode = 3
 texture_filter = 1
 layout_mode = 2
 size_flags_vertical = 3
+theme_type_variation = &"FilledButton"
 theme_override_fonts/font = ExtResource("3_owu2w")
 theme_override_font_sizes/font_size = 36
 theme_override_styles/focus = SubResource("StyleBoxEmpty_itlhc")
-theme_override_styles/hover = SubResource("StyleBoxFlat_krwhp")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_3jl76")
-theme_override_styles/normal = SubResource("StyleBoxFlat_irkxp")
 text = "SETTINGS"
 
 [node name="Quit" type="Button" parent="Pause/PauseMenu/TitleButtons/Buttons"]
@@ -190,13 +207,76 @@ process_mode = 3
 texture_filter = 1
 layout_mode = 2
 size_flags_vertical = 3
+theme_type_variation = &"FilledButton"
 theme_override_fonts/font = ExtResource("3_owu2w")
 theme_override_font_sizes/font_size = 36
 theme_override_styles/focus = SubResource("StyleBoxEmpty_itlhc")
-theme_override_styles/hover = SubResource("StyleBoxFlat_krwhp")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_3jl76")
-theme_override_styles/normal = SubResource("StyleBoxFlat_irkxp")
-text = "QUIT"
+text = "QUIT [Q]"
+
+[node name="Spotted" type="PanelContainer" parent="."]
+process_mode = 1
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_m30kd")
+
+[node name="MarginContainer" type="MarginContainer" parent="Spotted"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 300
+theme_override_constants/margin_top = 150
+theme_override_constants/margin_right = 300
+theme_override_constants/margin_bottom = 150
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Spotted/MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 65
+
+[node name="Title" type="Label" parent="Spotted/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "YOU GOT SPOTTED"
+label_settings = SubResource("LabelSettings_r56a3")
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Spotted/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 35
+
+[node name="Respawn" type="Button" parent="Spotted/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("5_xvnl1")
+theme_override_fonts/font = ExtResource("3_owu2w")
+theme_override_font_sizes/font_size = 39
+theme_override_styles/focus = SubResource("StyleBoxEmpty_16hfh")
+theme_override_styles/hover = SubResource("StyleBoxFlat_dk3ed")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_0ilcq")
+theme_override_styles/normal = SubResource("StyleBoxFlat_gcjxn")
+text = "Respawn [R]"
+
+[node name="Return" type="Button" parent="Spotted/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("5_xvnl1")
+theme_override_fonts/font = ExtResource("3_owu2w")
+theme_override_font_sizes/font_size = 39
+theme_override_styles/focus = SubResource("StyleBoxEmpty_16hfh")
+theme_override_styles/hover = SubResource("StyleBoxFlat_dk3ed")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_0ilcq")
+theme_override_styles/normal = SubResource("StyleBoxFlat_gcjxn")
+text = "Return to menu"
+
+[node name="PanelContainer" type="PanelContainer" parent="Spotted"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_2gipb")
 
 [connection signal="pressed" from="Pause/PauseMenu/TitleButtons/Buttons/Resume" to="." method="ClosePause"]
 [connection signal="pressed" from="Pause/PauseMenu/TitleButtons/Buttons/Quit" to="." method="Quit"]

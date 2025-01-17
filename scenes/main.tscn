@@ -274,6 +274,6 @@ scale = Vector2(2.8, 2.8)
 [node name="target" type="Marker2D" parent="camera"]
 position = Vector2(-171.786, 83.2143)
 
-[node name="PlayerInterface" parent="." instance=ExtResource("6_08s5g")]
-offset_right = 1152.0
-offset_bottom = 648.0
+[node name="PlayerInterfaceCanvas" type="CanvasLayer" parent="."]
+
+[node name="PlayerInterface" parent="PlayerInterfaceCanvas" instance=ExtResource("6_08s5g")]

@@ -28,6 +28,10 @@ window/stretch/mode="canvas_items"
 
 Player=""
 
+[gui]
+
+theme/custom="res://assets/tres/MainTheme.tres"
+
 [input]
 
 ChangeState={
