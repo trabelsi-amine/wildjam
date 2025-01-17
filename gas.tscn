@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://d4bn1gkogobfw"]
+
+[ext_resource type="Texture2D" uid="uid://qv5woprbw1c8" path="res://assets/art/gas_particles.svg" id="1_vsiu8"]
+[ext_resource type="Script" path="res://gas.gd" id="2_oan0t"]
+
+[node name="gas" type="CPUParticles2D"]
+modulate = Color(0.459911, 0.69646, 0, 1)
+top_level = true
+texture_filter = 1
+position = Vector2(1, 0)
+amount = 40
+speed_scale = 4.88
+texture = ExtResource("1_vsiu8")
+emission_shape = 1
+emission_sphere_radius = 16.52
+gravity = Vector2(0, 0)
+damping_max = 100.0
+angle_min = -160.0
+angle_max = 247.3
+scale_amount_min = 0.0
+scale_amount_max = 2.0
+script = ExtResource("2_oan0t")

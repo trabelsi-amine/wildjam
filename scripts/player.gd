@@ -4,6 +4,7 @@ extends CharacterBody2D
 @onready var playerSprite: Sprite2D = $Sprite2D
 @onready var respawn_marker: Marker2D = $"../Environment/RespawnMarker"
 @onready var anim: AnimationPlayer = $AnimationPlayer
+@onready var particles_scene = preload("res://gas.tscn")
 
 var speed = 500
 var gravity = 1000
@@ -45,7 +46,9 @@ func manage_states(delta):
 # Sets all solid state variables upon entering solid state
 func enter_solid_state():
 	# Sprite color
-	playerSprite.modulate = Color.RED
+	if(has_node("gas")):
+		get_node("gas").queue_free()
+	playerSprite.visible=true
 	# Collision layer is where the player is
 	set_collision_layer(1) # 100 (True False False)
 	# Collision mask is what the player detects
@@ -67,7 +70,9 @@ func solid_state(delta):
 
 # Sets all liquid state variables upon entering liquid state
 func enter_liquid_state():
-	playerSprite.modulate = Color.BLUE
+	if(has_node("gas")):
+		get_node("gas").queue_free()
+	playerSprite.visible=true
 	set_collision_layer(2) # 010 (False True False)
 	set_collision_mask(2)
 	speed = 500
@@ -80,9 +85,14 @@ func liquid_state(delta):
 	test_colision()
 	move_and_slide()
 
+
 # Sets all gas state variables upon entering gas state
 func enter_gas_state():
-	playerSprite.modulate = Color.GREEN
+	#playerSprite.modulate = Color.GREEN
+	var particles = particles_scene.instantiate()
+	playerSprite.visible=false
+	particles.global_position = global_position
+	add_child(particles)
 	set_collision_layer(4) # 001 (False False True)
 	set_collision_mask(4)
 	speed = 250
@@ -134,14 +144,22 @@ func teleport_back_to_spawn():
 	global_position = respawn_marker.global_position
 
 func manage_anims():
+	if velocity.x < 0:
+		# Look to the left
+		playerSprite.flip_h = true
+	else:
+		if velocity.x>0:
+			# Look to the right
+			playerSprite.flip_h = false
+	
 	if is_on_floor():
 		if abs(velocity.x) == 0:
 			anim.play("idle")
 		else:
 			anim.play("run")
-			if velocity.x < 0:
-				# Look to the left
-				playerSprite.flip_h = true
-			else:
-				# Look to the right
-				playerSprite.flip_h = false
+	else:
+		if velocity.y < 0:
+			anim.play("jump")
+		else:
+			anim.play("fall")
+			

@@ -139,6 +139,7 @@ sources/0 = SubResource("TileSetAtlasSource_rqfef")
 [node name="Main" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_g44cn")]
+modulate = Color(0.458824, 0.698039, 0, 1)
 position = Vector2(780, 102)
 scale = Vector2(0.35, 0.35)
 
@@ -246,7 +247,7 @@ position = Vector2(619, 114)
 rotation = -1.5708
 
 [node name="MovableBox" parent="Environment" instance=ExtResource("4_l5qxb")]
-position = Vector2(207, 612)
+position = Vector2(700, 356)
 
 [node name="TileMap3" type="TileMapLayer" parent="."]
 scale = Vector2(2.79, 2.79)
@@ -268,12 +269,13 @@ color = Color(0.442084, 0.51923, 0.631342, 1)
 metadata/_edit_lock_ = true
 
 [node name="camera" parent="." instance=ExtResource("4_rkhj8")]
-position = Vector2(1092, 410)
+position = Vector2(642, 56)
 scale = Vector2(2.8, 2.8)
 
 [node name="target" type="Marker2D" parent="camera"]
-position = Vector2(-171.786, 83.2143)
+position = Vector2(136.071, 200)
 
 [node name="PlayerInterface" parent="." instance=ExtResource("6_08s5g")]
 offset_right = 1152.0
 offset_bottom = 648.0
+metadata/_edit_lock_ = true
