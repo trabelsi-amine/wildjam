@@ -124,13 +124,15 @@ func enter_gas_state():
 	speed = 250
 	gravity = -250
 	jump_speed = -250
+	
+	velocity.y = 0 # If falling as a solid/liquid form, stops falling
 
 func gas_state(delta):
 	#velocity.x = Input.get_axis("left", "right") * speed
 	var hor_input = Input.get_axis("left", "right")
 	velocity.x += hor_input * speed
 	velocity.x = clamp(velocity.x, -speed, speed)
-	if not hor_input: # No input
+	if not hor_input and not being_blown_away: # No input
 		velocity.x = move_toward(velocity.x, 0.0, speed)
 	
 	velocity.y += gravity * delta
@@ -139,20 +141,26 @@ func gas_state(delta):
 	
 	move_and_slide()
 
+# Push movable box
 var push_force = 50
 var max_velocity = 100
 func test_colision():
 	for i in get_slide_collision_count():
-		var collision = get_slide_collision(i)
-		var collider = collision.get_collider()
+		var test_collision = get_slide_collision(i)
+		var collider = test_collision.get_collider()
 		if collider.is_in_group("MovableBox") and abs(collider.get_linear_velocity().x) < max_velocity:
-			collider.apply_central_impulse(collision.get_normal() * -push_force)
+			collider.apply_central_impulse(test_collision.get_normal() * -push_force)
 
 # Called by the Fan node
 var blown_force = 80
+var being_blown_away = false
 func be_blown_away(dir):
 	if current_state == STATES.Gas:
 		velocity += blown_force * dir
+		being_blown_away = true
+
+func stop_being_blown_away():
+	being_blown_away = false
 
 func change_state():
 	match current_state:

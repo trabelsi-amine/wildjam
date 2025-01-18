@@ -7,7 +7,7 @@ extends StaticBody2D
 
 var open = false
 
-func _process(delta):
+func _process(_delta):
 	if pressure_plate: # Not null
 		# If the plate is pressed and the door is closed, open it
 		if pressure_plate.pressed and not open:

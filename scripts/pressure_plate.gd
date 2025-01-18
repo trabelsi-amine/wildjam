@@ -25,7 +25,7 @@ func _on_body_entered(body):
 	if body.is_in_group("Player") or body.is_in_group("MovableBox"):
 		press_it()
 
-func _on_body_exited(body):
+func _on_body_exited(_body):
 	# If any body leaves the ‘pressure’ area, test to see if any body remains
 	var some_body_remains = false
 	var bodies = get_overlapping_bodies()
