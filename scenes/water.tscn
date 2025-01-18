@@ -1,0 +1,38 @@
+[gd_scene load_steps=8 format=3 uid="uid://cxqtkrl2m6bmp"]
+
+[ext_resource type="Shader" path="res://assets/water.gdshader" id="1_m2p47"]
+[ext_resource type="Texture2D" uid="uid://sgg4aj05uhyt" path="res://icon.svg" id="2_k3w83"]
+[ext_resource type="Texture2D" uid="uid://cwctnqvfbxgrd" path="res://assets/art/waterdrop.png" id="3_ibg3o"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_5a8rs"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_pvact"]
+noise = SubResource("FastNoiseLite_5a8rs")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_oa6um"]
+shader = ExtResource("1_m2p47")
+shader_parameter/uv_scale = 1.0
+shader_parameter/radius = 0.45
+shader_parameter/effectControl = 0.101
+shader_parameter/burnSpeed = 0.076
+shader_parameter/shape = 0.0
+shader_parameter/textureNoise = SubResource("NoiseTexture2D_pvact")
+
+[sub_resource type="Curve" id="Curve_wugjk"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.5), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="Water" type="Sprite2D"]
+material = SubResource("ShaderMaterial_oa6um")
+texture = ExtResource("2_k3w83")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+show_behind_parent = true
+use_parent_material = true
+amount = 4
+lifetime = 2.0
+randomness = 0.5
+texture = ExtResource("3_ibg3o")
+emission_shape = 3
+emission_rect_extents = Vector2(32, 1)
+scale_amount_curve = SubResource("Curve_wugjk")

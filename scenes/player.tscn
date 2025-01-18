@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://b5865cpxmph88"]
+[gd_scene load_steps=11 format=3 uid="uid://b5865cpxmph88"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_gpv5f"]
 [ext_resource type="Texture2D" uid="uid://db2qiyp1wm1d8" path="res://assets/art/greenmf-Sheet.svg" id="2_fa0e1"]
+[ext_resource type="PackedScene" uid="uid://cxqtkrl2m6bmp" path="res://scenes/water.tscn" id="3_vtfym"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5dyoa"]
 radius = 60.0
@@ -105,6 +106,10 @@ texture = ExtResource("2_fa0e1")
 hframes = 4
 vframes = 4
 region_rect = Rect2(0, 0, 33.0734, 31.1877)
+
+[node name="Water" parent="." instance=ExtResource("3_vtfym")]
+visible = false
+position = Vector2(0, -64)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -64)

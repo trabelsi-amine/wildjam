@@ -2,6 +2,7 @@ class_name Player
 extends CharacterBody2D
 
 @onready var playerSprite: Sprite2D = $Sprite2D
+@onready var waterSprite = $Water
 @onready var respawn_marker: Marker2D = $"../Environment/RespawnMarker"
 @onready var anim: AnimationPlayer = $AnimationPlayer
 @onready var particles_scene = preload("res://scenes/gas.tscn")
@@ -45,10 +46,14 @@ func manage_states(delta):
 
 # Sets all solid state variables upon entering solid state
 func enter_solid_state():
-	# Sprite color
+	# Solid form
+	playerSprite.visible = true
+	# Liquid form
+	waterSprite.visible = false
+	waterSprite.get_child(0).emitting = false # Only child
+	# Gas form
 	if(has_node("gas")):
 		get_node("gas").queue_free()
-	playerSprite.visible=true
 	# Collision layer is where the player is
 	set_collision_layer(1) # 100 (True False False)
 	# Collision mask is what the player detects
@@ -70,9 +75,15 @@ func solid_state(delta):
 
 # Sets all liquid state variables upon entering liquid state
 func enter_liquid_state():
+	playerSprite.visible = false
+	
+	waterSprite.visible = true
+	waterSprite.get_child(0).emitting = true
+	waterSprite.get_child(0).restart()
+	
 	if(has_node("gas")):
 		get_node("gas").queue_free()
-	playerSprite.visible=true
+	
 	set_collision_layer(2) # 010 (False True False)
 	set_collision_mask(2)
 	speed = 500
@@ -85,14 +96,17 @@ func liquid_state(delta):
 	test_colision()
 	move_and_slide()
 
-
 # Sets all gas state variables upon entering gas state
 func enter_gas_state():
-	#playerSprite.modulate = Color.GREEN
+	playerSprite.visible = false
+	
+	waterSprite.visible = false
+	waterSprite.get_child(0).emitting = false
+	
 	var particles = particles_scene.instantiate()
-	playerSprite.visible=false
 	particles.global_position = global_position
 	add_child(particles)
+	
 	set_collision_layer(4) # 001 (False False True)
 	set_collision_mask(4)
 	speed = 250
