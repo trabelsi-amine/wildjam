@@ -3,6 +3,9 @@ extends CharacterBody2D
 
 @onready var playerSprite: Sprite2D = $Sprite2D
 @onready var waterSprite = $Water
+@onready var collision = $CollisionShape2D
+@onready var liquid_collision = $LiquidCollision
+
 @onready var respawn_marker: Marker2D = $"../Environment/RespawnMarker"
 @onready var anim: AnimationPlayer = $AnimationPlayer
 @onready var particles_scene = preload("res://scenes/gas.tscn")
@@ -54,6 +57,9 @@ func enter_solid_state():
 	# Gas form
 	if(has_node("gas")):
 		get_node("gas").queue_free()
+	# Collision Shape
+	collision.disabled = false
+	liquid_collision.disabled = true
 	# Collision layer is where the player is
 	set_collision_layer(1) # 100 (True False False)
 	# Collision mask is what the player detects
@@ -84,6 +90,9 @@ func enter_liquid_state():
 	if(has_node("gas")):
 		get_node("gas").queue_free()
 	
+	collision.disabled = true
+	liquid_collision.disabled = false
+	
 	set_collision_layer(2) # 010 (False True False)
 	set_collision_mask(2)
 	speed = 500
@@ -106,6 +115,9 @@ func enter_gas_state():
 	var particles = particles_scene.instantiate()
 	particles.global_position = global_position
 	add_child(particles)
+	
+	collision.disabled = false
+	liquid_collision.disabled = true
 	
 	set_collision_layer(4) # 001 (False False True)
 	set_collision_mask(4)

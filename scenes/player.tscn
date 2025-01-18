@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://b5865cpxmph88"]
+[gd_scene load_steps=12 format=3 uid="uid://b5865cpxmph88"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_gpv5f"]
 [ext_resource type="Texture2D" uid="uid://db2qiyp1wm1d8" path="res://assets/art/greenmf-Sheet.svg" id="2_fa0e1"]
@@ -7,6 +7,9 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5dyoa"]
 radius = 60.0
 height = 120.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3n30v"]
+size = Vector2(64, 8)
 
 [sub_resource type="Animation" id="Animation_i6vxa"]
 length = 0.001
@@ -114,6 +117,11 @@ position = Vector2(0, -64)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -64)
 shape = SubResource("CapsuleShape2D_5dyoa")
+
+[node name="LiquidCollision" type="CollisionShape2D" parent="."]
+position = Vector2(0, -64)
+shape = SubResource("RectangleShape2D_3n30v")
+disabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

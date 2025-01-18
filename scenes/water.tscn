@@ -29,6 +29,7 @@ texture = ExtResource("2_k3w83")
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
 show_behind_parent = true
 use_parent_material = true
+emitting = false
 amount = 4
 lifetime = 2.0
 randomness = 0.5
