@@ -14,7 +14,7 @@ var player = null
 # Used for look at the center of the player sprite instead of the bottom
 var player_offset = Vector2(0, -30)
 # Limit rotation for the raycast (around 9º for each side)
-var light_angle = 0.17 #deg_to_rad(9.0)
+var light_angle = 0.16 #deg_to_rad(9.0)
 # If true, change light color
 var seeing_player = false
 # Color when player is not being seen

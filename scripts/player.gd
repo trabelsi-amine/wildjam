@@ -31,8 +31,20 @@ func _ready() -> void:
 	enter_solid_state()
 
 func _physics_process(delta: float) -> void:
+	# Change state cyclically
 	if Input.is_action_just_pressed("ChangeState"):
-		change_state()
+		if current_state == STATES.Gas:
+			change_state(0)
+		else:
+			change_state(current_state + 1)
+	
+	# Set new state according to key pressed
+	if Input.is_action_just_pressed("Solid"):
+		change_state(STATES.Solid)
+	if Input.is_action_just_pressed("Liquid"):
+		change_state(STATES.Liquid)
+	if Input.is_action_just_pressed("Gas"):
+		change_state(STATES.Gas)
 	
 	#manage state stuff
 	manage_anims()
@@ -162,17 +174,17 @@ func be_blown_away(dir):
 func stop_being_blown_away():
 	being_blown_away = false
 
-func change_state():
-	match current_state:
+func change_state(new_state):
+	match new_state:
 		STATES.Solid:
-			enter_liquid_state()
-			current_state = STATES.Liquid
-		STATES.Liquid:
-			enter_gas_state()
-			current_state = STATES.Gas
-		STATES.Gas:
 			enter_solid_state()
 			current_state = STATES.Solid
+		STATES.Liquid:
+			enter_liquid_state()
+			current_state = STATES.Liquid
+		STATES.Gas:
+			enter_gas_state()
+			current_state = STATES.Gas
 
 func teleport_back_to_spawn():
 	global_position = respawn_marker.global_position

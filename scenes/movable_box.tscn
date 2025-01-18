@@ -13,6 +13,7 @@ radius = 32.0
 
 [node name="MovableBox" type="RigidBody2D" groups=["MovableBox"]]
 collision_layer = 7
+can_sleep = false
 lock_rotation = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
