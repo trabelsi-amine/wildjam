@@ -39,11 +39,11 @@ func _physics_process(delta: float) -> void:
 			change_state(current_state + 1)
 	
 	# Set new state according to key pressed
-	if Input.is_action_just_pressed("Solid"):
+	if Input.is_action_just_pressed("Solid") and current_state != STATES.Solid:
 		change_state(STATES.Solid)
-	if Input.is_action_just_pressed("Liquid"):
+	if Input.is_action_just_pressed("Liquid") and current_state != STATES.Liquid:
 		change_state(STATES.Liquid)
-	if Input.is_action_just_pressed("Gas"):
+	if Input.is_action_just_pressed("Gas") and current_state != STATES.Gas:
 		change_state(STATES.Gas)
 	
 	#manage state stuff
@@ -87,6 +87,8 @@ func solid_state(delta):
 	velocity.y += gravity * delta
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = jump_speed
+	if Input.is_action_just_released("jump"):
+		velocity.y = 0
 	
 	test_colision()
 	move_and_slide()
@@ -124,9 +126,10 @@ func enter_gas_state():
 	waterSprite.visible = false
 	waterSprite.get_child(0).emitting = false
 	
-	var particles = particles_scene.instantiate()
-	particles.global_position = global_position
-	add_child(particles)
+	if not (has_node("gas")):
+		var particles = particles_scene.instantiate()
+		particles.global_position = global_position
+		add_child(particles)
 	
 	collision.disabled = false
 	liquid_collision.disabled = true
@@ -164,7 +167,7 @@ func test_colision():
 			collider.apply_central_impulse(test_collision.get_normal() * -push_force)
 
 # Called by the Fan node
-var blown_force = 80
+var blown_force = 300
 var being_blown_away = false
 func be_blown_away(dir):
 	if current_state == STATES.Gas:

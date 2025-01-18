@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://2ru6msbwd2v6" path="res://assets/art/icon.svg" id="1_xlkw2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y1t7b"]
-size = Vector2(128, 128)
+size = Vector2(51.2, 51.2)
 
 [node name="Fan" type="StaticBody2D"]
 collision_layer = 7
@@ -12,6 +12,7 @@ collision_mask = 0
 script = ExtResource("1_0qo32")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.4, 0.4)
 texture = ExtResource("1_xlkw2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -22,7 +23,7 @@ collision_layer = 0
 collision_mask = 4
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
-polygon = PackedVector2Array(0, 0, -64, -256, 64, -256)
+polygon = PackedVector2Array(-16, 0, -64, -256, 64, -256, 16, 0)
 
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(0, -256)
