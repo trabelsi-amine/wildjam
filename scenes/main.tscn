@@ -247,7 +247,16 @@ position = Vector2(619, 114)
 rotation = -1.5708
 
 [node name="MovableBox" parent="Environment" instance=ExtResource("4_l5qxb")]
-position = Vector2(700, 356)
+position = Vector2(737, 353)
+
+[node name="camera" parent="Environment" instance=ExtResource("4_rkhj8")]
+position = Vector2(646, 63)
+
+[node name="Marker2D" type="Marker2D" parent="Environment/camera"]
+position = Vector2(258, 486)
+
+[node name="Marker2D" type="Marker2D" parent="Environment"]
+position = Vector2(957.84, 698)
 
 [node name="TileMap3" type="TileMapLayer" parent="."]
 scale = Vector2(2.79, 2.79)
@@ -268,14 +277,9 @@ offset_bottom = 669.0
 color = Color(0.442084, 0.51923, 0.631342, 1)
 metadata/_edit_lock_ = true
 
-[node name="camera" parent="." instance=ExtResource("4_rkhj8")]
-position = Vector2(642, 56)
-scale = Vector2(2.8, 2.8)
+[node name="PlayerInterfaceCanvas" type="CanvasLayer" parent="."]
+layer = 3
 
-[node name="target" type="Marker2D" parent="camera"]
-position = Vector2(136.071, 200)
-
-[node name="PlayerInterface" parent="." instance=ExtResource("6_08s5g")]
-offset_right = 1152.0
-offset_bottom = 648.0
+[node name="PlayerInterface" parent="PlayerInterfaceCanvas" instance=ExtResource("6_08s5g")]
+process_mode = 0
 metadata/_edit_lock_ = true

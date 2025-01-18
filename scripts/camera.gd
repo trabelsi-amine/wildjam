@@ -8,7 +8,7 @@ extends Node2D
 
 @onready var light = $PointLight2D
 @onready var ray: RayCast2D = $RayCast2D
-@onready var target: Marker2D = $target
+@onready var target: Marker2D = $Marker2D
 
 var player = null
 # Used for look at the center of the player sprite instead of the bottom
@@ -40,28 +40,33 @@ func _physics_process(_delta: float) -> void:
 	
 	if player: # Not null
 		# Vector to the target (middle of the light)
-		var view_vec = target.global_position
+		var view_vec = target.position
+		# The camera is rotated by the look_at method in the _ready function
+			# So now I 'remove' this rotation of the vector
+		view_vec = view_vec.rotated(-rotation)
+		
 		# Vector to the player
 		var player_vec = player.global_position + player_offset - global_position
 		# The camera is rotated by the look_at method in the _ready function
-			# So now I 'remove' this rotation of the vector to the player
+			# So now I 'remove' this rotation of the vector
 		player_vec = player_vec.rotated(-rotation)
+		
 		# Calculate the angle between the two vectors
 		var angle = view_vec.angle_to(player_vec)
+		
+		### DEBUG Only
 		#print(view_vec, " ", player_vec, " ", angle)
+		# Vector to the target
+		#$LineView.remove_point(1)
+		#$LineView.add_point(view_vec)
+		# Vector to the player
+		#$LinePlayer.remove_point(1)
+		#$LinePlayer.add_point(player_vec)
 		
 		# If (unsigned) angle is <= than limit
 		if abs(angle) <= light_angle:
 			# RayCast rotates to look at the player
 			ray.look_at(player.global_position + player_offset)
-			
-			### DEBUG Only
-			# Vector to the target
-			#$LineView.remove_point(1)
-			#$LineView.add_point(view_vec)
-			# Vector to the player
-			#$LinePlayer.remove_point(1)
-			#$LinePlayer.add_point(player_vec)
 	
 	# If RayCast hits something...
 	if ray.is_colliding():
@@ -71,6 +76,10 @@ func _physics_process(_delta: float) -> void:
 			# Sets flag
 			seeing_player = true
 			#print("Hit player as %s form." % body.current_state)
+		
+		# If hits a grate, ignores it from now on
+		if body.is_in_group("Grate"):
+			ray.add_exception(body)
 	
 	# Sets the color of the light depending on whether the player is being seen or not
 	if seeing_player:

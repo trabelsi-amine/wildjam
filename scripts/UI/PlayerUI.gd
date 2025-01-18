@@ -5,6 +5,7 @@ extends Control
 var player = null
 var time:float
 var TimerEnabled := true
+var CurrentUIOpened := ""
 
 func _ready():
 	set_player_ref()
@@ -20,10 +21,28 @@ func _process(delta: float) -> void:
 	ShowInformationUI()
 	RunTimer(delta)
 	DetectInterfaceInput()
-	change_state()
+	ProcessShortcuts()
 
 func ShowInformationUI():
 	ShowTime()
+	ShowState()
+
+func ProcessShortcuts():
+	match CurrentUIOpened:
+		"":
+			pass
+		"paused":
+			if Input.is_key_pressed(KEY_R):
+				ClosePause()
+			if Input.is_key_pressed(KEY_Q):
+				Quit()
+
+## You can use this function for player's death.
+func SpottedScreen():
+	$Spotted.show()
+	$Pause.hide()
+	$State.hide()
+	$Timer.hide()
 
 func ShowTime():
 	if str(time).contains("."):
@@ -38,17 +57,19 @@ func ClosePause() -> void:
 	$Pause.visible = false
 	get_tree().paused = false
 	TimerEnabled = true
+	CurrentUIOpened = ""
 
 func DetectInterfaceInput():
 	if Input.is_action_just_pressed("Pause"):
 		$Pause.visible = true
 		get_tree().paused = true
 		TimerEnabled = false
+		CurrentUIOpened = "paused"
 
 func Quit() -> void:
 	get_tree().quit()
 
-func change_state():
+func ShowState():
 	if player: # Not null
 		match player.current_state:
 			player.STATES.Solid:

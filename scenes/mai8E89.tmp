@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cvtmaegxjr2bf"]
+[gd_scene load_steps=11 format=3 uid="uid://cvtmaegxjr2bf"]
 
 [ext_resource type="PackedScene" uid="uid://b5865cpxmph88" path="res://scenes/player.tscn" id="1_g44cn"]
 [ext_resource type="Script" path="res://scripts/world_border.gd" id="2_eocj4"]
@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://cut0ygf3l1tby" path="res://scenes/grate.tscn" id="3_pdpf0"]
 [ext_resource type="PackedScene" uid="uid://ckrc40iiyhhb3" path="res://scenes/pressure_plate.tscn" id="5_4guug"]
 [ext_resource type="PackedScene" uid="uid://cu5ml0u63n771" path="res://scenes/movable_box.tscn" id="6_ds5sj"]
-[ext_resource type="PackedScene" uid="uid://cmyjc4hlqgnx4" path="res://scenes/door.tscn" id="7_cp350"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_7akr0"]
 
@@ -85,10 +84,6 @@ position = Vector2(766, 446)
 
 [node name="MovableBox" parent="Environment" instance=ExtResource("6_ds5sj")]
 position = Vector2(413, 446)
-
-[node name="Door" parent="Environment" node_paths=PackedStringArray("pressure_plate") instance=ExtResource("7_cp350")]
-position = Vector2(907, 382)
-pressure_plate = NodePath("../PressurePlate")
 
 [node name="UILayer" type="CanvasLayer" parent="."]
 

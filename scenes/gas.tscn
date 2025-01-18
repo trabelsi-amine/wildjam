@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://d4bn1gkogobfw"]
 
 [ext_resource type="Texture2D" uid="uid://qv5woprbw1c8" path="res://assets/art/gas_particles.svg" id="1_vsiu8"]
-[ext_resource type="Script" path="res://gas.gd" id="2_oan0t"]
+[ext_resource type="Script" path="res://scripts/gas.gd" id="2_oan0t"]
 
 [node name="gas" type="CPUParticles2D"]
 modulate = Color(0.459911, 0.69646, 0, 1)

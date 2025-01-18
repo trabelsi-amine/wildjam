@@ -4,7 +4,7 @@ extends CharacterBody2D
 @onready var playerSprite: Sprite2D = $Sprite2D
 @onready var respawn_marker: Marker2D = $"../Environment/RespawnMarker"
 @onready var anim: AnimationPlayer = $AnimationPlayer
-@onready var particles_scene = preload("res://gas.tscn")
+@onready var particles_scene = preload("res://scenes/gas.tscn")
 
 var speed = 500
 var gravity = 1000
