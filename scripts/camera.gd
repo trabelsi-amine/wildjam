@@ -9,6 +9,7 @@ extends Node2D
 @onready var light = $PointLight2D
 @onready var ray: RayCast2D = $RayCast2D
 @onready var target: Marker2D = $Marker2D
+@onready var player_interface: Control = $"../../PlayerInterfaceCanvas/PlayerInterface"
 
 var player = null
 # Used for look at the center of the player sprite instead of the bottom
@@ -84,5 +85,7 @@ func _physics_process(_delta: float) -> void:
 	# Sets the color of the light depending on whether the player is being seen or not
 	if seeing_player:
 		light.color = hit_color
+		player_interface.SpottedScreen()
+		get_tree().paused=true
 	else:
 		light.color = ok_color
