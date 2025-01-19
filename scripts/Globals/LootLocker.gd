@@ -10,7 +10,6 @@ var LeaderboardID := "26047" #<- This is testing code. Real: 27012
 var CurrentToken
 
 func _ready() -> void:
-	process_mode = PROCESS_MODE_ALWAYS
 	var request:HTTPRequest = HTTPRequest.new()
 	request.name = "lootlocker"
 	request.connect("request_completed",RequestComplete)

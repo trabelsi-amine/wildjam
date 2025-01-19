@@ -17,14 +17,8 @@ func NLDeffered():
 
 func KillPlayer():
 	get_tree().current_scene.get_node("Player").queue_free()
-	(get_tree().current_scene.get_node("PlayerInterfaceCanvas/PlayerInterface") as PlayerUI).SpottedScreen()
+	(get_tree().current_scene.get_node("PlayerInterfaceCanvas/PlayerInterface") as PlayerUI)
 
 func Restart():
-	get_tree().paused = false
 	CurrentLevelIndex = -1
-	NextLevel()
-
-func RestartLvl():
-	get_tree().paused = false
-	CurrentLevelIndex -= 1
 	NextLevel()

@@ -2,6 +2,7 @@ class_name PlayerUI
 extends Control
 
 @onready var state: Label = $State
+@onready var audio: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 var player = null
 var time:float
@@ -24,6 +25,8 @@ func _process(delta: float) -> void:
 	RunTimer(delta)
 	DetectInterfaceInput()
 	ProcessShortcuts()
+	if(Input.is_action_just_pressed("restart")):
+		get_tree().reload_current_scene()
 
 func ShowInformationUI():
 	ShowTime()
@@ -38,13 +41,10 @@ func ProcessShortcuts():
 				ClosePause()
 			if Input.is_key_pressed(KEY_Q):
 				Quit()
-		"death":
-			if Input.is_key_pressed(KEY_R):
-				(get_tree().root.get_node("LevelManager") as LevelManager).Restart()
 
 ## You can use this function for player's death.
 func SpottedScreen():
-	CurrentUIOpened = "death"
+	audio.play()
 	$Spotted.show()
 	$Pause.hide()
 	$State.hide()
@@ -73,14 +73,10 @@ func DetectInterfaceInput():
 		CurrentUIOpened = "paused"
 
 func Quit() -> void:
-	(get_tree().root.get_node("LevelManager") as LevelManager).MainMenu = true
-	(get_tree().root.get_node("LevelManager") as LevelManager).Restart()
-
-func Lead():
-	$Leaderboard.ShowLead()
+	get_tree().quit()
 
 func ShowState():
-	if player != null: # Not null
+	if player: # Not null
 		match player.current_state:
 			player.STATES.Solid:
 				state.text = "Solid"
