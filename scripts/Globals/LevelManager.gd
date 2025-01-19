@@ -39,5 +39,5 @@ func Restart():
 
 func RestartLvl():
 	CurrentLevelIndex = CurrentLevelIndex - 1
-	get_tree().paused = false
+	#get_tree().paused = false
 	NextLevel()

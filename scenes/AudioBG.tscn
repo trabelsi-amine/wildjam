@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://dkx1eiuxlh646"]
+[gd_scene load_steps=3 format=3 uid="uid://dkx1eiuxlh646"]
 
 [ext_resource type="AudioStream" uid="uid://hpjlrn8eaoic" path="res://assets/DeathScreenBossJam.mp3" id="1_osjqx"]
+[ext_resource type="Script" path="res://scenes/audio_bg.gd" id="2_pcdey"]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer"]
+process_mode = 3
 stream = ExtResource("1_osjqx")
 pitch_scale = 2.0
-stream_paused = true
+script = ExtResource("2_pcdey")
