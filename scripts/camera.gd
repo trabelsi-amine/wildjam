@@ -86,7 +86,7 @@ func _physics_process(_delta: float) -> void:
 	# Sets the color of the light depending on whether the player is being seen or not
 	if seeing_player:
 		light.color = hit_color
-		print("hit")
+		#print("hit")
 		player_interface.SpottedScreen()
 		get_tree().paused = true
 	else:

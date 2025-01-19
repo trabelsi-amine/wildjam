@@ -247,15 +247,6 @@ position = Vector2(243, 437)
 [node name="PressurePlate2" parent="Environment" instance=ExtResource("6_c61mc")]
 position = Vector2(607, 484)
 
-[node name="Label" type="Label" parent="Environment"]
-top_level = true
-offset_left = 844.0
-offset_top = 56.0
-offset_right = 942.0
-offset_bottom = 123.0
-theme_override_font_sizes/font_size = 48
-text = "EXIT"
-
 [node name="Door2" parent="Environment" node_paths=PackedStringArray("pressure_plate") instance=ExtResource("4_d8p6k")]
 position = Vector2(781, 89)
 pressure_plate = NodePath("../PressurePlate2")

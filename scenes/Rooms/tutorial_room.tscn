@@ -641,11 +641,3 @@ text = "SPACE TO JUMP"
 
 [node name="NextLevel" parent="." instance=ExtResource("9_cha4w")]
 position = Vector2(1059, 92)
-
-[node name="Label4" type="Label" parent="."]
-offset_left = 1004.0
-offset_top = 60.0
-offset_right = 1102.0
-offset_bottom = 127.0
-theme_override_font_sizes/font_size = 48
-text = "EXIT"

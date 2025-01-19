@@ -6,6 +6,7 @@ var Levels := [
 	"res://scenes/Rooms/horizontal_doors_room.tscn",
 	"res://scenes/Rooms/moving_cameras_room_v2.tscn",
 	"res://scenes/Rooms/traps_room.tscn",
+	"res://scenes/main.tscn",
 	"res://scenes/Rooms/smart_camera_room.tscn",
 	"res://scenes/Rooms/outroroom.tscn"
 ]
@@ -13,12 +14,12 @@ var MainMenu:bool = true
 var Score:float
 var MainScore:float
 
-func _process(delta: float) -> void:
-	print(CurrentLevelIndex)
+#func _process(delta: float) -> void:
+	#print(CurrentLevelIndex)
 
 func NextLevel():
 	CurrentLevelIndex = CurrentLevelIndex + 1
-	print(Levels[CurrentLevelIndex])
+	#print(Levels[CurrentLevelIndex])
 	call_deferred("NLDeffered")
 
 func EndAndSubmit():
