@@ -1,10 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://ckrc40iiyhhb3"]
+[gd_scene load_steps=7 format=3 uid="uid://ckrc40iiyhhb3"]
 
 [ext_resource type="Script" path="res://scripts/pressure_plate.gd" id="1_nd82s"]
 [ext_resource type="Texture2D" uid="uid://bel1iv8ljf8o7" path="res://assets/art/tileset-export.svg" id="2_vn0yc"]
+[ext_resource type="AudioStream" uid="uid://2rekweltfx0v" path="res://sfx/pressureplate.wav" id="3_doq44"]
+[ext_resource type="AudioStream" uid="uid://bw7hksfb0l55x" path="res://sfx/pressureplate2.wav" id="4_buto5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8smm3"]
 size = Vector2(128, 24)
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_ni3da"]
+streams_count = 2
+stream_0/stream = ExtResource("3_doq44")
+stream_1/stream = ExtResource("4_buto5")
 
 [node name="PressurePlate" type="Area2D"]
 scale = Vector2(0.34, 1)
@@ -21,6 +28,9 @@ region_rect = Rect2(128.138, 87.0293, 15.8229, 8.88858)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(0.640001, 1)
 shape = SubResource("RectangleShape2D_8smm3")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_ni3da")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

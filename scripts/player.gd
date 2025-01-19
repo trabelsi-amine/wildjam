@@ -4,6 +4,8 @@ class_name player
 
 @export var rnd_shake_strength = 2.5
 @export var shake_decay_rate = 7.5
+@onready var jump_audio: AudioStreamPlayer2D = $jump
+@onready var transform_audio: AudioStreamPlayer2D = $transform
 
 @onready var playerSprite: Sprite2D = $Sprite2D
 @onready var waterSprite = $Water
@@ -70,6 +72,7 @@ func manage_states(delta):
 
 # Sets all solid state variables upon entering solid state
 func enter_solid_state():
+	transform_audio.play()
 	apply_shake()
 	# Solid form
 	playerSprite.visible = true
@@ -96,6 +99,7 @@ func solid_state(delta):
 	
 	velocity.y += gravity * delta
 	if Input.is_action_just_pressed("jump") and is_on_floor():
+		jump_audio.play()
 		velocity.y = jump_speed
 	if Input.is_action_just_released("jump"):
 		velocity.y = 0
@@ -105,6 +109,7 @@ func solid_state(delta):
 
 # Sets all liquid state variables upon entering liquid state
 func enter_liquid_state():
+	transform_audio.play()
 	apply_shake()
 	playerSprite.visible = false
 	
@@ -132,6 +137,7 @@ func liquid_state(delta):
 
 # Sets all gas state variables upon entering gas state
 func enter_gas_state():
+	transform_audio.play()
 	apply_shake()
 	playerSprite.visible = false
 	
@@ -179,9 +185,10 @@ func test_colision():
 			collider.apply_central_impulse(test_collision.get_normal() * -push_force)
 
 # Called by the Fan node
-var blown_force = 300
+var blown_force = 200
 var being_blown_away = false
 func be_blown_away(dir):
+	jump_audio.play()
 	if current_state == STATES.Gas:
 		velocity += blown_force * dir
 		being_blown_away = true
