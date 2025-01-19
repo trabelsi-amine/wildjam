@@ -6,6 +6,7 @@ var instance = preload("res://scenes/jeremiahbutgravity.tscn")
 var flag = false
 
 func _on_body_entered(body: Node2D) -> void:
+	get_parent().get_parent().get_node("PlayerInterfaceCanvas/PlayerInterface").TimerEnabled = false
 	if flag:
 		return
 	flag = true
@@ -15,3 +16,6 @@ func _on_body_entered(body: Node2D) -> void:
 	var jer = instance.instantiate()
 	jer.global_position = (body.global_position + Vector2(0, -96))
 	base_room.call_deferred("add_child",jer)
+
+func ShowText():
+	$"../../sacrifice".show()
