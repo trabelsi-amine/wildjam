@@ -87,7 +87,7 @@ func _physics_process(_delta: float) -> void:
 	if seeing_player:
 		light.color = hit_color
 		print("hit")
-		#player_interface.SpottedScreen()
-		#get_tree().paused = true
+		player_interface.SpottedScreen()
+		get_tree().paused = true
 	else:
 		light.color = ok_color

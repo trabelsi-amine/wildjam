@@ -1,3 +1,4 @@
+class_name PlayerUI
 extends Control
 
 @onready var state: Label = $State

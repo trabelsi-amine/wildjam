@@ -1,10 +1,11 @@
-[gd_scene load_steps=19 format=3 uid="uid://b4ob8mrd1h661"]
+[gd_scene load_steps=20 format=3 uid="uid://b4ob8mrd1h661"]
 
 [ext_resource type="FontFile" uid="uid://w45sjqaw4e7a" path="res://assets/fonts/Minimal3x5.ttf" id="1_4ri1q"]
 [ext_resource type="Script" path="res://scripts/UI/PlayerUI.gd" id="1_td86v"]
 [ext_resource type="FontFile" uid="uid://i4ecybfsrwct" path="res://assets/fonts/Minimal5x5Monospaced.ttf" id="2_yu31m"]
 [ext_resource type="FontFile" uid="uid://02q74hthmcin" path="res://assets/fonts/Minimal5x7.ttf" id="3_owu2w"]
 [ext_resource type="Theme" uid="uid://c2r4qq72a3g3x" path="res://assets/tres/MainTheme.tres" id="5_xvnl1"]
+[ext_resource type="PackedScene" uid="uid://ohiqqbrbmf2x" path="res://scenes/UI/main_menu.tscn" id="6_kb6rk"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0b1up"]
 
@@ -277,6 +278,10 @@ text = "Return to menu"
 layout_mode = 2
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_2gipb")
+
+[node name="MainMenu" parent="." instance=ExtResource("6_kb6rk")]
+visible = false
+layout_mode = 1
 
 [connection signal="pressed" from="Pause/PauseMenu/TitleButtons/Buttons/Resume" to="." method="ClosePause"]
 [connection signal="pressed" from="Pause/PauseMenu/TitleButtons/Buttons/Quit" to="." method="Quit"]
