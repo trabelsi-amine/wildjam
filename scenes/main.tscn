@@ -473,7 +473,7 @@ region_rect = Rect2(148.318, 122.007, 49.6412, 10.7916)
 
 [node name="PressurePlate" parent="." instance=ExtResource("10_elkh1")]
 position = Vector2(1044, 613)
-scale = Vector2(0.40001, 1)
+scale = Vector2(0.374, 1.01)
 
 [node name="Door" parent="." node_paths=PackedStringArray("pressure_plate") instance=ExtResource("11_ith2d")]
 position = Vector2(1129, 312)

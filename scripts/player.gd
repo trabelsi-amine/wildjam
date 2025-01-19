@@ -1,7 +1,8 @@
 extends CharacterBody2D
-class_name Player
+class_name player
 
-@export var rnd_shake_strength = 10.0
+
+@export var rnd_shake_strength = 2.5
 @export var shake_decay_rate = 7.5
 
 @onready var playerSprite: Sprite2D = $Sprite2D
@@ -46,13 +47,6 @@ func _process(delta):
 	camera.offset = get_random_offset()
 
 func _physics_process(delta: float) -> void:
-	# Change state cyclically
-	if Input.is_action_just_pressed("ChangeState"):
-		if current_state == STATES.Gas:
-			change_state(0)
-		else:
-			change_state(current_state + 1)
-	
 	# Set new state according to key pressed
 	if Input.is_action_just_pressed("Solid") and current_state != STATES.Solid:
 		change_state(STATES.Solid)
