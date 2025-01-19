@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://cu5ml0u63n771"]
 
-[ext_resource type="Texture2D" uid="uid://2ru6msbwd2v6" path="res://assets/art/icon.svg" id="1_3cwtq"]
+[ext_resource type="Texture2D" uid="uid://bel1iv8ljf8o7" path="res://assets/art/tileset-export.svg" id="1_7ft0j"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ogl3e"]
 polygon = PackedVector2Array(-32, 0, -32, -64, 32, -64, 32, 0)
@@ -17,17 +17,23 @@ can_sleep = false
 lock_rotation = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_3cwtq")
+position = Vector2(3.57628e-07, 169)
+scale = Vector2(3.44444, 3.15278)
+texture = ExtResource("1_7ft0j")
 offset = Vector2(0, -64)
+region_enabled = true
+region_rect = Rect2(90.0258, 75.8838, 18.9853, 20.2037)
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 occluder = SubResource("OccluderPolygon2D_ogl3e")
+metadata/_edit_lock_ = true
 
 [node name="TopCollision" type="CollisionShape2D" parent="."]
 position = Vector2(0, -48)
 shape = SubResource("RectangleShape2D_o6j7m")
+metadata/_edit_lock_ = true
 
 [node name="BotCollision" type="CollisionShape2D" parent="."]
 position = Vector2(0, -32)
 shape = SubResource("CircleShape2D_26i4v")
+metadata/_edit_lock_ = true

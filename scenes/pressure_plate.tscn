@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://ckrc40iiyhhb3"]
 
-[ext_resource type="Texture2D" uid="uid://sgg4aj05uhyt" path="res://icon.svg" id="1_lmkeg"]
 [ext_resource type="Script" path="res://scripts/pressure_plate.gd" id="1_nd82s"]
+[ext_resource type="Texture2D" uid="uid://bel1iv8ljf8o7" path="res://assets/art/tileset-export.svg" id="2_vn0yc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8smm3"]
 size = Vector2(128, 24)
@@ -12,10 +12,13 @@ collision_mask = 3
 script = ExtResource("1_nd82s")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(1, 0.2)
-texture = ExtResource("1_lmkeg")
+scale = Vector2(5.16802, 2.53763)
+texture = ExtResource("2_vn0yc")
+region_enabled = true
+region_rect = Rect2(128.138, 87.0293, 15.8229, 8.88858)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(0.640001, 1)
 shape = SubResource("RectangleShape2D_8smm3")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

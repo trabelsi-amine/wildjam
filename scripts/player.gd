@@ -108,7 +108,7 @@ func enter_liquid_state():
 	set_collision_layer(2) # 010 (False True False)
 	set_collision_mask(2)
 	speed = 500
-	gravity = 4000
+	gravity = 2000
 
 func liquid_state(delta):
 	velocity.x = Input.get_axis("left", "right") * speed

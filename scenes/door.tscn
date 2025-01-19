@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cmyjc4hlqgnx4"]
 
 [ext_resource type="Script" path="res://scripts/door.gd" id="1_3jqlo"]
-[ext_resource type="Texture2D" uid="uid://sgg4aj05uhyt" path="res://icon.svg" id="1_b8vj2"]
+[ext_resource type="Texture2D" uid="uid://bel1iv8ljf8o7" path="res://assets/art/tileset-export.svg" id="2_vj016"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_whuvf"]
 size = Vector2(38.4, 128)
@@ -12,8 +12,10 @@ collision_mask = 0
 script = ExtResource("1_3jqlo")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.3, 1)
-texture = ExtResource("1_b8vj2")
+scale = Vector2(3.7, 2.675)
+texture = ExtResource("2_vj016")
+region_enabled = true
+region_rect = Rect2(159.999, 47.9831, 10.7987, 47.927)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_whuvf")

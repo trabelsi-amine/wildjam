@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=4 uid="uid://btblk0ofsg13n"]
+[gd_scene load_steps=34 format=4 uid="uid://btblk0ofsg13n"]
 
 [ext_resource type="PackedScene" uid="uid://b5865cpxmph88" path="res://scenes/player.tscn" id="1_g44cn"]
 [ext_resource type="Script" path="res://scripts/world_border.gd" id="2_hhtvy"]
@@ -7,6 +7,10 @@
 [ext_resource type="PackedScene" uid="uid://cu5ml0u63n771" path="res://scenes/movable_box.tscn" id="4_l5qxb"]
 [ext_resource type="PackedScene" uid="uid://c4fvyx6tpkewg" path="res://scenes/camera.tscn" id="4_rkhj8"]
 [ext_resource type="PackedScene" uid="uid://b4ob8mrd1h661" path="res://scenes/UI/player_interface.tscn" id="6_08s5g"]
+[ext_resource type="Texture2D" uid="uid://dpuuap7w1cas" path="res://assets/art/bg01.svg" id="7_cux6h"]
+[ext_resource type="Texture2D" uid="uid://bel1iv8ljf8o7" path="res://assets/art/tileset-export.svg" id="9_yaekr"]
+[ext_resource type="PackedScene" uid="uid://ckrc40iiyhhb3" path="res://scenes/pressure_plate.tscn" id="10_elkh1"]
+[ext_resource type="PackedScene" uid="uid://cmyjc4hlqgnx4" path="res://scenes/door.tscn" id="11_ith2d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fpg2i"]
 size = Vector2(2503, 28.25)
@@ -152,7 +156,7 @@ script = ExtResource("2_hhtvy")
 shape = SubResource("RectangleShape2D_fpg2i")
 
 [node name="RespawnMarker" type="Marker2D" parent="Environment"]
-position = Vector2(691, 591)
+position = Vector2(127, 149)
 
 [node name="GratePlatform" type="Node2D" parent="Environment"]
 position = Vector2(73, 363)
@@ -238,34 +242,44 @@ position = Vector2(264, 0)
 [node name="GrateVertical" type="Node2D" parent="Environment"]
 
 [node name="MovableBox" parent="Environment" instance=ExtResource("4_l5qxb")]
-position = Vector2(737, 353)
+position = Vector2(835, 131)
+scale = Vector2(0.68, 0.68)
+
+[node name="MovableBox2" parent="Environment" instance=ExtResource("4_l5qxb")]
+position = Vector2(228, 623)
+scale = Vector2(0.68, 0.68)
 
 [node name="camera" parent="Environment" instance=ExtResource("4_rkhj8")]
 position = Vector2(646, 63)
 
 [node name="Marker2D" type="Marker2D" parent="Environment/camera"]
-position = Vector2(258, 486)
+position = Vector2(282, 442)
+scale = Vector2(2.1569, 1)
 
-[node name="Marker2D" type="Marker2D" parent="Environment"]
-position = Vector2(957.84, 698)
+[node name="camera2" parent="Environment" instance=ExtResource("4_rkhj8")]
+position = Vector2(612, 409)
+
+[node name="Marker2D" type="Marker2D" parent="Environment/camera2"]
+position = Vector2(-336, 192)
 
 [node name="TileMap3" type="TileMapLayer" parent="."]
 scale = Vector2(2.79, 2.79)
 tile_map_data = PackedByteArray("AAAAAAEAAAADAAQAAAAAAAIAAAADAAQAAAAAAAMAAAADAAMAAAAAAAQAAAADAAQAAAAAAAUAAAADAAMAAAAAAAYAAAADAAQAAAAAAAcAAAADAAMAAAAAAAgAAAADAAQAAAAAAAkAAAADAAMAAAAAAAoAAAADAAQAAAAAAAsAAAADAAQAAAAAAAwAAAADAAQAAAAAAA0AAAABAAMAAAAAAA4AAAABAAMAAAAAAAAAAAACAAMAAAABAA4AAAABAAMAAAACAA4AAAACAAIAAAADAA4AAAABAAIAAAAEAA4AAAACAAIAAAAFAA4AAAACAAIAAAAGAA4AAAACAAIAAAAHAA4AAAACAAIAAAAIAA4AAAACAAIAAAAJAA4AAAABAAIAAAAKAA4AAAACAAIAAAALAA4AAAABAAIAAAAMAA4AAAACAAIAAAANAA4AAAABAAIAAAAOAA4AAAABAAIAAAAPAA4AAAABAAIAAAAQAA4AAAABAAIAAAARAA4AAAABAAIAAAASAA4AAAABAAIAAAATAA4AAAABAAIAAAAUAA4AAAACAAIAAAAVAA4AAAABAAIAAAAWAA4AAAACAAIAAAAXAA4AAAACAAIAAAAYAA4AAAABAAMAAAAZAA4AAAABAAQAAAAZAA0AAAABAAMAAAAZAAwAAAAAAAMAAAAZAAsAAAAAAAQAAAAZAAoAAAAAAAMAAAAZAAkAAAAAAAQAAAAZAAgAAAAAAAMAAAAZAAQAAAAAAAMAAAAZAAMAAAAAAAMAAAAZAAIAAAAAAAQAAAAZAAEAAAAAAAMAAAAZAAAAAAABAAQAAAAYAAAAAAACAAUAAAAXAAAAAAACAAUAAAAWAAAAAAACAAUAAAAVAAAAAAACAAUAAAAUAAAAAAACAAMAAAATAAAAAAACAAUAAAASAAAAAAACAAUAAAARAAAAAAABAAUAAAAQAAAAAAACAAUAAAAPAAAAAAACAAUAAAAOAAAAAAACAAUAAAANAAAAAAACAAQAAAAMAAAAAAACAAQAAAALAAAAAAACAAUAAAAKAAAAAAABAAUAAAAJAAAAAAACAAUAAAAIAAAAAAABAAUAAAAHAAAAAAABAAUAAAAGAAAAAAACAAUAAAAFAAAAAAABAAUAAAAEAAAAAAACAAUAAAADAAAAAAABAAUAAAACAAAAAAACAAUAAAABAAAAAAACAAUAAAABAAQAAAANAAIAAAACAAQAAAANAAIAAAADAAQAAAANAAIAAAAEAAQAAAANAAIAAAAFAAQAAAANAAIAAAAGAAQAAAANAAIAAAAHAAQAAAANAAIAAAAIAAQAAAANAAIAAAAMAAQAAAAAAAMAAAABAAgAAAANAAIAAAALAAgAAAANAAIAAAAMAAgAAAACAAUAAAAMAAEAAAAAAAMAAAAMAAUAAAAAAAMAAAAMAAYAAAAAAAMAAAAMAAcAAAAPAAQAAAANAAEAAAADAAMAAAANAAQAAAADAAMAAAANAAUAAAADAAMAAAANAAYAAAADAAMAAAANAAcAAAAQAAQAAAANAAgAAAACAAUAAAANAAMAAAAQAAQAAAALAAQAAAANAAIAAAAKAAQAAAANAAIAAAAJAAQAAAANAAIAAAAOAAgAAAANAAIAAAAYAAgAAAANAAIAAAAZAAUAAAAAAAQAAAAUAAMAAAACAAUAAAAUAAEAAAACAAUAAAD//w4AAAABAAMAAAD//w0AAAABAAMAAAD//wwAAAABAAMAAAD//wsAAAABAAMAAAD//woAAAABAAMAAAD//wkAAAABAAMAAAD//wgAAAABAAMAAAD//wcAAAABAAMAAAD//wYAAAABAAMAAAD//wUAAAABAAMAAAD//wQAAAABAAMAAAD//wMAAAABAAMAAAD//wIAAAABAAMAAAD//wEAAAABAAMAAAD//wAAAAABAAMAAAD/////AAABAAMAAAD+////AAABAAMAAAD+/wAAAAABAAMAAAD+/wEAAAABAAMAAAD+/wIAAAABAAMAAAD+/wMAAAABAAMAAAD+/wQAAAABAAMAAAD+/wUAAAABAAMAAAD+/wYAAAABAAMAAAD+/wcAAAABAAMAAAD+/wgAAAABAAMAAAD+/wkAAAABAAMAAAD+/woAAAABAAMAAAD+/wsAAAABAAMAAAD+/wwAAAABAAMAAAD+/w0AAAABAAMAAAD+/w4AAAABAAMAAAD+/w8AAAABAAMAAAD//w8AAAABAAMAAAAAAA8AAAABAAMAAAABAA8AAAABAAMAAAACAA8AAAABAAMAAAADAA8AAAABAAMAAAAEAA8AAAABAAMAAAAFAA8AAAABAAMAAAAGAA8AAAABAAMAAAAHAA8AAAABAAMAAAAIAA8AAAABAAMAAAAJAA8AAAABAAMAAAAKAA8AAAABAAMAAAALAA8AAAABAAMAAAAMAA8AAAABAAMAAAANAA8AAAABAAMAAAAOAA8AAAABAAMAAAAPAA8AAAABAAMAAAAQAA8AAAABAAMAAAARAA8AAAABAAMAAAASAA8AAAABAAMAAAATAA8AAAABAAMAAAAUAA8AAAABAAMAAAAVAA8AAAABAAMAAAAWAA8AAAABAAMAAAAXAA8AAAABAAMAAAAYAA8AAAABAAMAAAAZAA8AAAABAAMAAAAaAA8AAAABAAMAAAAbAA8AAAABAAMAAAAaAA4AAAABAAMAAAAaAA0AAAABAAMAAAAaAAwAAAABAAMAAAAaAAsAAAABAAMAAAAaAAoAAAABAAMAAAAaAAkAAAABAAMAAAAaAAgAAAABAAMAAAAaAAcAAAABAAMAAAAaAAYAAAABAAMAAAAaAAUAAAABAAMAAAAaAAQAAAABAAMAAAAaAAMAAAABAAMAAAAaAAIAAAABAAMAAAAaAAEAAAABAAMAAAAaAAAAAAABAAMAAAAaAP//AAABAAMAAAAbAP//AAABAAMAAAAbAAAAAAABAAMAAAAbAAEAAAABAAMAAAAbAAIAAAABAAMAAAAbAAMAAAABAAMAAAAbAAQAAAABAAMAAAAbAAUAAAABAAMAAAAbAAYAAAABAAMAAAAbAAcAAAABAAMAAAAbAAgAAAABAAMAAAAbAAkAAAABAAMAAAAbAAoAAAABAAMAAAAbAAsAAAABAAMAAAAbAAwAAAABAAMAAAAbAA0AAAABAAMAAAAbAA4AAAABAAMAAAAZAP//AAABAAMAAAAYAP//AAABAAMAAAAXAP//AAABAAMAAAAWAP//AAABAAMAAAAVAP//AAABAAMAAAAUAP//AAABAAMAAAATAP//AAABAAMAAAASAP//AAABAAMAAAARAP//AAABAAMAAAAQAP//AAABAAMAAAAPAP//AAABAAMAAAAOAP//AAABAAMAAAANAP//AAABAAMAAAAMAP//AAABAAMAAAALAP//AAABAAMAAAAKAP//AAABAAMAAAAJAP//AAABAAMAAAAIAP//AAABAAMAAAAHAP//AAABAAMAAAAGAP//AAABAAMAAAAFAP//AAABAAMAAAAEAP//AAABAAMAAAADAP//AAABAAMAAAACAP//AAABAAMAAAABAP//AAABAAMAAAAAAP//AAABAAMAAAD+//7/AAABAAMAAAD///7/AAABAAMAAAAAAP7/AAABAAMAAAABAP7/AAABAAMAAAACAP7/AAABAAMAAAADAP7/AAABAAMAAAAEAP7/AAABAAMAAAAFAP7/AAABAAMAAAAGAP7/AAABAAMAAAAHAP7/AAABAAMAAAAIAP7/AAABAAMAAAAJAP7/AAABAAMAAAAKAP7/AAABAAMAAAALAP7/AAABAAMAAAAMAP7/AAABAAMAAAANAP7/AAABAAMAAAAOAP7/AAABAAMAAAAPAP7/AAABAAMAAAAQAP7/AAABAAMAAAARAP7/AAABAAMAAAASAP7/AAABAAMAAAATAP7/AAABAAMAAAAUAP7/AAABAAMAAAAVAP7/AAABAAMAAAAWAP7/AAABAAMAAAAXAP7/AAABAAMAAAAYAP7/AAABAAMAAAAZAP7/AAABAAMAAAAaAP7/AAABAAMAAAAbAP7/AAABAAMAAAAMAAMAAAAPAAQAAAABAA0AAAADAAIAAAAYAA0AAAAAAAIAAAAMAAIAAAAAAAMAAAANAAIAAAADAAMAAAA=")
 tile_set = SubResource("TileSet_oe4df")
+metadata/_edit_lock_ = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(579, 328)
 zoom = Vector2(0.885, 0.885)
 
-[node name="ColorRect" type="ColorRect" parent="."]
-modulate = Color(0.423529, 0.486275, 0.564706, 1)
+[node name="ColorRect" type="TextureRect" parent="."]
+modulate = Color(0.513406, 0.570351, 0.576385, 1)
 z_index = -1
 offset_left = -15.0
 offset_top = -11.0
 offset_right = 1169.0
 offset_bottom = 669.0
-color = Color(0.442084, 0.51923, 0.631342, 1)
+texture = ExtResource("7_cux6h")
 metadata/_edit_lock_ = true
 
 [node name="PlayerInterfaceCanvas" type="CanvasLayer" parent="."]
@@ -274,3 +288,196 @@ layer = 3
 [node name="PlayerInterface" parent="PlayerInterfaceCanvas" instance=ExtResource("6_08s5g")]
 process_mode = 0
 metadata/_edit_lock_ = true
+
+[node name="Decorations" type="Node" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Decorations"]
+position = Vector2(65, 88)
+scale = Vector2(3.17399, 3.17399)
+texture = ExtResource("9_yaekr")
+region_enabled = true
+region_rect = Rect2(0, 146.036, 33.3965, 54.8229)
+
+[node name="Sprite2D4" type="Sprite2D" parent="Decorations"]
+position = Vector2(643, 63)
+scale = Vector2(3.17399, 3.17399)
+texture = ExtResource("9_yaekr")
+region_enabled = true
+region_rect = Rect2(0, 146.036, 33.3965, 54.8229)
+
+[node name="Sprite2D2" type="Sprite2D" parent="Decorations"]
+position = Vector2(530, 97)
+scale = Vector2(3.17399, 3.17399)
+texture = ExtResource("9_yaekr")
+region_enabled = true
+region_rect = Rect2(44.3779, 144.3, 55.1232, 51.9368)
+
+[node name="Sprite2D3" type="Sprite2D" parent="Decorations"]
+position = Vector2(1092, 105)
+scale = Vector2(3.17399, 3.17399)
+texture = ExtResource("9_yaekr")
+region_enabled = true
+region_rect = Rect2(44.3779, 144.3, 55.1232, 51.9368)
+
+[node name="Sprite2D5" type="Sprite2D" parent="Decorations"]
+position = Vector2(581, 394)
+scale = Vector2(3.17399, 3.17399)
+texture = ExtResource("9_yaekr")
+region_enabled = true
+region_rect = Rect2(102.586, 118.887, 36.7793, 16.9751)
+
+[node name="Sprite2D13" type="Sprite2D" parent="Decorations"]
+position = Vector2(906, 136)
+scale = Vector2(2.337, 2.337)
+texture = ExtResource("9_yaekr")
+region_enabled = true
+region_rect = Rect2(102.586, 118.887, 36.7793, 16.9751)
+
+[node name="Sprite2D14" type="Sprite2D" parent="Decorations"]
+position = Vector2(654, 131)
+scale = Vector2(2.337, 2.337)
+texture = ExtResource("9_yaekr")
+region_enabled = true
+region_rect = Rect2(102.586, 118.887, 36.7793, 16.9751)
+
+[node name="Sprite2D15" type="Sprite2D" parent="Decorations"]
+position = Vector2(657, 357)
+scale = Vector2(2.337, 2.337)
+texture = ExtResource("9_yaekr")
+region_enabled = true
+region_rect = Rect2(102.586, 118.887, 36.7793, 16.9751)
+
+[node name="Sprite2D16" type="Sprite2D" parent="Decorations"]
+position = Vector2(1077, 356)
+scale = Vector2(2.337, 2.337)
+texture = ExtResource("9_yaekr")
+region_enabled = true
+region_rect = Rect2(102.586, 118.887, 36.7793, 16.9751)
+
+[node name="Sprite2D17" type="Sprite2D" parent="Decorations"]
+position = Vector2(496, 357)
+scale = Vector2(2.337, 2.337)
+texture = ExtResource("9_yaekr")
+region_enabled = true
+region_rect = Rect2(102.586, 118.887, 36.7793, 16.9751)
+
+[node name="Sprite2D21" type="Sprite2D" parent="Decorations"]
+position = Vector2(499, 175)
+scale = Vector2(2.337, 2.337)
+texture = ExtResource("9_yaekr")
+region_enabled = true
+region_rect = Rect2(102.586, 118.887, 36.7793, 16.9751)
+
+[node name="Sprite2D18" type="Sprite2D" parent="Decorations"]
+position = Vector2(101, 357)
+scale = Vector2(2.337, 2.337)
+texture = ExtResource("9_yaekr")
+region_enabled = true
+region_rect = Rect2(102.586, 118.887, 36.7793, 16.9751)
+
+[node name="Sprite2D19" type="Sprite2D" parent="Decorations"]
+position = Vector2(101, 357)
+scale = Vector2(2.337, 2.337)
+texture = ExtResource("9_yaekr")
+region_enabled = true
+region_rect = Rect2(102.586, 118.887, 36.7793, 16.9751)
+
+[node name="Sprite2D10" type="Sprite2D" parent="Decorations"]
+position = Vector2(578, 173)
+scale = Vector2(3.17399, 3.17399)
+texture = ExtResource("9_yaekr")
+region_enabled = true
+region_rect = Rect2(102.586, 118.887, 36.7793, 16.9751)
+
+[node name="Sprite2D6" type="Sprite2D" parent="Decorations"]
+position = Vector2(84, 615)
+scale = Vector2(3.17399, 3.17399)
+texture = ExtResource("9_yaekr")
+region_enabled = true
+region_rect = Rect2(109.576, 145.9, 30.576, 21.5831)
+
+[node name="Sprite2D7" type="Sprite2D" parent="Decorations"]
+position = Vector2(47, 345)
+scale = Vector2(3.17399, 3.17399)
+texture = ExtResource("9_yaekr")
+region_enabled = true
+region_rect = Rect2(109.576, 145.9, 30.576, 21.5831)
+
+[node name="Sprite2D20" type="Sprite2D" parent="Decorations"]
+position = Vector2(65, 175)
+scale = Vector2(3.17399, 3.17399)
+texture = ExtResource("9_yaekr")
+region_enabled = true
+region_rect = Rect2(109.576, 145.9, 30.576, 21.5831)
+
+[node name="Sprite2D9" type="Sprite2D" parent="Decorations"]
+position = Vector2(592, 342)
+scale = Vector2(3.17399, 3.17399)
+texture = ExtResource("9_yaekr")
+region_enabled = true
+region_rect = Rect2(109.576, 145.9, 30.576, 21.5831)
+
+[node name="Sprite2D8" type="Sprite2D" parent="Decorations"]
+position = Vector2(542, 349)
+scale = Vector2(3.17399, 3.17399)
+texture = ExtResource("9_yaekr")
+region_enabled = true
+region_rect = Rect2(153.194, 147.899, 16.9751, 11.2795)
+
+[node name="Sprite2D22" type="Sprite2D" parent="Decorations"]
+position = Vector2(535, 164)
+scale = Vector2(3.17399, 3.17399)
+texture = ExtResource("9_yaekr")
+region_enabled = true
+region_rect = Rect2(153.194, 147.899, 16.9751, 11.2795)
+
+[node name="Sprite2D11" type="Sprite2D" parent="Decorations"]
+position = Vector2(1104, 575)
+scale = Vector2(3.17399, 3.17399)
+texture = ExtResource("9_yaekr")
+region_enabled = true
+region_rect = Rect2(153.194, 147.899, 16.9751, 11.2795)
+
+[node name="Sprite2D12" type="Sprite2D" parent="Decorations"]
+position = Vector2(1060, 617)
+scale = Vector2(3.17399, 3.17399)
+texture = ExtResource("9_yaekr")
+region_enabled = true
+region_rect = Rect2(153.194, 147.899, 16.9751, 11.2795)
+
+[node name="Sprite2D23" type="Sprite2D" parent="Decorations"]
+position = Vector2(676, 627)
+scale = Vector2(3.17399, 3.17399)
+texture = ExtResource("9_yaekr")
+region_enabled = true
+region_rect = Rect2(148.318, 122.007, 49.6412, 10.7916)
+
+[node name="Sprite2D24" type="Sprite2D" parent="Decorations"]
+position = Vector2(369, 628)
+scale = Vector2(3.17399, 3.17399)
+texture = ExtResource("9_yaekr")
+region_enabled = true
+region_rect = Rect2(148.318, 122.007, 49.6412, 10.7916)
+
+[node name="Sprite2D25" type="Sprite2D" parent="Decorations"]
+position = Vector2(915, 624)
+scale = Vector2(3.17399, 3.17399)
+texture = ExtResource("9_yaekr")
+region_enabled = true
+region_rect = Rect2(148.318, 122.007, 49.6412, 10.7916)
+
+[node name="Sprite2D26" type="Sprite2D" parent="Decorations"]
+position = Vector2(318, 180)
+scale = Vector2(3.17399, 3.17399)
+texture = ExtResource("9_yaekr")
+region_enabled = true
+region_rect = Rect2(148.318, 122.007, 49.6412, 10.7916)
+
+[node name="PressurePlate" parent="." instance=ExtResource("10_elkh1")]
+position = Vector2(1044, 613)
+scale = Vector2(0.40001, 1)
+
+[node name="Door" parent="." node_paths=PackedStringArray("pressure_plate") instance=ExtResource("11_ith2d")]
+position = Vector2(1129, 312)
+scale = Vector2(0.741706, 0.687486)
+pressure_plate = NodePath("../PressurePlate")
