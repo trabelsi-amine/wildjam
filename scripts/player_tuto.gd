@@ -1,13 +1,16 @@
 extends CharacterBody2D
-#class_name Player
 
-@export var rnd_shake_strength = 10.0
+@export var rnd_shake_strength = 2.5
 @export var shake_decay_rate = 7.5
+@onready var jump_audio: AudioStreamPlayer2D = $jump
+@onready var transform_audio: AudioStreamPlayer2D = $transform
 
 @onready var playerSprite: Sprite2D = $Sprite2D
 @onready var waterSprite = $Water
+@onready var pushing = $Pushing
 @onready var collision = $CollisionShape2D
 @onready var liquid_collision = $LiquidCollision
+@onready var detect_pushing = $DetectPushing
 
 @onready var respawn_marker: Marker2D = $"../Environment/RespawnMarker"
 @onready var anim: AnimationPlayer = $AnimationPlayer
@@ -46,14 +49,27 @@ func _process(delta):
 	camera.offset = get_random_offset()
 
 func _physics_process(delta: float) -> void:
+	
+	#manage state stuff
 	manage_anims()
-	solid_state(delta)
+	manage_states(delta)
+
+func manage_states(delta):
+	match current_state:
+		STATES.Solid:
+			solid_state(delta)
+		STATES.Liquid:
+			liquid_state(delta)
+		STATES.Gas:
+			gas_state(delta)
 
 # Sets all solid state variables upon entering solid state
 func enter_solid_state():
+	transform_audio.play()
 	apply_shake()
 	# Solid form
 	playerSprite.visible = true
+	pushing.visible = false
 	# Liquid form
 	waterSprite.visible = false
 	waterSprite.get_child(0).emitting = false # Only child
@@ -77,11 +93,81 @@ func solid_state(delta):
 	
 	velocity.y += gravity * delta
 	if Input.is_action_just_pressed("jump") and is_on_floor():
+		jump_audio.play()
 		velocity.y = jump_speed
 	if Input.is_action_just_released("jump"):
 		velocity.y = 0
 	
 	test_colision()
+	move_and_slide()
+
+# Sets all liquid state variables upon entering liquid state
+func enter_liquid_state():
+	transform_audio.play()
+	apply_shake()
+	playerSprite.visible = false
+	pushing.visible = false
+	
+	waterSprite.visible = true
+	waterSprite.get_child(0).emitting = true
+	waterSprite.get_child(0).restart()
+	
+	if(has_node("gas")):
+		get_node("gas").queue_free()
+	
+	collision.disabled = true
+	liquid_collision.disabled = false
+	
+	set_collision_layer(2) # 010 (False True False)
+	set_collision_mask(2)
+	speed = 500
+	gravity = 2000
+
+func liquid_state(delta):
+	velocity.x = Input.get_axis("left", "right") * speed
+	velocity.y += gravity * delta
+	
+	test_colision()
+	move_and_slide()
+
+# Sets all gas state variables upon entering gas state
+func enter_gas_state():
+	transform_audio.play()
+	apply_shake()
+	playerSprite.visible = false
+	pushing.visible = false
+	
+	waterSprite.visible = false
+	waterSprite.get_child(0).emitting = false
+	
+	if not (has_node("gas")):
+		var particles = particles_scene.instantiate()
+		particles.global_position = global_position
+		add_child(particles)
+	
+	collision.disabled = false
+	liquid_collision.disabled = true
+	
+	set_collision_layer(4) # 001 (False False True)
+	set_collision_mask(4)
+	speed = 250
+	gravity = -250
+	jump_speed = -250
+	
+	velocity.y = 0 # If falling as a solid/liquid form, stops falling
+
+func gas_state(delta):
+	#velocity.x = Input.get_axis("left", "right") * speed
+	var hor_input = Input.get_axis("left", "right")
+	velocity.x += hor_input * speed
+	velocity.x = clamp(velocity.x, -speed, speed)
+	if not hor_input and not being_blown_away: # No input
+		velocity.x = move_toward(velocity.x, 0.0, speed)
+	
+	velocity.y += gravity * delta
+	if Input.is_action_just_pressed("jump"):
+		velocity.y = jump_speed
+	
 	move_and_slide()
 
 # Push movable box
@@ -94,6 +180,30 @@ func test_colision():
 		if collider.is_in_group("MovableBox") and abs(collider.get_linear_velocity().x) < max_velocity:
 			collider.apply_central_impulse(test_collision.get_normal() * -push_force)
 
+# Called by the Fan node
+var blown_force = 280
+var being_blown_away = false
+func be_blown_away(dir):
+	jump_audio.play()
+	if current_state == STATES.Gas:
+		velocity += blown_force * dir
+		being_blown_away = true
+
+func stop_being_blown_away():
+	being_blown_away = false
+
+func change_state(new_state):
+	match new_state:
+		STATES.Solid:
+			enter_solid_state()
+			current_state = STATES.Solid
+		STATES.Liquid:
+			enter_liquid_state()
+			current_state = STATES.Liquid
+		STATES.Gas:
+			enter_gas_state()
+			current_state = STATES.Gas
+
 func teleport_back_to_spawn():
 	global_position = respawn_marker.global_position
 
@@ -101,17 +211,32 @@ func manage_anims():
 	if velocity.x < 0:
 		# Look to the left
 		playerSprite.flip_h = true
-	else:
-		if velocity.x>0:
+		pushing.flip_h = true
+		detect_pushing.target_position.x = -64
+	elif velocity.x > 0:
 			# Look to the right
 			playerSprite.flip_h = false
+			pushing.flip_h = false
+			detect_pushing.target_position.x = 64
 	
 	if is_on_floor():
+		if detect_pushing.is_colliding():
+			var col = detect_pushing.get_collider()
+			if col.is_in_group("MovableBox") and current_state == STATES.Solid:
+				playerSprite.visible = false
+				pushing.visible = true
+		elif current_state == STATES.Solid:
+			playerSprite.visible = true
+			pushing.visible = false
+		
 		if abs(velocity.x) == 0:
 			anim.play("idle")
 		else:
 			anim.play("run")
 	else:
+		if current_state == STATES.Solid:
+			playerSprite.visible = true
+			pushing.visible = false
 		if velocity.y < 0:
 			anim.play("jump")
 		else:
