@@ -397,6 +397,27 @@ texture = ExtResource("9_o1k6b")
 region_enabled = true
 region_rect = Rect2(102.586, 118.887, 36.7793, 16.9751)
 
+[node name="Sprite2D36" type="Sprite2D" parent="Decorations"]
+position = Vector2(957, 197)
+scale = Vector2(2.337, 2.337)
+texture = ExtResource("9_o1k6b")
+region_enabled = true
+region_rect = Rect2(102.586, 118.887, 36.7793, 16.9751)
+
+[node name="Sprite2D37" type="Sprite2D" parent="Decorations"]
+position = Vector2(1045, 160)
+scale = Vector2(2.337, 2.337)
+texture = ExtResource("9_o1k6b")
+region_enabled = true
+region_rect = Rect2(102.586, 118.887, 36.7793, 16.9751)
+
+[node name="Sprite2D38" type="Sprite2D" parent="Decorations"]
+position = Vector2(924, 158)
+scale = Vector2(2.337, 2.337)
+texture = ExtResource("9_o1k6b")
+region_enabled = true
+region_rect = Rect2(102.586, 118.887, 36.7793, 16.9751)
+
 [node name="Sprite2D18" type="Sprite2D" parent="Decorations"]
 position = Vector2(589, 628)
 scale = Vector2(2.337, 2.337)
@@ -555,6 +576,13 @@ region_rect = Rect2(148.318, 122.007, 49.6412, 10.7916)
 
 [node name="Sprite2D32" type="Sprite2D" parent="Decorations"]
 position = Vector2(909, 405)
+scale = Vector2(3.17399, 3.17399)
+texture = ExtResource("9_o1k6b")
+region_enabled = true
+region_rect = Rect2(148.318, 122.007, 49.6412, 10.7916)
+
+[node name="Sprite2D40" type="Sprite2D" parent="Decorations"]
+position = Vector2(963, 197)
 scale = Vector2(3.17399, 3.17399)
 texture = ExtResource("9_o1k6b")
 region_enabled = true
