@@ -10,14 +10,14 @@ func press_it():
 	if pressed:
 		return
 	pressed = true
-	sprite.scale.y = 0.1
+	#sprite.scale.y = 0.1
 	sprite.position.y = 6
 
 func unpress_it():
 	if not pressed:
 		return
 	pressed = false
-	sprite.scale.y = 0.2
+	#sprite.scale.y = 0.2
 	sprite.position.y = 0
 
 func _on_body_entered(body):

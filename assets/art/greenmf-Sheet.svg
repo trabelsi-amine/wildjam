@@ -2422,17 +2422,14 @@
 <rect x="116" y="91" width="1" height="1" fill="#FFFFFF" />
 <rect x="107" y="92" width="1" height="1" fill="#FFFFFF" />
 <rect x="108" y="92" width="1" height="1" fill="#FFFFFF" />
-<rect x="20" y="93" width="1" height="1" fill="#FFFFFF" />
 <rect x="21" y="93" width="1" height="1" fill="#FFFFFF" />
 <rect x="22" y="93" width="1" height="1" fill="#FFFFFF" />
 <rect x="23" y="93" width="1" height="1" fill="#FFFFFF" />
 <rect x="24" y="93" width="1" height="1" fill="#FFFFFF" />
 <rect x="25" y="93" width="1" height="1" fill="#FFFFFF" />
-<rect x="26" y="93" width="1" height="1" fill="#FFFFFF" />
 <rect x="37" y="93" width="1" height="1" fill="#FFFFFF" />
 <rect x="38" y="93" width="1" height="1" fill="#FFFFFF" />
 <rect x="49" y="93" width="1" height="1" fill="#FFFFFF" />
-<rect x="19" y="94" width="1" height="1" fill="#FFFFFF" />
 <rect x="20" y="94" width="1" height="1" fill="#FFFFFF" />
 <rect x="21" y="94" width="1" height="1" fill="#FFFFFF" />
 <rect x="22" y="94" width="1" height="1" fill="#FFFFFF" />
@@ -2486,6 +2483,7 @@
 <rect x="23" y="97" width="1" height="1" fill="#FFFFFF" />
 <rect x="24" y="97" width="1" height="1" fill="#FFFFFF" />
 <rect x="25" y="97" width="1" height="1" fill="#FFFFFF" />
+<rect x="26" y="97" width="1" height="1" fill="#FFFFFF" />
 <rect x="39" y="97" width="1" height="1" fill="#FFFFFF" />
 <rect x="40" y="97" width="1" height="1" fill="#FFFFFF" />
 <rect x="41" y="97" width="1" height="1" fill="#FFFFFF" />
@@ -2499,7 +2497,6 @@
 <rect x="54" y="97" width="1" height="1" fill="#FFFFFF" />
 <rect x="55" y="97" width="1" height="1" fill="#FFFFFF" />
 <rect x="56" y="97" width="1" height="1" fill="#FFFFFF" />
-<rect x="18" y="98" width="1" height="1" fill="#FFFFFF" />
 <rect x="19" y="98" width="1" height="1" fill="#FFFFFF" />
 <rect x="20" y="98" width="1" height="1" fill="#FFFFFF" />
 <rect x="21" y="98" width="1" height="1" fill="#FFFFFF" />
@@ -2529,6 +2526,7 @@
 <rect x="22" y="99" width="1" height="1" fill="#FFFFFF" />
 <rect x="23" y="99" width="1" height="1" fill="#FFFFFF" />
 <rect x="24" y="99" width="1" height="1" fill="#FFFFFF" />
+<rect x="25" y="99" width="1" height="1" fill="#FFFFFF" />
 <rect x="41" y="99" width="1" height="1" fill="#FFFFFF" />
 <rect x="42" y="99" width="1" height="1" fill="#FFFFFF" />
 <rect x="43" y="99" width="1" height="1" fill="#FFFFFF" />
@@ -2549,6 +2547,9 @@
 <rect x="19" y="100" width="1" height="1" fill="#FFFFFF" />
 <rect x="20" y="100" width="1" height="1" fill="#FFFFFF" />
 <rect x="21" y="100" width="1" height="1" fill="#FFFFFF" />
+<rect x="22" y="100" width="1" height="1" fill="#FFFFFF" />
+<rect x="23" y="100" width="1" height="1" fill="#FFFFFF" />
+<rect x="24" y="100" width="1" height="1" fill="#FFFFFF" />
 <rect x="41" y="100" width="1" height="1" fill="#FFFFFF" />
 <rect x="42" y="100" width="1" height="1" fill="#FFFFFF" />
 <rect x="43" y="100" width="1" height="1" fill="#FFFFFF" />
