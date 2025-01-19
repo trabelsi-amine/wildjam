@@ -1,12 +1,11 @@
-[gd_scene load_steps=39 format=4 uid="uid://bbwnfyaas3cam"]
+[gd_scene load_steps=30 format=4 uid="uid://bbwnfyaas3cam"]
 
 [ext_resource type="Texture2D" uid="uid://c3kb4oqyo5as1" path="res://assets/art/tileset.png" id="1_5n2bd"]
 [ext_resource type="PackedScene" uid="uid://b4ob8mrd1h661" path="res://scenes/UI/player_interface.tscn" id="3_pcd5y"]
 [ext_resource type="Texture2D" uid="uid://bgyccqvosj4ab" path="res://assets/art/tileset-export.png" id="4_5xv4k"]
+[ext_resource type="PackedScene" uid="uid://b5865cpxmph88" path="res://scenes/player.tscn" id="5_0ilil"]
 [ext_resource type="Script" path="res://scenes/Rooms/area_2d.gd" id="5_7voe6"]
 [ext_resource type="Script" path="res://scripts/player_tuto.gd" id="5_sve5i"]
-[ext_resource type="Texture2D" uid="uid://db2qiyp1wm1d8" path="res://assets/art/greenmf-Sheet.svg" id="6_g3jij"]
-[ext_resource type="PackedScene" uid="uid://caqqla661kljd" path="res://scenes/water.tscn" id="7_wtbft"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_y1spa"]
 polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -134,105 +133,10 @@ physics_layer_0/collision_mask = 0
 sources/0 = SubResource("TileSetAtlasSource_rqfef")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3sy8r"]
-size = Vector2(68.9286, 140.357)
+size = Vector2(29.4643, 159.464)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0lq8h"]
 size = Vector2(208.571, 20)
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_o61xa"]
-radius = 60.0
-height = 120.0
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_efnd6"]
-size = Vector2(64, 8)
-
-[sub_resource type="Animation" id="Animation_i6vxa"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame_coords")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [Vector2i(0, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_5oipw"]
-resource_name = "fall"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame_coords")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [Vector2i(1, 3)]
-}
-
-[sub_resource type="Animation" id="Animation_qaibj"]
-resource_name = "idl"
-length = 0.6
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame_coords")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [Vector2i(0, 0), Vector2i(1, 0), Vector2i(2, 0), Vector2i(3, 0), Vector2i(0, 1), Vector2i(1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_6qygw"]
-resource_name = "jump"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame_coords")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.0333333),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [Vector2i(3, 2), Vector2i(0, 3)]
-}
-
-[sub_resource type="Animation" id="Animation_fl6gd"]
-resource_name = "run"
-length = 0.4
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame_coords")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.0666667, 0.133333, 0.2, 0.266667),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 1,
-"values": [Vector2i(2, 1), Vector2i(3, 1), Vector2i(0, 2), Vector2i(1, 2), Vector2i(2, 2)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_15euc"]
-_data = {
-"RESET": SubResource("Animation_i6vxa"),
-"fall": SubResource("Animation_5oipw"),
-"idle": SubResource("Animation_qaibj"),
-"jump": SubResource("Animation_6qygw"),
-"run": SubResource("Animation_fl6gd")
-}
 
 [node name="BaseRoom" type="Node2D"]
 
@@ -271,11 +175,11 @@ position = Vector2(735, 507)
 scale = Vector2(2.8, 2.8)
 
 [node name="Area2D" type="Area2D" parent="lightmaker"]
-position = Vector2(-32.1429, -75.7143)
+position = Vector2(11.7857, -135)
 script = ExtResource("5_7voe6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="lightmaker/Area2D"]
-position = Vector2(28.2143, -49.8214)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_3sy8r")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="lightmaker"]
@@ -289,39 +193,9 @@ texture = ExtResource("4_5xv4k")
 region_enabled = true
 region_rect = Rect2(3.08951, 239.184, 330.217, 116.846)
 
-[node name="Player" type="CharacterBody2D" parent="." groups=["Player"]]
-modulate = Color(0.458824, 0.698039, 0, 1)
-position = Vector2(94, 601)
-scale = Vector2(0.35, 0.35)
+[node name="Player" parent="." instance=ExtResource("5_0ilil")]
+position = Vector2(0, 318)
 script = ExtResource("5_sve5i")
-
-[node name="Sprite2D" type="Sprite2D" parent="Player"]
-position = Vector2(2, -76)
-scale = Vector2(4.79032, 4.79032)
-texture = ExtResource("6_g3jij")
-hframes = 4
-vframes = 4
-region_rect = Rect2(0, 0, 33.0734, 31.1877)
-
-[node name="Water" parent="Player" instance=ExtResource("7_wtbft")]
-position = Vector2(1, -63)
-scale = Vector2(2.72, 2.72)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-position = Vector2(0, -64)
-shape = SubResource("CapsuleShape2D_o61xa")
-metadata/_edit_lock_ = true
-
-[node name="LiquidCollision" type="CollisionShape2D" parent="Player"]
-position = Vector2(0, -64)
-shape = SubResource("RectangleShape2D_efnd6")
-disabled = true
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Player"]
-libraries = {
-"": SubResource("AnimationLibrary_15euc")
-}
-autoplay = "idle"
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
 position = Vector2(547, 621)
