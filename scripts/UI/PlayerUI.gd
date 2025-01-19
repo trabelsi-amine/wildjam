@@ -28,12 +28,9 @@ func _process(delta: float) -> void:
 	RunTimer(delta)
 	DetectInterfaceInput()
 	ProcessShortcuts()
-<<<<<<< HEAD
 	SendTimeToLevelManager()
-=======
 	if(Input.is_action_just_pressed("restart")):
 		get_tree().reload_current_scene()
->>>>>>> origin/main
 
 func ShowInformationUI():
 	ShowTime()
