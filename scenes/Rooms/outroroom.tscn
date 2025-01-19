@@ -6,10 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://b5865cpxmph88" path="res://scenes/player.tscn" id="5_0ilil"]
 [ext_resource type="Script" path="res://scenes/Rooms/area_2d.gd" id="5_7voe6"]
 [ext_resource type="Script" path="res://scripts/player_tuto.gd" id="5_sve5i"]
-<<<<<<< HEAD
 [ext_resource type="Texture2D" uid="uid://bjmplf6aevlrw" path="res://I-get-u-receive.png" id="8_d858i"]
-=======
->>>>>>> origin/main
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_y1spa"]
 polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -183,10 +180,7 @@ position = Vector2(11.7857, -135)
 script = ExtResource("5_7voe6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="lightmaker/Area2D"]
-<<<<<<< HEAD
 position = Vector2(-34.2857, 1.42857)
-=======
->>>>>>> origin/main
 shape = SubResource("RectangleShape2D_3sy8r")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="lightmaker"]
@@ -213,7 +207,6 @@ gravity = Vector2(0, -980)
 scale_amount_max = 4.0
 color = Color(1, 0.956863, 0, 1)
 
-<<<<<<< HEAD
 [node name="I-get-u-receive" type="Sprite2D" parent="."]
 position = Vector2(1143, 73)
 scale = Vector2(0.163953, 0.163953)
@@ -232,6 +225,4 @@ to become our light.
 horizontal_alignment = 1
 vertical_alignment = 1
 
-=======
->>>>>>> origin/main
 [connection signal="body_entered" from="lightmaker/Area2D" to="lightmaker/Area2D" method="_on_body_entered"]
