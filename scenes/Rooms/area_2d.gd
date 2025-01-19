@@ -2,6 +2,7 @@ extends Area2D
 
 var instance = preload("res://scenes/jeremiahbutgravity.tscn")
 @onready var base_room: Node2D = $"../.."
+@onready var camera_2d: Camera2D = $"../../Camera2D"
 
 var flag = false
 
