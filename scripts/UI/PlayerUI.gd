@@ -2,6 +2,7 @@ class_name PlayerUI
 extends Control
 
 @onready var state: Label = $State
+@onready var audio: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 var player = null
 var time:float
@@ -24,6 +25,8 @@ func _process(delta: float) -> void:
 	RunTimer(delta)
 	DetectInterfaceInput()
 	ProcessShortcuts()
+	if(Input.is_action_just_pressed("restart")):
+		get_tree().reload_current_scene()
 
 func ShowInformationUI():
 	ShowTime()
@@ -41,6 +44,7 @@ func ProcessShortcuts():
 
 ## You can use this function for player's death.
 func SpottedScreen():
+	audio.play()
 	$Spotted.show()
 	$Pause.hide()
 	$State.hide()

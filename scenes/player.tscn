@@ -154,9 +154,11 @@ autoplay = "idle"
 
 [node name="jump" type="AudioStreamPlayer2D" parent="."]
 stream = SubResource("AudioStreamRandomizer_pgkb7")
+volume_db = 1.0
 
 [node name="transform" type="AudioStreamPlayer2D" parent="."]
 stream = SubResource("AudioStreamRandomizer_jensw")
+volume_db = -14.857
 
 [node name="DetectPushing" type="RayCast2D" parent="."]
 position = Vector2(0, -64)

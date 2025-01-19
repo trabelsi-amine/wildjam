@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://b4ob8mrd1h661"]
+[gd_scene load_steps=25 format=3 uid="uid://b4ob8mrd1h661"]
 
 [ext_resource type="FontFile" uid="uid://w45sjqaw4e7a" path="res://assets/fonts/Minimal3x5.ttf" id="1_4ri1q"]
 [ext_resource type="Script" path="res://scripts/UI/PlayerUI.gd" id="1_td86v"]
@@ -6,6 +6,10 @@
 [ext_resource type="FontFile" uid="uid://02q74hthmcin" path="res://assets/fonts/Minimal5x7.ttf" id="3_owu2w"]
 [ext_resource type="Theme" uid="uid://c2r4qq72a3g3x" path="res://assets/tres/MainTheme.tres" id="5_xvnl1"]
 [ext_resource type="PackedScene" uid="uid://ohiqqbrbmf2x" path="res://scenes/UI/main_menu.tscn" id="6_kb6rk"]
+[ext_resource type="AudioStream" uid="uid://cs44y6t3bei4b" path="res://sfx/loss.wav" id="7_grj70"]
+[ext_resource type="AudioStream" uid="uid://oxch6vuc5i5x" path="res://sfx/loss2.wav" id="8_a4kth"]
+[ext_resource type="AudioStream" uid="uid://dsme7mwywkq7a" path="res://sfx/loss3.wav" id="9_ejl5c"]
+[ext_resource type="AudioStream" uid="uid://bofasur0xy80x" path="res://sfx/loss4.wav" id="10_s5pp8"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0b1up"]
 
@@ -76,6 +80,13 @@ border_width_right = 130
 border_width_bottom = 130
 border_color = Color(1, 0, 0, 0.152941)
 border_blend = true
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_wb47e"]
+streams_count = 4
+stream_0/stream = ExtResource("7_grj70")
+stream_1/stream = ExtResource("8_a4kth")
+stream_2/stream = ExtResource("9_ejl5c")
+stream_3/stream = ExtResource("10_s5pp8")
 
 [node name="PlayerInterface" type="Control"]
 process_mode = 3
@@ -190,7 +201,7 @@ theme_type_variation = &"FilledButton"
 theme_override_fonts/font = ExtResource("3_owu2w")
 theme_override_font_sizes/font_size = 36
 theme_override_styles/focus = SubResource("StyleBoxEmpty_itlhc")
-text = "RESUME [R]"
+text = "RESUME"
 
 [node name="Restart" type="Button" parent="Pause/PauseMenu/TitleButtons/Buttons"]
 process_mode = 3
@@ -282,6 +293,9 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_2gipb")
 [node name="MainMenu" parent="." instance=ExtResource("6_kb6rk")]
 visible = false
 layout_mode = 1
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_wb47e")
 
 [connection signal="pressed" from="Pause/PauseMenu/TitleButtons/Buttons/Resume" to="." method="ClosePause"]
 [connection signal="button_up" from="Pause/PauseMenu/TitleButtons/Buttons/Restart" to="." method="_on_restart_button_up"]
