@@ -14,12 +14,12 @@ var MainMenu:bool = true
 var Score:float
 var MainScore:float
 
-func _process(delta: float) -> void:
-	print(CurrentLevelIndex)
+#func _process(delta: float) -> void:
+	#print(CurrentLevelIndex)
 
 func NextLevel():
 	CurrentLevelIndex = CurrentLevelIndex + 1
-	print(Levels[CurrentLevelIndex])
+	#print(Levels[CurrentLevelIndex])
 	call_deferred("NLDeffered")
 
 func EndAndSubmit():

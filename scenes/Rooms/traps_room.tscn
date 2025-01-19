@@ -187,14 +187,6 @@ position = Vector2(111, 305)
 position = Vector2(916, 559)
 pressure_plate = NodePath("../PressurePlate")
 
-[node name="Label" type="Label" parent="Environment"]
-offset_left = 989.0
-offset_top = 514.0
-offset_right = 1087.0
-offset_bottom = 581.0
-theme_override_font_sizes/font_size = 48
-text = "EXIT"
-
 [node name="Fan" parent="Environment" instance=ExtResource("5_o20jt")]
 position = Vector2(624, 75)
 rotation = 1.5708
