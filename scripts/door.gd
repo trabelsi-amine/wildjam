@@ -3,6 +3,7 @@ extends StaticBody2D
 @export var pressure_plate : PressurePlate
 
 @onready var sprite = $Sprite2D
+@onready var occluder = $LightOccluder2D
 @onready var collision = $CollisionShape2D
 
 var open = false
@@ -19,9 +20,11 @@ func _process(_delta):
 func open_door():
 	open = true
 	sprite.visible = false
+	occluder.visible = false
 	collision.disabled = true
 
 func close_door():
 	open = false
 	sprite.visible = true
+	occluder.visible = true
 	collision.disabled = false
