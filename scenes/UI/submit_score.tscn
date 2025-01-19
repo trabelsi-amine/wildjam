@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://blf2icw4wfst6"]
+[gd_scene load_steps=9 format=3 uid="uid://blf2icw4wfst6"]
 
 [ext_resource type="FontFile" uid="uid://02q74hthmcin" path="res://assets/fonts/Minimal5x7.ttf" id="1_7ie4l"]
 [ext_resource type="Script" path="res://scripts/submit_score.gd" id="1_hm8k3"]
@@ -28,6 +28,9 @@ corner_radius_top_left = 25
 corner_radius_top_right = 25
 corner_radius_bottom_right = 25
 corner_radius_bottom_left = 25
+
+[sub_resource type="LabelSettings" id="LabelSettings_wxtqw"]
+font_size = 61
 
 [node name="SubmitScore" type="Control"]
 layout_mode = 3
@@ -115,6 +118,24 @@ text = "Return to the menu"
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Submit"
+
+[node name="Loading" type="PanelContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Loading"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_type_variation = &"M57Label"
+text = "Loading..."
+label_settings = SubResource("LabelSettings_wxtqw")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="pressed" from="MainPanel/MainMargin/MainElements/Elements/MarginContainer/Actions/Return" to="." method="Return"]
 [connection signal="pressed" from="MainPanel/MainMargin/MainElements/Elements/MarginContainer/Actions/Submit" to="." method="Submit"]

@@ -8,6 +8,9 @@ var time:float
 var TimerEnabled := true
 var CurrentUIOpened := ""
 
+func SendTimeToLevelManager():
+	(get_tree().root.get_node("LevelManager") as LevelManager).Score = time
+
 func _ready():
 	get_tree().paused = false
 	set_player_ref()
@@ -24,6 +27,7 @@ func _process(delta: float) -> void:
 	RunTimer(delta)
 	DetectInterfaceInput()
 	ProcessShortcuts()
+	SendTimeToLevelManager()
 
 func ShowInformationUI():
 	ShowTime()

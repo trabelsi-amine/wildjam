@@ -50,7 +50,6 @@ func _process(delta):
 	camera.offset = get_random_offset()
 
 func _physics_process(delta: float) -> void:
-	if (get_tree().paused): return
 	# Set new state according to key pressed
 	if Input.is_action_just_pressed("Solid") and current_state != STATES.Solid:
 		change_state(STATES.Solid)

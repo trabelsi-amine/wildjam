@@ -1,6 +1,7 @@
 extends Control
 
 func Submit() -> void:
+	$Loading.show()
 	(get_tree().root.get_node("LootLocker") as LootLocker).Returner = ChangeName
 	(get_tree().root.get_node("LootLocker") as LootLocker).Register()
 
@@ -11,7 +12,7 @@ func ChangeName():
 
 func SubmitScore():
 	(get_tree().root.get_node("LootLocker") as LootLocker).Returner = Return
-	(get_tree().root.get_node("LootLocker") as LootLocker).SubmitScore((get_tree().root.get_node("LootLocker") as LootLocker).CurrentToken,snapped((get_tree().root.get_node("LevelManager") as LevelManager).Score,1))
+	(get_tree().root.get_node("LootLocker") as LootLocker).SubmitScore((get_tree().root.get_node("LootLocker") as LootLocker).CurrentToken,snapped((get_tree().root.get_node("LevelManager") as LevelManager).MainScore,1))
 
 func Return() -> void:
 	(get_tree().root.get_node("LevelManager") as LevelManager).MainMenu = true
