@@ -12,6 +12,7 @@ func _process(delta: float) -> void:
 	print(CurrentLevelIndex)
 
 func NextLevel():
+<<<<<<< HEAD
 	CurrentLevelIndex = CurrentLevelIndex + 1
 	print(Levels[CurrentLevelIndex])
 	call_deferred("NLDeffered")
@@ -21,17 +22,22 @@ func EndAndSubmit():
 	get_tree().change_scene_to_file("res://scenes/UI/submit_score.tscn")
 
 func NLDeffered():
+=======
+	CurrentLevelIndex += 1
+>>>>>>> origin/main
 	get_tree().change_scene_to_file(Levels[CurrentLevelIndex])
 
 func KillPlayer():
 	get_tree().current_scene.get_node("Player").queue_free()
-	(get_tree().current_scene.get_node("PlayerInterfaceCanvas/PlayerInterface") as PlayerUI).SpottedScreen()
+	(get_tree().current_scene.get_node("PlayerInterfaceCanvas/PlayerInterface") as PlayerUI)
 
 func Restart():
-	get_tree().paused = false
 	CurrentLevelIndex = -1
 	NextLevel()
+<<<<<<< HEAD
 
 func RestartLvl():
 	get_tree().paused = false
 	NextLevel()
+=======
+>>>>>>> origin/main

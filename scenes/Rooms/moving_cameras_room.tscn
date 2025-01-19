@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=4 uid="uid://dkcwk3e3c2mxe"]
+[gd_scene load_steps=32 format=4 uid="uid://dkcwk3e3c2mxe"]
 
 [ext_resource type="Script" path="res://scenes/Rooms/follow_path.gd" id="1_dwolr"]
 [ext_resource type="Texture2D" uid="uid://c3kb4oqyo5as1" path="res://assets/art/tileset.png" id="1_h8el4"]
@@ -9,7 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://dvd062gxtl3qe" path="res://scenes/fan.tscn" id="3_d7n30"]
 [ext_resource type="PackedScene" uid="uid://cut0ygf3l1tby" path="res://scenes/grate.tscn" id="6_vgyon"]
 [ext_resource type="Texture2D" uid="uid://bel1iv8ljf8o7" path="res://assets/art/tileset-export.svg" id="9_2kyuk"]
-[ext_resource type="PackedScene" uid="uid://uvjddn78s7sr" path="res://scenes/next_level.tscn" id="10_7e4ft"]
 
 [sub_resource type="Curve2D" id="Curve2D_uslq0"]
 _data = {
@@ -291,11 +290,8 @@ offset_left = 1022.0
 offset_top = 493.0
 offset_right = 1120.0
 offset_bottom = 560.0
-theme_type_variation = &"M35Label"
 theme_override_font_sizes/font_size = 48
 text = "EXIT"
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="TileMap3" type="TileMapLayer" parent="."]
 scale = Vector2(2.79, 2.79)
@@ -493,6 +489,3 @@ scale = Vector2(3.17399, 3.17399)
 texture = ExtResource("9_2kyuk")
 region_enabled = true
 region_rect = Rect2(148.318, 122.007, 49.6412, 10.7916)
-
-[node name="NextLevel" parent="." instance=ExtResource("10_7e4ft")]
-position = Vector2(1068, 533)

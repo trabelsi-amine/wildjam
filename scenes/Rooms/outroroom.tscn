@@ -1,0 +1,337 @@
+[gd_scene load_steps=39 format=4 uid="uid://bbwnfyaas3cam"]
+
+[ext_resource type="Texture2D" uid="uid://c3kb4oqyo5as1" path="res://assets/art/tileset.png" id="1_5n2bd"]
+[ext_resource type="PackedScene" uid="uid://b4ob8mrd1h661" path="res://scenes/UI/player_interface.tscn" id="3_pcd5y"]
+[ext_resource type="Texture2D" uid="uid://bgyccqvosj4ab" path="res://assets/art/tileset-export.png" id="4_5xv4k"]
+[ext_resource type="Script" path="res://scenes/Rooms/area_2d.gd" id="5_7voe6"]
+[ext_resource type="Script" path="res://scripts/player_tuto.gd" id="5_sve5i"]
+[ext_resource type="Texture2D" uid="uid://db2qiyp1wm1d8" path="res://assets/art/greenmf-Sheet.svg" id="6_g3jij"]
+[ext_resource type="PackedScene" uid="uid://caqqla661kljd" path="res://scenes/water.tscn" id="7_wtbft"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_y1spa"]
+polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_nf8e2"]
+polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_iy4e7"]
+polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_f5oqx"]
+polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_720w6"]
+polygon = PackedVector2Array(-8, -8, 8, -8, 8, 1, -8, 1)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_6s37y"]
+polygon = PackedVector2Array(-8, -8, 8, -8, 8, 5, -8, 5)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_rmbre"]
+polygon = PackedVector2Array(-8, -8, 8, -8, 8, 5, -8, 5)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_utu6j"]
+polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_nlfpl"]
+polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_lpaiv"]
+polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_02vyh"]
+polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_rdxl8"]
+polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_egqvn"]
+polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_bfrjm"]
+polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_8arh4"]
+polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_qclh3"]
+polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_q46ee"]
+polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_j2i2k"]
+polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_g7mso"]
+polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rqfef"]
+texture = ExtResource("1_5n2bd")
+0:2/0 = 0
+0:2/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_y1spa")
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 8, 8, 8, 8, -8, -2.125, -8, -8, -1.5)
+1:2/0 = 0
+1:2/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_utu6j")
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 8, 8, 8, 8, -8, -8, -8)
+2:2/0 = 0
+2:2/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_rdxl8")
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 8, 8, 8, 8, -8, -8, -8)
+3:2/0 = 0
+3:2/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_qclh3")
+3:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 8, 8, 8, 8, -2, 1.875, -8, -8, -8)
+0:3/0 = 0
+0:3/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_nf8e2")
+0:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 8, 8, 8, 8, -8, -8, -8)
+1:3/0 = 0
+1:3/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_nlfpl")
+1:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 8, 8, 8, 8, -8, -8, -8)
+2:3/0 = 0
+2:3/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_egqvn")
+2:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 8, 8, 8, 8, -8, -8, -8)
+3:3/0 = 0
+3:3/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_q46ee")
+3:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 8, 8, 8, 8, -8, -8, -8)
+0:4/0 = 0
+0:4/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_iy4e7")
+0:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 8, 8, 8, 8, -8, -8, -8)
+1:4/0 = 0
+1:4/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_lpaiv")
+1:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 8, 8, 8, 8, -8, -8, -8)
+2:4/0 = 0
+2:4/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_bfrjm")
+2:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 8, 8, 8, 8, -8, -8, -8)
+3:4/0 = 0
+3:4/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_j2i2k")
+3:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 8, 8, 8, 8, -8, -8, -8)
+0:5/0 = 0
+0:5/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_f5oqx")
+0:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, 8, 8, -8, -8, -8, -8, 1.875, -1.75, 8)
+1:5/0 = 0
+1:5/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_02vyh")
+1:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 8, 8, 8, 8, -8, -8, -8)
+2:5/0 = 0
+2:5/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_8arh4")
+2:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 8, 8, 8, 8, -8, -8, -8)
+3:5/0 = 0
+3:5/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_g7mso")
+3:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 8, 2.125, 8, 8, 1.875, 8, -8, -8, -8)
+15:4/0 = 0
+15:4/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_6s37y")
+15:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 4.5, -8, 4.5)
+16:4/0 = 0
+16:4/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_rmbre")
+16:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 4.5, -8, 4.5)
+13:2/0 = 0
+13:2/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_720w6")
+13:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 0.875, 8, 1, 8, -8, -8, -8)
+14:2/0 = 0
+14:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, -4.125, -8, -4.125)
+
+[sub_resource type="TileSet" id="TileSet_oe4df"]
+occlusion_layer_0/light_mask = 1
+physics_layer_0/collision_layer = 7
+physics_layer_0/collision_mask = 0
+sources/0 = SubResource("TileSetAtlasSource_rqfef")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3sy8r"]
+size = Vector2(68.9286, 140.357)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0lq8h"]
+size = Vector2(208.571, 20)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_o61xa"]
+radius = 60.0
+height = 120.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_efnd6"]
+size = Vector2(64, 8)
+
+[sub_resource type="Animation" id="Animation_i6vxa"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_5oipw"]
+resource_name = "fall"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(1, 3)]
+}
+
+[sub_resource type="Animation" id="Animation_qaibj"]
+resource_name = "idl"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 0), Vector2i(1, 0), Vector2i(2, 0), Vector2i(3, 0), Vector2i(0, 1), Vector2i(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_6qygw"]
+resource_name = "jump"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Vector2i(3, 2), Vector2i(0, 3)]
+}
+
+[sub_resource type="Animation" id="Animation_fl6gd"]
+resource_name = "run"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.133333, 0.2, 0.266667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(2, 1), Vector2i(3, 1), Vector2i(0, 2), Vector2i(1, 2), Vector2i(2, 2)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_15euc"]
+_data = {
+"RESET": SubResource("Animation_i6vxa"),
+"fall": SubResource("Animation_5oipw"),
+"idle": SubResource("Animation_qaibj"),
+"jump": SubResource("Animation_6qygw"),
+"run": SubResource("Animation_fl6gd")
+}
+
+[node name="BaseRoom" type="Node2D"]
+
+[node name="BGColor" type="ColorRect" parent="."]
+modulate = Color(0.423529, 0.486275, 0.564706, 1)
+offset_left = -88.0
+offset_top = -48.0
+offset_right = 1064.0
+offset_bottom = 712.0
+scale = Vector2(1.16, 1)
+color = Color(0.14085, 0.179045, 0.234559, 1)
+
+[node name="Environment" type="Node2D" parent="."]
+
+[node name="RespawnMarker" type="Marker2D" parent="Environment"]
+position = Vector2(0, 320)
+
+[node name="TileMap3" type="TileMapLayer" parent="."]
+scale = Vector2(2.79, 2.79)
+tile_map_data = PackedByteArray("AAAAAAgAAAABAAIAAAABAAgAAAABAAIAAAACAAgAAAABAAIAAAADAAgAAAABAAIAAAAEAAgAAAABAAIAAAAFAAgAAAABAAIAAAAGAAgAAAABAAIAAAAHAAgAAAABAAIAAAAIAAgAAAABAAIAAAAAAAkAAAACAAQAAAABAAkAAAACAAQAAAACAAkAAAACAAQAAAADAAkAAAACAAQAAAAEAAkAAAACAAQAAAAFAAkAAAACAAQAAAAGAAkAAAACAAQAAAAHAAkAAAACAAQAAAAIAAkAAAACAAQAAAAEAAsAAAACAAMAAAAFAAoAAAACAAMAAAAFAAsAAAACAAMAAAAOAAwAAAACAAMAAAARAAsAAAACAAMAAAAWAAoAAAACAAMAAAAYAAoAAAACAAMAAAAYAAsAAAACAAMAAAAVAAkAAAACAAMAAAAWAAkAAAACAAMAAAAXAAkAAAACAAMAAAAYAAkAAAACAAMAAAAZAAkAAAACAAMAAAAaAAkAAAACAAMAAAAbAAkAAAACAAMAAAAVAAgAAAACAAMAAAAWAAgAAAACAAMAAAAXAAgAAAACAAMAAAAYAAgAAAACAAMAAAAZAAgAAAACAAMAAAAaAAgAAAACAAMAAAABAA0AAAACAAMAAAACAA0AAAACAAMAAAACAA4AAAACAAMAAAAJAA0AAAACAAMAAAANAAoAAAACAAMAAAAWAA0AAAACAAMAAAAZAA0AAAACAAMAAAAAAAsAAAACAAMAAAD+/wgAAAABAAIAAAD//wgAAAABAAIAAAD//wkAAAABAAMAAAD+/wkAAAABAAMAAAD9/wgAAAADAAQAAAD9/wcAAAADAAQAAAD9/wYAAAADAAQAAAD9/wUAAAADAAQAAAD9/wQAAAADAAQAAAD9/wMAAAADAAQAAAD9/wIAAAADAAQAAAD9/wEAAAADAAQAAAA=")
+tile_set = SubResource("TileSet_oe4df")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(579, 328)
+zoom = Vector2(0.885, 0.885)
+
+[node name="PlayerInterfaceCanvas" type="CanvasLayer" parent="."]
+layer = 3
+
+[node name="PlayerInterface" parent="PlayerInterfaceCanvas" instance=ExtResource("3_pcd5y")]
+process_mode = 0
+metadata/_edit_lock_ = true
+
+[node name="lightmaker" type="StaticBody2D" parent="."]
+position = Vector2(735, 507)
+scale = Vector2(2.8, 2.8)
+
+[node name="Area2D" type="Area2D" parent="lightmaker"]
+position = Vector2(-32.1429, -75.7143)
+script = ExtResource("5_7voe6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="lightmaker/Area2D"]
+position = Vector2(28.2143, -49.8214)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_3sy8r")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="lightmaker"]
+position = Vector2(-18.5714, -43.5714)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_0lq8h")
+
+[node name="Sprite2D" type="Sprite2D" parent="lightmaker"]
+position = Vector2(2.30332, 4.63219)
+scale = Vector2(1.02284, 1.02284)
+texture = ExtResource("4_5xv4k")
+region_enabled = true
+region_rect = Rect2(3.08951, 239.184, 330.217, 116.846)
+
+[node name="Player" type="CharacterBody2D" parent="." groups=["Player"]]
+modulate = Color(0.458824, 0.698039, 0, 1)
+position = Vector2(94, 601)
+scale = Vector2(0.35, 0.35)
+script = ExtResource("5_sve5i")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+position = Vector2(2, -76)
+scale = Vector2(4.79032, 4.79032)
+texture = ExtResource("6_g3jij")
+hframes = 4
+vframes = 4
+region_rect = Rect2(0, 0, 33.0734, 31.1877)
+
+[node name="Water" parent="Player" instance=ExtResource("7_wtbft")]
+position = Vector2(1, -63)
+scale = Vector2(2.72, 2.72)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(0, -64)
+shape = SubResource("CapsuleShape2D_o61xa")
+metadata/_edit_lock_ = true
+
+[node name="LiquidCollision" type="CollisionShape2D" parent="Player"]
+position = Vector2(0, -64)
+shape = SubResource("RectangleShape2D_efnd6")
+disabled = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Player"]
+libraries = {
+"": SubResource("AnimationLibrary_15euc")
+}
+autoplay = "idle"
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(547, 621)
+amount = 40
+emission_shape = 3
+emission_rect_extents = Vector2(2000, 1)
+gravity = Vector2(0, -980)
+scale_amount_max = 4.0
+color = Color(1, 0.956863, 0, 1)
+
+[connection signal="body_entered" from="lightmaker/Area2D" to="lightmaker/Area2D" method="_on_body_entered"]

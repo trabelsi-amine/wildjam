@@ -233,10 +233,7 @@ func manage_anims():
 			if col.is_in_group("MovableBox") and current_state == STATES.Solid:
 				playerSprite.visible = false
 				pushing.visible = true
-			else:
-				playerSprite.visible = true
-				pushing.visible = false
-		else:
+		elif current_state == STATES.Solid:
 			playerSprite.visible = true
 			pushing.visible = false
 		
@@ -245,8 +242,9 @@ func manage_anims():
 		else:
 			anim.play("run")
 	else:
-		playerSprite.visible = true
-		pushing.visible = false
+		if current_state == STATES.Solid:
+			playerSprite.visible = true
+			pushing.visible = false
 		if velocity.y < 0:
 			anim.play("jump")
 		else:

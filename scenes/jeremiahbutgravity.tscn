@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://cjp5oyrjhdq0a"]
+
+[ext_resource type="PackedScene" uid="uid://d1cjeghsy64a" path="res://scenes/transformingjeremiah.tscn" id="1_gav84"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y8owi"]
+
+[node name="Jeremiahbutgravity" type="RigidBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_y8owi")
+
+[node name="transformingjeremiah" parent="." instance=ExtResource("1_gav84")]
