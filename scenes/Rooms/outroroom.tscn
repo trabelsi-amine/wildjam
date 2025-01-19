@@ -276,12 +276,10 @@ script = ExtResource("5_7voe6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="lightmaker/Area2D"]
 position = Vector2(28.2143, -49.8214)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_3sy8r")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="lightmaker"]
 position = Vector2(-18.5714, -43.5714)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_0lq8h")
 
 [node name="Sprite2D" type="Sprite2D" parent="lightmaker"]

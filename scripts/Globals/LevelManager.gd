@@ -21,6 +21,10 @@ func EndAndSubmit():
 	get_tree().change_scene_to_file("res://scenes/UI/submit_score.tscn")
 
 func NLDeffered():
+<<<<<<< HEAD
+=======
+	CurrentLevelIndex += 1
+>>>>>>> origin/main
 	get_tree().change_scene_to_file(Levels[CurrentLevelIndex])
 
 func KillPlayer():
