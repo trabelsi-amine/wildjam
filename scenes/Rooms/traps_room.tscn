@@ -549,4 +549,4 @@ region_enabled = true
 region_rect = Rect2(190.849, 141.864, 64.8086, 17.6886)
 
 [node name="NextLevel" parent="." instance=ExtResource("11_xt0v7")]
-position = Vector2(426, 27)
+position = Vector2(1058, 567)

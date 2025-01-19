@@ -25,7 +25,11 @@ var ok_color = Color.SEA_GREEN
 var hit_color = Color.FIREBRICK
 
 func _ready():
+	set_physics_process(false)
 	look_at(target.global_position)
+	
+	await get_tree().create_timer(0.5).timeout
+	set_physics_process(false)
 	#set_player_ref()
 #
 #func set_player_ref():
