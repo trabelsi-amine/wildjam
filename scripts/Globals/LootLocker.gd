@@ -1,12 +1,12 @@
 extends Node
 
 var Request:HTTPRequest
-var GameKey := "dev_341429c8f61b47a78dd1b24dc0dc2b23" #<- This is testing code. Real:"prod_5252f7a22f944b08ae30f8ea1dde1db0"
-var DomainKey := "731g6j8c" #<- This is testing code. Real: 4ct5pfp1
+var GameKey := "prod_5252f7a22f944b08ae30f8ea1dde1db0" #<- This is testing code. Real:"prod_5252f7a22f944b08ae30f8ea1dde1db0"
+var DomainKey := "4ct5pfp1" #<- This is testing code. Real: 4ct5pfp1
 var GameVersion := "0.10.0.0"
 var Response
 var Returner:Callable
-var LeaderboardID := "26047" #<- This is testing code. Real: 27012
+var LeaderboardID := "27012" #<- This is testing code. Real: 27012
 var CurrentToken
 
 func _ready() -> void:
