@@ -1,10 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://ohiqqbrbmf2x"]
 
-<<<<<<< HEAD
 [ext_resource type="Script" path="res://scripts/UI/main_menu.gd" id="1_0lc3q"]
-=======
-[ext_resource type="Script" path="res://scenes/UI/main_menu.gd" id="1_nxj64"]
->>>>>>> origin/main
 
 [sub_resource type="LabelSettings" id="LabelSettings_ka5ci"]
 font_size = 80
@@ -17,11 +13,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-<<<<<<< HEAD
 script = ExtResource("1_0lc3q")
-=======
-script = ExtResource("1_nxj64")
->>>>>>> origin/main
 
 [node name="MainPanel" type="PanelContainer" parent="."]
 layout_mode = 1
@@ -72,7 +64,7 @@ size_flags_horizontal = 4
 text = "drifter
 Lumii
 Noskire
-craftak4
+Codershi
 chillin with da boys
 
 "
@@ -98,12 +90,6 @@ layout_mode = 2
 size_flags_vertical = 3
 text = "QUIT"
 
-<<<<<<< HEAD
 [connection signal="pressed" from="MainPanel/MainMargin/MainElements/Bottom/Buttons/Play" to="." method="Play"]
 [connection signal="pressed" from="MainPanel/MainMargin/MainElements/Bottom/Buttons/Leaderboard" to="." method="Lead"]
 [connection signal="pressed" from="MainPanel/MainMargin/MainElements/Bottom/Buttons/Quit" to="." method="Quit"]
-=======
-[connection signal="button_up" from="MainPanel/MainMargin/MainElements/Bottom/Buttons/Play" to="." method="_on_play_button_up"]
-[connection signal="button_up" from="MainPanel/MainMargin/MainElements/Bottom/Buttons/Leaderboard" to="." method="_on_leaderboard_button_up"]
-[connection signal="button_up" from="MainPanel/MainMargin/MainElements/Bottom/Buttons/Quit" to="." method="_on_quit_button_up"]
->>>>>>> origin/main
