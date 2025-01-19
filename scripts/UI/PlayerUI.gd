@@ -39,7 +39,8 @@ func ShowInformationUI():
 func ProcessShortcuts():
 	match CurrentUIOpened:
 		"":
-			pass
+			if Input.is_key_pressed(KEY_R):
+				Restart()
 		"paused":
 			if Input.is_key_pressed(KEY_R):
 				ClosePause()

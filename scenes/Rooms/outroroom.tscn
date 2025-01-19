@@ -6,6 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://b5865cpxmph88" path="res://scenes/player.tscn" id="5_0ilil"]
 [ext_resource type="Script" path="res://scenes/Rooms/area_2d.gd" id="5_7voe6"]
 [ext_resource type="Script" path="res://scripts/player_tuto.gd" id="5_sve5i"]
+[ext_resource type="Texture2D" uid="uid://db2qiyp1wm1d8" path="res://assets/art/greenmf-Sheet.svg" id="6_g3jij"]
+[ext_resource type="PackedScene" uid="uid://caqqla661kljd" path="res://scenes/water.tscn" id="7_wtbft"]
+[ext_resource type="Texture2D" uid="uid://bjmplf6aevlrw" path="res://I-get-u-receive.png" id="8_d858i"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_y1spa"]
 polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -205,5 +208,10 @@ emission_rect_extents = Vector2(2000, 1)
 gravity = Vector2(0, -980)
 scale_amount_max = 4.0
 color = Color(1, 0.956863, 0, 1)
+
+[node name="I-get-u-receive" type="Sprite2D" parent="."]
+position = Vector2(1143, 73)
+scale = Vector2(0.163953, 0.163953)
+texture = ExtResource("8_d858i")
 
 [connection signal="body_entered" from="lightmaker/Area2D" to="lightmaker/Area2D" method="_on_body_entered"]

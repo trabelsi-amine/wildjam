@@ -270,15 +270,6 @@ position = Vector2(217, 356)
 [node name="MovableBox2" parent="Environment" instance=ExtResource("1_xnxq2")]
 position = Vector2(220, 178)
 
-[node name="Label" type="Label" parent="Environment"]
-top_level = true
-offset_left = 1009.0
-offset_top = 52.0
-offset_right = 1107.0
-offset_bottom = 119.0
-theme_override_font_sizes/font_size = 48
-text = "EXIT"
-
 [node name="SupportBlock" parent="Environment" instance=ExtResource("2_6drw7")]
 position = Vector2(436, 152)
 
