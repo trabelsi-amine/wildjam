@@ -1,5 +1,5 @@
-class_name Player
 extends CharacterBody2D
+class_name Player
 
 @export var rnd_shake_strength = 10.0
 @export var shake_decay_rate = 7.5

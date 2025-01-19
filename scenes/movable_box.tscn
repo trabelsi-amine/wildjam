@@ -3,13 +3,13 @@
 [ext_resource type="Texture2D" uid="uid://bel1iv8ljf8o7" path="res://assets/art/tileset-export.svg" id="1_7ft0j"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ogl3e"]
-polygon = PackedVector2Array(-32, 0, -32, -64, 32, -64, 32, 0)
+polygon = PackedVector2Array(-24, 0, -24, -50, 24, -50, 24, 0)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o6j7m"]
-size = Vector2(64, 32)
+size = Vector2(48, 32)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_26i4v"]
-radius = 32.0
+radius = 24.0
 
 [node name="MovableBox" type="RigidBody2D" groups=["MovableBox"]]
 collision_layer = 7
@@ -17,10 +17,9 @@ can_sleep = false
 lock_rotation = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(3.57628e-07, 169)
-scale = Vector2(3.44444, 3.15278)
+scale = Vector2(2.5, 2.5)
 texture = ExtResource("1_7ft0j")
-offset = Vector2(0, -64)
+offset = Vector2(0, -10)
 region_enabled = true
 region_rect = Rect2(90.0258, 75.8838, 18.9853, 20.2037)
 
@@ -29,11 +28,11 @@ occluder = SubResource("OccluderPolygon2D_ogl3e")
 metadata/_edit_lock_ = true
 
 [node name="TopCollision" type="CollisionShape2D" parent="."]
-position = Vector2(0, -48)
+position = Vector2(0, -34)
 shape = SubResource("RectangleShape2D_o6j7m")
 metadata/_edit_lock_ = true
 
 [node name="BotCollision" type="CollisionShape2D" parent="."]
-position = Vector2(0, -32)
+position = Vector2(0, -24)
 shape = SubResource("CircleShape2D_26i4v")
 metadata/_edit_lock_ = true

@@ -243,11 +243,9 @@ position = Vector2(264, 0)
 
 [node name="MovableBox" parent="Environment" instance=ExtResource("4_l5qxb")]
 position = Vector2(835, 131)
-scale = Vector2(0.68, 0.68)
 
 [node name="MovableBox2" parent="Environment" instance=ExtResource("4_l5qxb")]
 position = Vector2(228, 623)
-scale = Vector2(0.68, 0.68)
 
 [node name="camera" parent="Environment" instance=ExtResource("4_rkhj8")]
 position = Vector2(646, 63)
