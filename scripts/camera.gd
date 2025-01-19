@@ -6,6 +6,9 @@ extends Node2D
 # See example in main.tscn
 # This way, it is easier to set a target for the camera, without changing the saved scene
 
+# Limit rotation for the raycast (around 9º for each side)
+@export var light_angle = 0.15 #deg_to_rad(9.0)
+
 @onready var light = $PointLight2D
 @onready var ray: RayCast2D = $RayCast2D
 @onready var target: Marker2D = $Marker2D
@@ -14,8 +17,6 @@ extends Node2D
 var player = null
 # Used for look at the center of the player sprite instead of the bottom
 var player_offset = Vector2(0, -30)
-# Limit rotation for the raycast (around 9º for each side)
-var light_angle = 0.16 #deg_to_rad(9.0)
 # If true, change light color
 var seeing_player = false
 # Color when player is not being seen
@@ -57,10 +58,10 @@ func _physics_process(_delta: float) -> void:
 		
 		### DEBUG Only
 		#print(view_vec, " ", player_vec, " ", angle)
-		# Vector to the target
+		## Vector to the target
 		#$LineView.remove_point(1)
 		#$LineView.add_point(view_vec)
-		# Vector to the player
+		## Vector to the player
 		#$LinePlayer.remove_point(1)
 		#$LinePlayer.add_point(player_vec)
 		
@@ -85,7 +86,8 @@ func _physics_process(_delta: float) -> void:
 	# Sets the color of the light depending on whether the player is being seen or not
 	if seeing_player:
 		light.color = hit_color
-		player_interface.SpottedScreen()
-		get_tree().paused=true
+		print("hit")
+		#player_interface.SpottedScreen()
+		#get_tree().paused = true
 	else:
 		light.color = ok_color
