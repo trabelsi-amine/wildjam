@@ -272,7 +272,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_16hfh")
 theme_override_styles/hover = SubResource("StyleBoxFlat_dk3ed")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_0ilcq")
 theme_override_styles/normal = SubResource("StyleBoxFlat_gcjxn")
-text = "Respawn [R]"
+text = "Respawn"
 
 [node name="Return" type="Button" parent="Spotted/MarginContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2

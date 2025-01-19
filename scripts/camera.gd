@@ -29,7 +29,7 @@ func _ready():
 	look_at(target.global_position)
 	
 	await get_tree().create_timer(0.5).timeout
-	set_physics_process(false)
+	set_physics_process(true)
 	#set_player_ref()
 #
 #func set_player_ref():
