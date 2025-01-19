@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=4 uid="uid://lf3pxfoop8bm"]
+[gd_scene load_steps=35 format=4 uid="uid://lf3pxfoop8bm"]
 
 [ext_resource type="PackedScene" uid="uid://cmyjc4hlqgnx4" path="res://scenes/door.tscn" id="1_4mtlj"]
 [ext_resource type="Texture2D" uid="uid://dpuuap7w1cas" path="res://assets/art/bg01.svg" id="1_6k7bj"]
@@ -11,7 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://c7smasdv0hupn" path="res://scenes/support_block.tscn" id="8_58qom"]
 [ext_resource type="PackedScene" uid="uid://b4ob8mrd1h661" path="res://scenes/UI/player_interface.tscn" id="8_yjlxw"]
 [ext_resource type="Texture2D" uid="uid://bel1iv8ljf8o7" path="res://assets/art/tileset-export.svg" id="10_g7vue"]
-[ext_resource type="PackedScene" uid="uid://uvjddn78s7sr" path="res://scenes/next_level.tscn" id="12_75qfd"]
+[ext_resource type="FontFile" uid="uid://i4ecybfsrwct" path="res://assets/fonts/Minimal5x5Monospaced.ttf" id="12_pv2lm"]
+[ext_resource type="PackedScene" uid="uid://uvjddn78s7sr" path="res://scenes/next_level.tscn" id="13_62wwb"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_y1spa"]
 polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -473,5 +474,16 @@ texture = ExtResource("10_g7vue")
 region_enabled = true
 region_rect = Rect2(207.347, 122.339, 39.9647, 11.8707)
 
-[node name="NextLevel" parent="." instance=ExtResource("12_75qfd")]
-position = Vector2(1121, 492)
+[node name="Label" type="Label" parent="."]
+offset_left = 517.0
+offset_top = 391.0
+offset_right = 645.0
+offset_bottom = 439.0
+theme_override_colors/font_color = Color(0.458824, 0.698039, 0, 1)
+theme_override_fonts/font = ExtResource("12_pv2lm")
+text = "H TO SOLID
+J TO LIQUID
+K TO GAS"
+
+[node name="NextLevel" parent="." instance=ExtResource("13_62wwb")]
+position = Vector2(1170, 493)

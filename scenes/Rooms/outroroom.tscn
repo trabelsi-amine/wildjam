@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=4 uid="uid://bbwnfyaas3cam"]
+[gd_scene load_steps=31 format=4 uid="uid://bbwnfyaas3cam"]
 
 [ext_resource type="Texture2D" uid="uid://c3kb4oqyo5as1" path="res://assets/art/tileset.png" id="1_5n2bd"]
 [ext_resource type="PackedScene" uid="uid://b4ob8mrd1h661" path="res://scenes/UI/player_interface.tscn" id="3_pcd5y"]
@@ -6,8 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://b5865cpxmph88" path="res://scenes/player.tscn" id="5_0ilil"]
 [ext_resource type="Script" path="res://scenes/Rooms/area_2d.gd" id="5_7voe6"]
 [ext_resource type="Script" path="res://scripts/player_tuto.gd" id="5_sve5i"]
-[ext_resource type="Texture2D" uid="uid://db2qiyp1wm1d8" path="res://assets/art/greenmf-Sheet.svg" id="6_g3jij"]
-[ext_resource type="PackedScene" uid="uid://caqqla661kljd" path="res://scenes/water.tscn" id="7_wtbft"]
 [ext_resource type="Texture2D" uid="uid://bjmplf6aevlrw" path="res://I-get-u-receive.png" id="8_d858i"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_y1spa"]
@@ -182,7 +180,6 @@ position = Vector2(11.7857, -135)
 script = ExtResource("5_7voe6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="lightmaker/Area2D"]
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_3sy8r")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="lightmaker"]
