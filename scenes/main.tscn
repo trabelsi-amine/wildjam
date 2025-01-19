@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=4 uid="uid://btblk0ofsg13n"]
+[gd_scene load_steps=36 format=4 uid="uid://btblk0ofsg13n"]
 
 [ext_resource type="PackedScene" uid="uid://b5865cpxmph88" path="res://scenes/player.tscn" id="1_g44cn"]
 [ext_resource type="Script" path="res://scripts/world_border.gd" id="2_hhtvy"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://bel1iv8ljf8o7" path="res://assets/art/tileset-export.svg" id="9_yaekr"]
 [ext_resource type="PackedScene" uid="uid://ckrc40iiyhhb3" path="res://scenes/pressure_plate.tscn" id="10_elkh1"]
 [ext_resource type="PackedScene" uid="uid://cmyjc4hlqgnx4" path="res://scenes/door.tscn" id="11_ith2d"]
+[ext_resource type="PackedScene" uid="uid://uvjddn78s7sr" path="res://scenes/next_level.tscn" id="13_w2ewg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fpg2i"]
 size = Vector2(2503, 28.25)
@@ -486,3 +487,6 @@ scale = Vector2(0.374, 1.01)
 position = Vector2(1129, 312)
 scale = Vector2(0.741706, 0.687486)
 pressure_plate = NodePath("../PressurePlate")
+
+[node name="NextLevel" parent="." instance=ExtResource("13_w2ewg")]
+position = Vector2(1172, 313)

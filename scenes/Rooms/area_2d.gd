@@ -10,7 +10,7 @@ func _on_body_entered(body: Node2D) -> void:
 	if flag:
 		return
 	flag = true
-	print("woo")
+	#print("woo")
 	body.visible=false
 	body.set_physics_process(false)
 	var jer = instance.instantiate()

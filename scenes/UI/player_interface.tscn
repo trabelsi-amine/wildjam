@@ -191,7 +191,7 @@ theme_type_variation = &"FilledButton"
 theme_override_fonts/font = ExtResource("3_owu2w")
 theme_override_font_sizes/font_size = 36
 theme_override_styles/focus = SubResource("StyleBoxEmpty_itlhc")
-text = "RESUME [R]"
+text = "RESUME"
 
 [node name="Leaderboard" type="Button" parent="Pause/PauseMenu/TitleButtons/Buttons"]
 process_mode = 3

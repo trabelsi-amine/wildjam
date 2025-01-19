@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://ohiqqbrbmf2x"]
+[gd_scene load_steps=4 format=3 uid="uid://ohiqqbrbmf2x"]
 
 [ext_resource type="Script" path="res://scripts/UI/main_menu.gd" id="1_0lc3q"]
 [ext_resource type="Texture2D" uid="uid://cfsyx3n4fay63" path="res://assets/art/logo.svg" id="2_5dsni"]
+[ext_resource type="FontFile" uid="uid://02q74hthmcin" path="res://assets/fonts/Minimal5x7.ttf" id="3_ooju4"]
 
 [node name="MainMenu" type="Control"]
 process_mode = 3
@@ -58,11 +59,15 @@ text = "CREATED BY:"
 [node name="People" type="Label" parent="MainPanel/MainMargin/MainElements/Bottom/Credits"]
 layout_mode = 2
 size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("3_ooju4")
+theme_override_font_sizes/font_size = 31
 text = "drifter
-Lumii
 Noskire
 Codershi
+
+Soundtracks:
 chillin with da boys
+Simon Pommer
 
 "
 

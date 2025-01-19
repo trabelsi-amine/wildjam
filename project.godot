@@ -17,6 +17,7 @@ config/icon="res://assets/art/icon.svg"
 
 [autoload]
 
+AudioBg="*res://scenes/AudioBG.tscn"
 Global="*res://scripts/Globals/Global.gd"
 LootLocker="*res://scripts/Globals/LootLocker.gd"
 LevelManager="*res://scripts/Globals/LevelManager.gd"

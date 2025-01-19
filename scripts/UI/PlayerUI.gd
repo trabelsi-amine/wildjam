@@ -49,7 +49,7 @@ func ProcessShortcuts():
 		"death":
 			if Input.is_key_pressed(KEY_R):
 				CurrentUIOpened = ""
-				(get_tree().root.get_node("LevelManager") as LevelManager).Restart()
+				(get_tree().root.get_node("LevelManager") as LevelManager).RestartLvl()
 
 ## You can use this function for player's death.
 func SpottedScreen():
