@@ -1,15 +1,19 @@
-[gd_scene load_steps=2 format=3 uid="uid://ohiqqbrbmf2x"]
+[gd_scene load_steps=3 format=3 uid="uid://ohiqqbrbmf2x"]
+
+[ext_resource type="Script" path="res://scripts/UI/main_menu.gd" id="1_0lc3q"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ka5ci"]
 font_size = 80
 
 [node name="MainMenu" type="Control"]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_0lc3q")
 
 [node name="MainPanel" type="PanelContainer" parent="."]
 layout_mode = 1
@@ -85,3 +89,7 @@ text = "LEADERBOARD"
 layout_mode = 2
 size_flags_vertical = 3
 text = "QUIT"
+
+[connection signal="pressed" from="MainPanel/MainMargin/MainElements/Bottom/Buttons/Play" to="." method="Play"]
+[connection signal="pressed" from="MainPanel/MainMargin/MainElements/Bottom/Buttons/Leaderboard" to="." method="Lead"]
+[connection signal="pressed" from="MainPanel/MainMargin/MainElements/Bottom/Buttons/Quit" to="." method="Quit"]

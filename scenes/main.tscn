@@ -291,7 +291,6 @@ metadata/_edit_lock_ = true
 layer = 3
 
 [node name="PlayerInterface" parent="PlayerInterfaceCanvas" instance=ExtResource("6_08s5g")]
-process_mode = 0
 metadata/_edit_lock_ = true
 
 [node name="Decorations" type="Node" parent="."]
