@@ -1,21 +1,14 @@
-[gd_scene load_steps=48 format=4 uid="uid://b1dh7peap2707"]
+[gd_scene load_steps=31 format=4 uid="uid://b1dh7peap2707"]
 
 [ext_resource type="Texture2D" uid="uid://c3kb4oqyo5as1" path="res://assets/art/tileset.png" id="1_grtmm"]
 [ext_resource type="Texture2D" uid="uid://dpuuap7w1cas" path="res://assets/art/bg01.svg" id="1_oeh1q"]
 [ext_resource type="PackedScene" uid="uid://cu5ml0u63n771" path="res://scenes/movable_box.tscn" id="1_xnxq2"]
 [ext_resource type="PackedScene" uid="uid://c7smasdv0hupn" path="res://scenes/support_block.tscn" id="2_6drw7"]
-[ext_resource type="Script" path="res://scripts/player_tuto.gd" id="3_ajy5h"]
 [ext_resource type="PackedScene" uid="uid://b4ob8mrd1h661" path="res://scenes/UI/player_interface.tscn" id="3_rnjwc"]
-[ext_resource type="Texture2D" uid="uid://db2qiyp1wm1d8" path="res://assets/art/greenmf-Sheet.svg" id="4_socpw"]
-[ext_resource type="PackedScene" uid="uid://caqqla661kljd" path="res://scenes/water.tscn" id="5_xwj8k"]
 [ext_resource type="PackedScene" uid="uid://b5865cpxmph88" path="res://scenes/player.tscn" id="6_gn5dw"]
-[ext_resource type="Texture2D" uid="uid://byfk503udojb5" path="res://assets/art/pushit.svg" id="8_jtnjy"]
-[ext_resource type="AudioStream" uid="uid://cv2i2rdt5m7dc" path="res://sfx/jump.wav" id="9_bcfhf"]
+[ext_resource type="PackedScene" path="res://scenes/next_level.tscn" id="9_cha4w"]
 [ext_resource type="Texture2D" uid="uid://bel1iv8ljf8o7" path="res://assets/art/tileset-export.svg" id="9_o1k6b"]
 [ext_resource type="FontFile" uid="uid://i4ecybfsrwct" path="res://assets/fonts/Minimal5x5Monospaced.ttf" id="10_ka1p3"]
-[ext_resource type="AudioStream" uid="uid://dgdm8a5xawthv" path="res://sfx/transform1.wav" id="10_yv7do"]
-[ext_resource type="AudioStream" uid="uid://bh7ualuxkopbk" path="res://sfx/transform3.wav" id="11_x2yji"]
-[ext_resource type="AudioStream" uid="uid://dienwoejkhmpv" path="res://sfx/transform4.wav" id="12_ud564"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_y1spa"]
 polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -142,111 +135,6 @@ physics_layer_0/collision_layer = 7
 physics_layer_0/collision_mask = 0
 sources/0 = SubResource("TileSetAtlasSource_rqfef")
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5dyoa"]
-radius = 60.0
-height = 120.0
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3n30v"]
-size = Vector2(64, 8)
-
-[sub_resource type="Animation" id="Animation_i6vxa"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame_coords")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [Vector2i(0, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_5oipw"]
-resource_name = "fall"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame_coords")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [Vector2i(1, 3)]
-}
-
-[sub_resource type="Animation" id="Animation_qaibj"]
-resource_name = "idl"
-length = 0.6
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame_coords")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [Vector2i(0, 0), Vector2i(1, 0), Vector2i(2, 0), Vector2i(3, 0), Vector2i(0, 1), Vector2i(1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_6qygw"]
-resource_name = "jump"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame_coords")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.0333333),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [Vector2i(3, 2), Vector2i(0, 3)]
-}
-
-[sub_resource type="Animation" id="Animation_fl6gd"]
-resource_name = "run"
-length = 0.4
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame_coords")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.0666667, 0.133333, 0.2, 0.266667),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 1,
-"values": [Vector2i(2, 1), Vector2i(3, 1), Vector2i(0, 2), Vector2i(1, 2), Vector2i(2, 2)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_15euc"]
-_data = {
-"RESET": SubResource("Animation_i6vxa"),
-"fall": SubResource("Animation_5oipw"),
-"idle": SubResource("Animation_qaibj"),
-"jump": SubResource("Animation_6qygw"),
-"run": SubResource("Animation_fl6gd")
-}
-
-[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_pgkb7"]
-streams_count = 1
-stream_0/stream = ExtResource("9_bcfhf")
-
-[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_jensw"]
-streams_count = 3
-stream_0/stream = ExtResource("10_yv7do")
-stream_1/stream = ExtResource("11_x2yji")
-stream_2/stream = ExtResource("12_ud564")
-
 [node name="TutorialRoom" type="Node2D"]
 process_mode = 1
 
@@ -304,58 +192,6 @@ position = Vector2(1095, 181)
 scale = Vector2(2.79, 2.79)
 tile_map_data = PackedByteArray("AAAAAAEAAAADAAQAAAAAAAIAAAADAAQAAAAAAAMAAAADAAMAAAAAAAQAAAADAAQAAAAAAAUAAAADAAMAAAAAAAYAAAADAAQAAAAAAAcAAAADAAMAAAAAAAgAAAACAAMAAAAAAAkAAAACAAMAAAAAAAoAAAADAAMAAAAAAAsAAAADAAQAAAAAAAwAAAADAAQAAAAAAA0AAAADAAMAAAAAAA4AAAABAAMAAAAAAAAAAAACAAMAAAABAA4AAAACAAIAAAACAA4AAAACAAIAAAADAA4AAAABAAIAAAAEAA4AAAACAAIAAAAFAA4AAAACAAIAAAAGAA4AAAACAAIAAAAHAA4AAAACAAIAAAAIAA4AAAACAAIAAAAJAA4AAAABAAIAAAAKAA4AAAACAAIAAAALAA4AAAABAAIAAAAMAA4AAAACAAIAAAANAA4AAAABAAIAAAAOAA4AAAABAAIAAAAPAA4AAAABAAIAAAAQAA4AAAABAAIAAAARAA4AAAABAAIAAAASAA4AAAABAAIAAAATAA4AAAABAAIAAAAUAA4AAAABAAIAAAAVAA4AAAABAAIAAAAWAA4AAAABAAIAAAAXAA4AAAABAAIAAAAYAA4AAAABAAIAAAAZAA4AAAACAAMAAAAZAA0AAAAAAAMAAAAZAAwAAAAAAAMAAAAZAAsAAAAAAAMAAAAZAAoAAAAAAAMAAAAZAAkAAAAAAAMAAAAZAAgAAAAAAAMAAAAZAAQAAAAAAAMAAAAZAAMAAAAAAAMAAAAZAAIAAAAAAAQAAAAZAAEAAAAAAAMAAAAZAAAAAAABAAQAAAAYAAAAAAACAAUAAAAXAAAAAAACAAUAAAAWAAAAAAACAAUAAAAVAAAAAAACAAUAAAAUAAAAAAABAAUAAAATAAAAAAACAAUAAAASAAAAAAACAAUAAAARAAAAAAABAAUAAAAQAAAAAAACAAUAAAAPAAAAAAACAAUAAAAOAAAAAAACAAUAAAANAAAAAAABAAUAAAAMAAAAAAABAAUAAAALAAAAAAACAAUAAAAKAAAAAAABAAUAAAAJAAAAAAACAAUAAAAIAAAAAAABAAUAAAAHAAAAAAABAAUAAAAGAAAAAAACAAUAAAAFAAAAAAABAAUAAAAEAAAAAAACAAUAAAADAAAAAAABAAUAAAACAAAAAAACAAUAAAABAAAAAAACAAUAAAAZAAUAAAAAAAQAAAD//w4AAAABAAMAAAD//w0AAAABAAMAAAD//wwAAAABAAMAAAD//wsAAAABAAMAAAD//woAAAABAAMAAAD//wkAAAABAAMAAAD//wgAAAABAAMAAAD//wcAAAABAAMAAAD//wYAAAABAAMAAAD//wUAAAABAAMAAAD//wQAAAABAAMAAAD//wMAAAABAAMAAAD//wIAAAABAAMAAAD//wEAAAABAAMAAAD//wAAAAABAAMAAAD/////AAABAAMAAAD+////AAABAAMAAAD+/wAAAAABAAMAAAD+/wEAAAABAAMAAAD+/wIAAAABAAMAAAD+/wMAAAABAAMAAAD+/wQAAAABAAMAAAD+/wUAAAABAAMAAAD+/wYAAAABAAMAAAD+/wcAAAABAAMAAAD+/wgAAAABAAMAAAD+/wkAAAABAAMAAAD+/woAAAABAAMAAAD+/wsAAAABAAMAAAD+/wwAAAABAAMAAAD+/w0AAAABAAMAAAD+/w4AAAABAAMAAAD+/w8AAAABAAMAAAD//w8AAAABAAMAAAAAAA8AAAABAAMAAAABAA8AAAABAAMAAAACAA8AAAABAAMAAAADAA8AAAABAAMAAAAEAA8AAAABAAMAAAAFAA8AAAABAAMAAAAGAA8AAAABAAMAAAAHAA8AAAABAAMAAAAIAA8AAAABAAMAAAAJAA8AAAABAAMAAAAKAA8AAAABAAMAAAALAA8AAAABAAMAAAAMAA8AAAABAAMAAAANAA8AAAABAAMAAAAOAA8AAAABAAMAAAAPAA8AAAABAAMAAAAQAA8AAAABAAMAAAARAA8AAAABAAMAAAASAA8AAAABAAMAAAATAA8AAAABAAMAAAAUAA8AAAABAAMAAAAVAA8AAAABAAMAAAAWAA8AAAABAAMAAAAXAA8AAAABAAMAAAAYAA8AAAABAAMAAAAZAA8AAAABAAMAAAAaAA8AAAABAAMAAAAbAA8AAAABAAMAAAAaAA4AAAABAAMAAAAaAA0AAAABAAMAAAAaAAwAAAABAAMAAAAaAAsAAAABAAMAAAAaAAoAAAABAAMAAAAaAAkAAAABAAMAAAAaAAgAAAABAAMAAAAaAAcAAAABAAMAAAAaAAYAAAABAAMAAAAaAAUAAAABAAMAAAAaAAQAAAABAAMAAAAaAAMAAAABAAMAAAAaAAIAAAABAAMAAAAaAAEAAAABAAMAAAAaAAAAAAABAAMAAAAaAP//AAABAAMAAAAbAP//AAABAAMAAAAbAAAAAAABAAMAAAAbAAEAAAABAAMAAAAbAAIAAAABAAMAAAAbAAMAAAABAAMAAAAbAAQAAAABAAMAAAAbAAUAAAABAAMAAAAbAAYAAAABAAMAAAAbAAcAAAABAAMAAAAbAAgAAAABAAMAAAAbAAkAAAABAAMAAAAbAAoAAAABAAMAAAAbAAsAAAABAAMAAAAbAAwAAAABAAMAAAAbAA0AAAABAAMAAAAbAA4AAAABAAMAAAAZAP//AAABAAMAAAAYAP//AAABAAMAAAAXAP//AAABAAMAAAAWAP//AAABAAMAAAAVAP//AAABAAMAAAAUAP//AAABAAMAAAATAP//AAABAAMAAAASAP//AAABAAMAAAARAP//AAABAAMAAAAQAP//AAABAAMAAAAPAP//AAABAAMAAAAOAP//AAABAAMAAAANAP//AAABAAMAAAAMAP//AAABAAMAAAALAP//AAABAAMAAAAKAP//AAABAAMAAAAJAP//AAABAAMAAAAIAP//AAABAAMAAAAHAP//AAABAAMAAAAGAP//AAABAAMAAAAFAP//AAABAAMAAAAEAP//AAABAAMAAAADAP//AAABAAMAAAACAP//AAABAAMAAAABAP//AAABAAMAAAAAAP//AAABAAMAAAD+//7/AAABAAMAAAD///7/AAABAAMAAAAAAP7/AAABAAMAAAABAP7/AAABAAMAAAACAP7/AAABAAMAAAADAP7/AAABAAMAAAAEAP7/AAABAAMAAAAFAP7/AAABAAMAAAAGAP7/AAABAAMAAAAHAP7/AAABAAMAAAAIAP7/AAABAAMAAAAJAP7/AAABAAMAAAAKAP7/AAABAAMAAAALAP7/AAABAAMAAAAMAP7/AAABAAMAAAANAP7/AAABAAMAAAAOAP7/AAABAAMAAAAPAP7/AAABAAMAAAAQAP7/AAABAAMAAAARAP7/AAABAAMAAAASAP7/AAABAAMAAAATAP7/AAABAAMAAAAUAP7/AAABAAMAAAAVAP7/AAABAAMAAAAWAP7/AAABAAMAAAAXAP7/AAABAAMAAAAYAP7/AAABAAMAAAAZAP7/AAABAAMAAAAaAP7/AAABAAMAAAAbAP7/AAABAAMAAAAZAAYAAAAAAAMAAAAZAAcAAAAAAAMAAAATAAgAAAADAAIAAAASAAgAAAACAAIAAAARAAgAAAABAAIAAAAQAAgAAAACAAIAAAAPAAgAAAABAAIAAAAOAAgAAAACAAIAAAANAAgAAAABAAIAAAAMAAgAAAACAAIAAAALAAgAAAABAAIAAAAKAAgAAAACAAIAAAAJAAgAAAABAAIAAAAIAAgAAAACAAIAAAAHAAgAAAABAAIAAAAGAAgAAAACAAIAAAAFAAgAAAABAAIAAAAEAAgAAAACAAIAAAADAAgAAAABAAIAAAACAAgAAAACAAIAAAABAAgAAAABAAIAAAAHAAQAAAADAAIAAAAGAAQAAAACAAIAAAAFAAQAAAACAAIAAAAEAAQAAAABAAIAAAADAAQAAAAAAAIAAAARAAkAAAABAAUAAAASAAkAAAACAAUAAAATAAkAAAADAAUAAAAPAAkAAAABAAUAAAAQAAkAAAACAAUAAAANAAkAAAABAAUAAAAOAAkAAAACAAUAAAALAAkAAAABAAUAAAAMAAkAAAACAAUAAAAJAAkAAAABAAUAAAAKAAkAAAACAAUAAAAHAAkAAAABAAUAAAAIAAkAAAACAAUAAAAFAAkAAAABAAUAAAAGAAkAAAACAAUAAAADAAkAAAABAAUAAAAEAAkAAAACAAUAAAABAAkAAAABAAUAAAACAAkAAAACAAUAAAAUAAkAAAANAAIAAAAVAAkAAAANAAIAAAAYAAwAAAANAAIAAAAXAAwAAAANAAIAAAA=")
 tile_set = SubResource("TileSet_oe4df")
-
-[node name="Player" type="CharacterBody2D" parent="." groups=["Player"]]
-modulate = Color(0.458824, 0.698039, 0, 1)
-position = Vector2(97, 603)
-scale = Vector2(0.35, 0.35)
-script = ExtResource("3_ajy5h")
-
-[node name="Sprite2D" type="Sprite2D" parent="Player"]
-position = Vector2(2, -76)
-scale = Vector2(4.79032, 4.79032)
-texture = ExtResource("4_socpw")
-hframes = 4
-vframes = 4
-region_rect = Rect2(0, 0, 33.0734, 31.1877)
-
-[node name="Water" parent="Player" instance=ExtResource("5_xwj8k")]
-position = Vector2(1, -63)
-scale = Vector2(2.72, 2.72)
-
-[node name="Pushing" type="Sprite2D" parent="Player"]
-visible = false
-position = Vector2(0, -76)
-scale = Vector2(4.79, 4.79)
-texture = ExtResource("8_jtnjy")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-position = Vector2(0, -64)
-shape = SubResource("CapsuleShape2D_5dyoa")
-metadata/_edit_lock_ = true
-
-[node name="LiquidCollision" type="CollisionShape2D" parent="Player"]
-position = Vector2(0, -64)
-shape = SubResource("RectangleShape2D_3n30v")
-disabled = true
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Player"]
-libraries = {
-"": SubResource("AnimationLibrary_15euc")
-}
-autoplay = "idle"
-
-[node name="jump" type="AudioStreamPlayer2D" parent="Player"]
-stream = SubResource("AudioStreamRandomizer_pgkb7")
-volume_db = 1.0
-
-[node name="transform" type="AudioStreamPlayer2D" parent="Player"]
-stream = SubResource("AudioStreamRandomizer_jensw")
-volume_db = -14.857
-
-[node name="DetectPushing" type="RayCast2D" parent="Player"]
-position = Vector2(0, -64)
-target_position = Vector2(64, 0)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(579, 328)
@@ -651,3 +487,6 @@ offset_bottom = 496.0
 theme_override_colors/font_color = Color(0.458824, 0.698039, 0, 1)
 theme_override_fonts/font = ExtResource("10_ka1p3")
 text = "SPACE TO JUMP"
+
+[node name="NextLevel" parent="." instance=ExtResource("9_cha4w")]
+position = Vector2(1059, 92)

@@ -45,10 +45,15 @@ func ProcessShortcuts():
 				ClosePause()
 			if Input.is_key_pressed(KEY_Q):
 				Quit()
+		"death":
+			if Input.is_key_pressed(KEY_R):
+				CurrentUIOpened = ""
+				(get_tree().root.get_node("LevelManager") as LevelManager).Restart()
 
 ## You can use this function for player's death.
 func SpottedScreen():
 	audio.play()
+	CurrentUIOpened = "death"
 	$Spotted.show()
 	$Pause.hide()
 	$State.hide()
@@ -77,7 +82,9 @@ func DetectInterfaceInput():
 		CurrentUIOpened = "paused"
 
 func Quit() -> void:
-	get_tree().quit()
+	CurrentUIOpened = ""
+	(get_tree().root.get_node("LevelManager") as LevelManager).MainMenu = true
+	(get_tree().root.get_node("LevelManager") as LevelManager).Restart()
 
 func ShowState():
 	if player: # Not null
@@ -89,6 +96,9 @@ func ShowState():
 			player.STATES.Gas:
 				state.text = "Gas"
 
+func Lead():
+	$Leaderboard.ShowLead()
 
 func Restart() -> void:
+	CurrentUIOpened = ""
 	(get_tree().root.get_node("LevelManager") as LevelManager).RestartLvl()
