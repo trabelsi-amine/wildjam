@@ -4,7 +4,7 @@ extends Control
 @onready var state: Label = $State
 @onready var audio: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
-var player = null
+#var player = null
 var time:float
 var TimerEnabled := true
 var CurrentUIOpened := ""
@@ -14,14 +14,14 @@ func SendTimeToLevelManager():
 
 func _ready():
 	get_tree().paused = false
-	set_player_ref()
-
-func set_player_ref():
-	if Global.player: # Not null
-		player = Global.player
-	else:
-		await get_tree().create_timer(0.5).timeout
-		set_player_ref()
+	#set_player_ref()
+#
+#func set_player_ref():
+	#if Global.player: # Not null
+		#player = Global.player
+	#else:
+		#await get_tree().create_timer(0.5).timeout
+		#set_player_ref()
 
 func _process(delta: float) -> void:
 	ShowInformationUI()
@@ -88,13 +88,13 @@ func Quit() -> void:
 	(get_tree().root.get_node("LevelManager") as LevelManager).Restart()
 
 func ShowState():
-	if player != null: # Not null
-		match player.current_state:
-			player.STATES.Solid:
+	if Global.player != null: # Not null
+		match Global.player.current_state:
+			Global.player.STATES.Solid:
 				state.text = "Solid"
-			player.STATES.Liquid:
+			Global.player.STATES.Liquid:
 				state.text = "Liquid"
-			player.STATES.Gas:
+			Global.player.STATES.Gas:
 				state.text = "Gas"
 
 func Lead():

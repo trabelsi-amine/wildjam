@@ -1,6 +1,6 @@
 extends Node
 
-var CurrentLevelIndex:int = 0
+var CurrentLevelIndex:int = 2
 var Levels := [
 	"res://scenes/Rooms/tutorial_room.tscn",
 	"res://scenes/Rooms/horizontal_doors_room.tscn",
@@ -32,6 +32,7 @@ func NLDeffered():
 func KillPlayer():
 	get_tree().current_scene.get_node("Player").queue_free()
 	(get_tree().current_scene.get_node("PlayerInterfaceCanvas/PlayerInterface") as PlayerUI)
+	Global.player = null
 
 func Restart():
 	CurrentLevelIndex = -1
