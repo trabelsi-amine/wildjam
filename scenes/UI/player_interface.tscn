@@ -303,6 +303,7 @@ layout_mode = 1
 
 [connection signal="pressed" from="Pause/PauseMenu/TitleButtons/Buttons/Resume" to="." method="ClosePause"]
 [connection signal="pressed" from="Pause/PauseMenu/TitleButtons/Buttons/Leaderboard" to="." method="Lead"]
+[connection signal="pressed" from="Pause/PauseMenu/TitleButtons/Buttons/Restart" to="." method="Restart"]
 [connection signal="pressed" from="Pause/PauseMenu/TitleButtons/Buttons/MainMenu" to="." method="Quit"]
 [connection signal="pressed" from="Spotted/MarginContainer/VBoxContainer/VBoxContainer/Respawn" to="." method="Restart"]
 [connection signal="pressed" from="Spotted/MarginContainer/VBoxContainer/VBoxContainer/Return" to="." method="Quit"]
