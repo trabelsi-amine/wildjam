@@ -1,9 +1,12 @@
 extends Control
 
 func _ready() -> void:
-	if (!(get_tree().root.get_node("LevelManager") as LevelManager).MainMenu): return
+	if (!((get_tree().root.get_node("LevelManager") as LevelManager).MainMenu)): return
 	get_parent().TimerEnabled = false
 	show()
+	call_deferred("ReadyDeffered")
+
+func ReadyDeffered():
 	get_tree().paused = true
 
 func Play() -> void:

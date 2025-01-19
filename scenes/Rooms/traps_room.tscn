@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=4 uid="uid://d3do7swgrfyay"]
+[gd_scene load_steps=31 format=4 uid="uid://d3do7swgrfyay"]
 
 [ext_resource type="PackedScene" uid="uid://c4fvyx6tpkewg" path="res://scenes/camera.tscn" id="1_pcy4m"]
 [ext_resource type="Texture2D" uid="uid://c3kb4oqyo5as1" path="res://assets/art/tileset.png" id="2_bre4m"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://b5865cpxmph88" path="res://scenes/player.tscn" id="3_lqa8x"]
 [ext_resource type="PackedScene" uid="uid://b4ob8mrd1h661" path="res://scenes/UI/player_interface.tscn" id="4_2a3vy"]
 [ext_resource type="PackedScene" uid="uid://cu5ml0u63n771" path="res://scenes/movable_box.tscn" id="4_4a5a3"]
+[ext_resource type="PackedScene" uid="uid://uvjddn78s7sr" path="res://scenes/next_level.tscn" id="5_3vxcu"]
 [ext_resource type="PackedScene" uid="uid://dvd062gxtl3qe" path="res://scenes/fan.tscn" id="5_o20jt"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_y1spa"]
@@ -189,8 +190,14 @@ offset_left = 989.0
 offset_top = 514.0
 offset_right = 1087.0
 offset_bottom = 581.0
+theme_type_variation = &"M35Label"
 theme_override_font_sizes/font_size = 48
 text = "EXIT"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NextLevel" parent="Environment/Label" instance=ExtResource("5_3vxcu")]
+position = Vector2(45, 55)
 
 [node name="Fan" parent="Environment" instance=ExtResource("5_o20jt")]
 position = Vector2(624, 75)

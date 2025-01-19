@@ -1,11 +1,18 @@
 extends Node
 
-var CurrentLevelIndex:int = -1
-var Levels := ["res://scenes/main.tscn"]
+var CurrentLevelIndex:int = 0
+var Levels := [
+	"res://scenes/main.tscn",
+	"res://scenes/Rooms/tutorial_room.tscn"
+]
 var MainMenu:bool = true
+var Score:float
 
 func NextLevel():
 	CurrentLevelIndex += 1
+	call_deferred("NLDeffered")
+
+func NLDeffered():
 	get_tree().change_scene_to_file(Levels[CurrentLevelIndex])
 
 func KillPlayer():

@@ -1,0 +1,120 @@
+[gd_scene load_steps=8 format=3 uid="uid://blf2icw4wfst6"]
+
+[ext_resource type="FontFile" uid="uid://02q74hthmcin" path="res://assets/fonts/Minimal5x7.ttf" id="1_7ie4l"]
+[ext_resource type="Script" path="res://scripts/submit_score.gd" id="1_hm8k3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yf0w0"]
+bg_color = Color(0.0509804, 0.105882, 0.164706, 0.768627)
+
+[sub_resource type="LabelSettings" id="LabelSettings_oitoi"]
+font_size = 86
+
+[sub_resource type="LabelSettings" id="LabelSettings_f1jn8"]
+font_size = 51
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s1psp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0lfox"]
+content_margin_left = 14.0
+content_margin_top = 14.0
+content_margin_right = 14.0
+content_margin_bottom = 14.0
+bg_color = Color(0.105882, 0.14902, 0.231373, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[node name="SubmitScore" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hm8k3")
+
+[node name="MainPanel" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_yf0w0")
+
+[node name="MainMargin" type="MarginContainer" parent="MainPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 110
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 110
+theme_override_constants/margin_bottom = 30
+
+[node name="MainElements" type="VBoxContainer" parent="MainPanel/MainMargin"]
+layout_mode = 2
+theme_override_constants/separation = 160
+
+[node name="Title" type="Label" parent="MainPanel/MainMargin/MainElements"]
+layout_mode = 2
+theme_type_variation = &"M35Label"
+text = "Submit your time"
+label_settings = SubResource("LabelSettings_oitoi")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Elements" type="VBoxContainer" parent="MainPanel/MainMargin/MainElements"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 100
+
+[node name="Enter" type="HBoxContainer" parent="MainPanel/MainMargin/MainElements/Elements"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.57
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="EnterTitle" type="Label" parent="MainPanel/MainMargin/MainElements/Elements/Enter"]
+layout_mode = 2
+theme_type_variation = &"M57Label"
+text = "Enter you name: "
+label_settings = SubResource("LabelSettings_f1jn8")
+
+[node name="EnterLine" type="LineEdit" parent="MainPanel/MainMargin/MainElements/Elements/Enter"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("1_7ie4l")
+theme_override_font_sizes/font_size = 36
+theme_override_styles/focus = SubResource("StyleBoxEmpty_s1psp")
+theme_override_styles/normal = SubResource("StyleBoxFlat_0lfox")
+placeholder_text = "Your name"
+
+[node name="MarginContainer" type="MarginContainer" parent="MainPanel/MainMargin/MainElements/Elements"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 45
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 45
+theme_override_constants/margin_bottom = 20
+
+[node name="Actions" type="HBoxContainer" parent="MainPanel/MainMargin/MainElements/Elements/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 70
+
+[node name="Return" type="Button" parent="MainPanel/MainMargin/MainElements/Elements/MarginContainer/Actions"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Return to the menu"
+
+[node name="Submit" type="Button" parent="MainPanel/MainMargin/MainElements/Elements/MarginContainer/Actions"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Submit"
+
+[connection signal="pressed" from="MainPanel/MainMargin/MainElements/Elements/MarginContainer/Actions/Return" to="." method="Return"]
+[connection signal="pressed" from="MainPanel/MainMargin/MainElements/Elements/MarginContainer/Actions/Submit" to="." method="Submit"]

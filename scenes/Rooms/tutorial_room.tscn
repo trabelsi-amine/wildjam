@@ -1,8 +1,9 @@
-[gd_scene load_steps=37 format=4 uid="uid://b1dh7peap2707"]
+[gd_scene load_steps=38 format=4 uid="uid://b1dh7peap2707"]
 
 [ext_resource type="Texture2D" uid="uid://c3kb4oqyo5as1" path="res://assets/art/tileset.png" id="1_grtmm"]
 [ext_resource type="PackedScene" uid="uid://cu5ml0u63n771" path="res://scenes/movable_box.tscn" id="1_xnxq2"]
 [ext_resource type="PackedScene" uid="uid://c7smasdv0hupn" path="res://scenes/support_block.tscn" id="2_6drw7"]
+[ext_resource type="PackedScene" uid="uid://uvjddn78s7sr" path="res://scenes/next_level.tscn" id="2_hrynp"]
 [ext_resource type="Script" path="res://scripts/player_tuto.gd" id="3_ajy5h"]
 [ext_resource type="PackedScene" uid="uid://b4ob8mrd1h661" path="res://scenes/UI/player_interface.tscn" id="3_rnjwc"]
 [ext_resource type="Texture2D" uid="uid://db2qiyp1wm1d8" path="res://assets/art/greenmf-Sheet.svg" id="4_socpw"]
@@ -256,8 +257,14 @@ offset_left = 1009.0
 offset_top = 52.0
 offset_right = 1107.0
 offset_bottom = 119.0
+theme_type_variation = &"M35Label"
 theme_override_font_sizes/font_size = 48
 text = "EXIT"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NextLevel" parent="Environment/Label" instance=ExtResource("2_hrynp")]
+position = Vector2(49, 38)
 
 [node name="SupportBlock" parent="Environment" instance=ExtResource("2_6drw7")]
 position = Vector2(436, 152)

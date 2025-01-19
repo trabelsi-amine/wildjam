@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=4 uid="uid://cnawh8bbegocs"]
+[gd_scene load_steps=37 format=4 uid="uid://cnawh8bbegocs"]
 
 [ext_resource type="Texture2D" uid="uid://c3kb4oqyo5as1" path="res://assets/art/tileset.png" id="1_kkgu4"]
 [ext_resource type="PackedScene" uid="uid://c4fvyx6tpkewg" path="res://scenes/camera.tscn" id="1_mv4tw"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://cut0ygf3l1tby" path="res://scenes/grate.tscn" id="5_hym2v"]
 [ext_resource type="PackedScene" uid="uid://ckrc40iiyhhb3" path="res://scenes/pressure_plate.tscn" id="6_c61mc"]
 [ext_resource type="PackedScene" uid="uid://c7smasdv0hupn" path="res://scenes/support_block.tscn" id="7_8281n"]
+[ext_resource type="PackedScene" uid="uid://uvjddn78s7sr" path="res://scenes/next_level.tscn" id="8_0lugc"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ogl3e"]
 polygon = PackedVector2Array(-24, 0, -24, -50, 24, -50, 24, 0)
@@ -251,8 +252,14 @@ offset_left = 844.0
 offset_top = 56.0
 offset_right = 942.0
 offset_bottom = 123.0
+theme_type_variation = &"M35Label"
 theme_override_font_sizes/font_size = 48
 text = "EXIT"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NextLevel" parent="Environment/Label" instance=ExtResource("8_0lugc")]
+position = Vector2(45, 52)
 
 [node name="Door2" parent="Environment" node_paths=PackedStringArray("pressure_plate") instance=ExtResource("4_d8p6k")]
 position = Vector2(781, 89)

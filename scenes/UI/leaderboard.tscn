@@ -8,8 +8,8 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qv3sa"]
 bg_color = Color(0.0509804, 0.105882, 0.164706, 0.768627)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_swdb3"]
-bg_color = Color(1, 1, 1, 0.101961)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vpuwd"]
+bg_color = Color(0.0958396, 0.136346, 0.213682, 1)
 border_width_left = 2
 border_width_top = 2
 border_width_right = 2
@@ -19,8 +19,8 @@ corner_radius_top_right = 25
 corner_radius_bottom_right = 25
 corner_radius_bottom_left = 25
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_opk1r"]
-bg_color = Color(1, 1, 1, 0.423529)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jwp6h"]
+bg_color = Color(0.0726761, 0.107063, 0.172729, 1)
 border_width_left = 2
 border_width_top = 2
 border_width_right = 2
@@ -120,8 +120,8 @@ theme_override_constants/margin_top = 500
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("2_5nvk3")
-theme_override_styles/hover = SubResource("StyleBoxFlat_swdb3")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_opk1r")
+theme_override_styles/hover = SubResource("StyleBoxFlat_vpuwd")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_jwp6h")
 theme_override_styles/normal = SubResource("StyleBoxFlat_xcwq5")
 text = "Go back"
 
