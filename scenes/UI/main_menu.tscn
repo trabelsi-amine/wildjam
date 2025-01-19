@@ -1,9 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://ohiqqbrbmf2x"]
 
 [ext_resource type="Script" path="res://scripts/UI/main_menu.gd" id="1_0lc3q"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_ka5ci"]
-font_size = 80
+[ext_resource type="Texture2D" uid="uid://cfsyx3n4fay63" path="res://assets/art/logo.svg" id="2_5dsni"]
 
 [node name="MainMenu" type="Control"]
 process_mode = 3
@@ -34,14 +32,13 @@ theme_override_constants/margin_bottom = 30
 layout_mode = 2
 size_flags_vertical = 5
 
-[node name="Title" type="Label" parent="MainPanel/MainMargin/MainElements"]
+[node name="Title" type="TextureRect" parent="MainPanel/MainMargin/MainElements"]
+modulate = Color(0.614728, 0.926526, 1.54018e-06, 1)
 layout_mode = 2
 size_flags_vertical = 3
 theme_type_variation = &"M55MonoLabel"
-text = "MATTER-MORPHOSIS"
-label_settings = SubResource("LabelSettings_ka5ci")
-horizontal_alignment = 1
-vertical_alignment = 1
+texture = ExtResource("2_5dsni")
+stretch_mode = 5
 
 [node name="Bottom" type="HBoxContainer" parent="MainPanel/MainMargin/MainElements"]
 layout_mode = 2

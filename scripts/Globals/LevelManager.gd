@@ -3,6 +3,10 @@ extends Node
 var CurrentLevelIndex:int = 0
 var Levels := [
 	"res://scenes/Rooms/tutorial_room.tscn",
+	"res://scenes/Rooms/horizontal_doors_room.tscn",
+	"res://scenes/Rooms/moving_cameras_room_v2.tscn",
+	"res://scenes/Rooms/traps_room.tscn",
+	"res://scenes/Rooms/outroroom.tscn"
 ]
 var MainMenu:bool = true
 var Score:float

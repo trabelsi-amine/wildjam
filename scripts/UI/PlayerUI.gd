@@ -87,7 +87,7 @@ func Quit() -> void:
 	(get_tree().root.get_node("LevelManager") as LevelManager).Restart()
 
 func ShowState():
-	if player: # Not null
+	if player != null: # Not null
 		match player.current_state:
 			player.STATES.Solid:
 				state.text = "Solid"

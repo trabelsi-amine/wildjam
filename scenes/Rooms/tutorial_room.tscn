@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=4 uid="uid://b1dh7peap2707"]
+[gd_scene load_steps=32 format=4 uid="uid://b1dh7peap2707"]
 
 [ext_resource type="Texture2D" uid="uid://c3kb4oqyo5as1" path="res://assets/art/tileset.png" id="1_grtmm"]
 [ext_resource type="Texture2D" uid="uid://dpuuap7w1cas" path="res://assets/art/bg01.svg" id="1_oeh1q"]
@@ -6,7 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://c7smasdv0hupn" path="res://scenes/support_block.tscn" id="2_6drw7"]
 [ext_resource type="PackedScene" uid="uid://b4ob8mrd1h661" path="res://scenes/UI/player_interface.tscn" id="3_rnjwc"]
 [ext_resource type="PackedScene" uid="uid://b5865cpxmph88" path="res://scenes/player.tscn" id="6_gn5dw"]
-[ext_resource type="PackedScene" path="res://scenes/next_level.tscn" id="9_cha4w"]
+[ext_resource type="Script" path="res://scripts/player_tuto.gd" id="7_3fjnx"]
+[ext_resource type="PackedScene" uid="uid://uvjddn78s7sr" path="res://scenes/next_level.tscn" id="9_cha4w"]
 [ext_resource type="Texture2D" uid="uid://bel1iv8ljf8o7" path="res://assets/art/tileset-export.svg" id="9_o1k6b"]
 [ext_resource type="FontFile" uid="uid://i4ecybfsrwct" path="res://assets/fonts/Minimal5x5Monospaced.ttf" id="10_ka1p3"]
 
@@ -158,15 +159,6 @@ position = Vector2(217, 356)
 [node name="MovableBox2" parent="Environment" instance=ExtResource("1_xnxq2")]
 position = Vector2(220, 178)
 
-[node name="Label" type="Label" parent="Environment"]
-top_level = true
-offset_left = 1009.0
-offset_top = 52.0
-offset_right = 1107.0
-offset_bottom = 119.0
-theme_override_font_sizes/font_size = 48
-text = "EXIT"
-
 [node name="SupportBlock" parent="Environment" instance=ExtResource("2_6drw7")]
 position = Vector2(436, 152)
 
@@ -208,6 +200,7 @@ metadata/_edit_lock_ = true
 process_mode = 1
 position = Vector2(94, 601)
 scale = Vector2(0.35, 0.35)
+script = ExtResource("7_3fjnx")
 
 [node name="Decorations" type="Node" parent="."]
 
