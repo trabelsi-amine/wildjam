@@ -6,6 +6,7 @@ var Levels := [
 	"res://scenes/Rooms/horizontal_doors_room.tscn",
 	"res://scenes/Rooms/moving_cameras_room_v2.tscn",
 	"res://scenes/Rooms/traps_room.tscn",
+	"res://scenes/main.tscn",
 	"res://scenes/Rooms/smart_camera_room.tscn",
 	"res://scenes/Rooms/outroroom.tscn"
 ]
