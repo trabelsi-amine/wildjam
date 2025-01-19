@@ -193,7 +193,11 @@ theme_override_font_sizes/font_size = 36
 theme_override_styles/focus = SubResource("StyleBoxEmpty_itlhc")
 text = "RESUME [R]"
 
+<<<<<<< HEAD
 [node name="Leaderboard" type="Button" parent="Pause/PauseMenu/TitleButtons/Buttons"]
+=======
+[node name="Restart" type="Button" parent="Pause/PauseMenu/TitleButtons/Buttons"]
+>>>>>>> origin/main
 process_mode = 3
 texture_filter = 1
 layout_mode = 2
@@ -202,9 +206,13 @@ theme_type_variation = &"FilledButton"
 theme_override_fonts/font = ExtResource("3_owu2w")
 theme_override_font_sizes/font_size = 36
 theme_override_styles/focus = SubResource("StyleBoxEmpty_itlhc")
+<<<<<<< HEAD
 text = "LEADERBOARD"
+=======
+text = "RESTART"
+>>>>>>> origin/main
 
-[node name="Quit" type="Button" parent="Pause/PauseMenu/TitleButtons/Buttons"]
+[node name="MainMenu" type="Button" parent="Pause/PauseMenu/TitleButtons/Buttons"]
 process_mode = 3
 texture_filter = 1
 layout_mode = 2
@@ -213,7 +221,11 @@ theme_type_variation = &"FilledButton"
 theme_override_fonts/font = ExtResource("3_owu2w")
 theme_override_font_sizes/font_size = 36
 theme_override_styles/focus = SubResource("StyleBoxEmpty_itlhc")
+<<<<<<< HEAD
 text = "RETURN [Q]"
+=======
+text = "MAIN MENU"
+>>>>>>> origin/main
 
 [node name="Spotted" type="PanelContainer" parent="."]
 process_mode = 3
@@ -289,7 +301,14 @@ visible = false
 layout_mode = 1
 
 [connection signal="pressed" from="Pause/PauseMenu/TitleButtons/Buttons/Resume" to="." method="ClosePause"]
+<<<<<<< HEAD
 [connection signal="pressed" from="Pause/PauseMenu/TitleButtons/Buttons/Leaderboard" to="." method="Lead"]
 [connection signal="pressed" from="Pause/PauseMenu/TitleButtons/Buttons/Quit" to="." method="Quit"]
 [connection signal="pressed" from="Spotted/MarginContainer/VBoxContainer/VBoxContainer/Respawn" to="." method="Restart"]
 [connection signal="pressed" from="Spotted/MarginContainer/VBoxContainer/VBoxContainer/Return" to="." method="Quit"]
+=======
+[connection signal="button_up" from="Pause/PauseMenu/TitleButtons/Buttons/Restart" to="." method="_on_restart_button_up"]
+[connection signal="button_up" from="Pause/PauseMenu/TitleButtons/Buttons/MainMenu" to="." method="_on_main_menu_button_up"]
+[connection signal="button_up" from="Spotted/MarginContainer/VBoxContainer/VBoxContainer/Respawn" to="." method="_on_respawn_button_up"]
+[connection signal="button_up" from="Spotted/MarginContainer/VBoxContainer/VBoxContainer/Return" to="." method="_on_return_button_up"]
+>>>>>>> origin/main

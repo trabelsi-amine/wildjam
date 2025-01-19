@@ -1,8 +1,13 @@
-[gd_scene load_steps=12 format=3 uid="uid://b5865cpxmph88"]
+[gd_scene load_steps=19 format=3 uid="uid://b5865cpxmph88"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_gpv5f"]
 [ext_resource type="Texture2D" uid="uid://db2qiyp1wm1d8" path="res://assets/art/greenmf-Sheet.svg" id="2_fa0e1"]
 [ext_resource type="PackedScene" uid="uid://caqqla661kljd" path="res://scenes/water.tscn" id="3_vtfym"]
+[ext_resource type="AudioStream" uid="uid://cv2i2rdt5m7dc" path="res://sfx/jump.wav" id="4_mq28n"]
+[ext_resource type="Texture2D" uid="uid://byfk503udojb5" path="res://assets/art/pushit.svg" id="4_ukw16"]
+[ext_resource type="AudioStream" uid="uid://dgdm8a5xawthv" path="res://sfx/transform1.wav" id="5_k2out"]
+[ext_resource type="AudioStream" uid="uid://bh7ualuxkopbk" path="res://sfx/transform3.wav" id="7_mxqxn"]
+[ext_resource type="AudioStream" uid="uid://dienwoejkhmpv" path="res://sfx/transform4.wav" id="8_cnnvn"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5dyoa"]
 radius = 60.0
@@ -99,6 +104,16 @@ _data = {
 "run": SubResource("Animation_fl6gd")
 }
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_pgkb7"]
+streams_count = 1
+stream_0/stream = ExtResource("4_mq28n")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_jensw"]
+streams_count = 3
+stream_0/stream = ExtResource("5_k2out")
+stream_1/stream = ExtResource("7_mxqxn")
+stream_2/stream = ExtResource("8_cnnvn")
+
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 modulate = Color(0.458824, 0.698039, 0, 1)
 script = ExtResource("1_gpv5f")
@@ -115,6 +130,12 @@ region_rect = Rect2(0, 0, 33.0734, 31.1877)
 position = Vector2(1, -63)
 scale = Vector2(2.72, 2.72)
 
+[node name="Pushing" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, -76)
+scale = Vector2(4.79, 4.79)
+texture = ExtResource("4_ukw16")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -64)
 shape = SubResource("CapsuleShape2D_5dyoa")
@@ -130,3 +151,13 @@ libraries = {
 "": SubResource("AnimationLibrary_15euc")
 }
 autoplay = "idle"
+
+[node name="jump" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_pgkb7")
+
+[node name="transform" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_jensw")
+
+[node name="DetectPushing" type="RayCast2D" parent="."]
+position = Vector2(0, -64)
+target_position = Vector2(64, 0)

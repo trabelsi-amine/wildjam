@@ -1,10 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://dvd062gxtl3qe"]
+[gd_scene load_steps=6 format=3 uid="uid://dvd062gxtl3qe"]
 
 [ext_resource type="Script" path="res://scripts/fan.gd" id="1_0qo32"]
 [ext_resource type="Texture2D" uid="uid://c3kb4oqyo5as1" path="res://assets/art/tileset.png" id="2_h403l"]
+[ext_resource type="Texture2D" uid="uid://qv5woprbw1c8" path="res://assets/art/gas_particles.svg" id="3_tskp1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y1t7b"]
 size = Vector2(44, 44)
+
+[sub_resource type="Gradient" id="Gradient_uyyfs"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
 [node name="Fan" type="StaticBody2D"]
 collision_layer = 7
@@ -36,6 +40,18 @@ polygon = PackedVector2Array(-16, 0, -64, -256, 64, -256, 16, 0)
 
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(0, -256)
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+texture_filter = 1
+lifetime = 0.8
+texture = ExtResource("3_tskp1")
+emission_shape = 3
+emission_rect_extents = Vector2(28.245, 17.86)
+gravity = Vector2(0, -980)
+angular_velocity_min = -40.3
+scale_amount_min = 0.0
+scale_amount_max = 5.0
+color_ramp = SubResource("Gradient_uyyfs")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
