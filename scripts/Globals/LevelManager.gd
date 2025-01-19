@@ -1,6 +1,6 @@
 extends Node
 
-var CurrentLevelIndex:int = 2
+var CurrentLevelIndex:int = 0
 var Levels := [
 	"res://scenes/Rooms/tutorial_room.tscn",
 	"res://scenes/Rooms/horizontal_doors_room.tscn",
