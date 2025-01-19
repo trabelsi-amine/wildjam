@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=4 uid="uid://d3do7swgrfyay"]
+[gd_scene load_steps=32 format=4 uid="uid://d3do7swgrfyay"]
 
 [ext_resource type="Texture2D" uid="uid://dpuuap7w1cas" path="res://assets/art/bg01.svg" id="1_iytmq"]
 [ext_resource type="PackedScene" uid="uid://c4fvyx6tpkewg" path="res://scenes/camera.tscn" id="1_pcy4m"]
