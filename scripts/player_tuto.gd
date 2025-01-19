@@ -46,33 +46,8 @@ func _process(delta):
 	camera.offset = get_random_offset()
 
 func _physics_process(delta: float) -> void:
-	# Change state cyclically
-	if Input.is_action_just_pressed("ChangeState"):
-		if current_state == STATES.Gas:
-			change_state(0)
-		else:
-			change_state(current_state + 1)
-	
-	# Set new state according to key pressed
-	if Input.is_action_just_pressed("Solid") and current_state != STATES.Solid:
-		change_state(STATES.Solid)
-	if Input.is_action_just_pressed("Liquid") and current_state != STATES.Liquid:
-		change_state(STATES.Liquid)
-	if Input.is_action_just_pressed("Gas") and current_state != STATES.Gas:
-		change_state(STATES.Gas)
-	
-	#manage state stuff
 	manage_anims()
-	manage_states(delta)
-
-func manage_states(delta):
-	match current_state:
-		STATES.Solid:
-			solid_state(delta)
-		STATES.Liquid:
-			liquid_state(delta)
-		STATES.Gas:
-			gas_state(delta)
+	solid_state(delta)
 
 # Sets all solid state variables upon entering solid state
 func enter_solid_state():
@@ -109,71 +84,6 @@ func solid_state(delta):
 	test_colision()
 	move_and_slide()
 
-# Sets all liquid state variables upon entering liquid state
-func enter_liquid_state():
-	apply_shake()
-	playerSprite.visible = false
-	
-	waterSprite.visible = true
-	waterSprite.get_child(0).emitting = true
-	waterSprite.get_child(0).restart()
-	
-	if(has_node("gas")):
-		get_node("gas").queue_free()
-	
-	collision.disabled = true
-	liquid_collision.disabled = false
-	
-	set_collision_layer(2) # 010 (False True False)
-	set_collision_mask(2)
-	speed = 500
-	gravity = 4000
-
-func liquid_state(delta):
-	velocity.x = Input.get_axis("left", "right") * speed
-	velocity.y += gravity * delta
-	
-	test_colision()
-	move_and_slide()
-
-# Sets all gas state variables upon entering gas state
-func enter_gas_state():
-	apply_shake()
-	playerSprite.visible = false
-	
-	waterSprite.visible = false
-	waterSprite.get_child(0).emitting = false
-	
-	if not (has_node("gas")):
-		var particles = particles_scene.instantiate()
-		particles.global_position = global_position
-		add_child(particles)
-	
-	collision.disabled = false
-	liquid_collision.disabled = true
-	
-	set_collision_layer(4) # 001 (False False True)
-	set_collision_mask(4)
-	speed = 250
-	gravity = -250
-	jump_speed = -250
-	
-	velocity.y = 0 # If falling as a solid/liquid form, stops falling
-
-func gas_state(delta):
-	#velocity.x = Input.get_axis("left", "right") * speed
-	var hor_input = Input.get_axis("left", "right")
-	velocity.x += hor_input * speed
-	velocity.x = clamp(velocity.x, -speed, speed)
-	if not hor_input and not being_blown_away: # No input
-		velocity.x = move_toward(velocity.x, 0.0, speed)
-	
-	velocity.y += gravity * delta
-	if Input.is_action_just_pressed("jump"):
-		velocity.y = jump_speed
-	
-	move_and_slide()
-
 # Push movable box
 var push_force = 50
 var max_velocity = 100
@@ -183,29 +93,6 @@ func test_colision():
 		var collider = test_collision.get_collider()
 		if collider.is_in_group("MovableBox") and abs(collider.get_linear_velocity().x) < max_velocity:
 			collider.apply_central_impulse(test_collision.get_normal() * -push_force)
-
-# Called by the Fan node
-var blown_force = 300
-var being_blown_away = false
-func be_blown_away(dir):
-	if current_state == STATES.Gas:
-		velocity += blown_force * dir
-		being_blown_away = true
-
-func stop_being_blown_away():
-	being_blown_away = false
-
-func change_state(new_state):
-	match new_state:
-		STATES.Solid:
-			enter_solid_state()
-			current_state = STATES.Solid
-		STATES.Liquid:
-			enter_liquid_state()
-			current_state = STATES.Liquid
-		STATES.Gas:
-			enter_gas_state()
-			current_state = STATES.Gas
 
 func teleport_back_to_spawn():
 	global_position = respawn_marker.global_position
