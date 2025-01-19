@@ -9,6 +9,7 @@ var TimerEnabled := true
 var CurrentUIOpened := ""
 
 func _ready():
+	get_tree().paused = false
 	set_player_ref()
 
 func set_player_ref():
@@ -79,3 +80,17 @@ func ShowState():
 				state.text = "Liquid"
 			player.STATES.Gas:
 				state.text = "Gas"
+
+func _on_restart_button_up():
+	get_tree().reload_current_scene()
+
+func _on_respawn_button_up():
+	get_tree().reload_current_scene()
+
+func _on_return_button_up():
+	var path = "res://scenes/UI/main_menu.tscn"
+	get_tree().change_scene_to_file(path)
+
+func _on_main_menu_button_up():
+	var path = "res://scenes/UI/main_menu.tscn"
+	get_tree().change_scene_to_file(path)

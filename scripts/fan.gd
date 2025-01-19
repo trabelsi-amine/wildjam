@@ -1,9 +1,15 @@
 extends StaticBody2D
 
 @onready var marker = $Marker2D
+@onready var cpu_particles_2d = $CPUParticles2D
 
 # The player node will be valid as long as the player is inside the Area2d collision
 var player = null
+
+func _ready():
+	var particle_gravity = Vector2(0, -980)
+	particle_gravity = particle_gravity.rotated(global_rotation)
+	cpu_particles_2d.set_gravity(particle_gravity)
 
 func _process(_delta):
 	# If player is valid, is in the gas state and has method, call method

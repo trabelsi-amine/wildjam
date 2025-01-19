@@ -1,7 +1,6 @@
 extends CharacterBody2D
 class_name player
 
-
 @export var rnd_shake_strength = 2.5
 @export var shake_decay_rate = 7.5
 @onready var jump_audio: AudioStreamPlayer2D = $jump
@@ -9,8 +8,10 @@ class_name player
 
 @onready var playerSprite: Sprite2D = $Sprite2D
 @onready var waterSprite = $Water
+@onready var pushing = $Pushing
 @onready var collision = $CollisionShape2D
 @onready var liquid_collision = $LiquidCollision
+@onready var detect_pushing = $DetectPushing
 
 @onready var respawn_marker: Marker2D = $"../Environment/RespawnMarker"
 @onready var anim: AnimationPlayer = $AnimationPlayer
@@ -76,6 +77,7 @@ func enter_solid_state():
 	apply_shake()
 	# Solid form
 	playerSprite.visible = true
+	pushing.visible = false
 	# Liquid form
 	waterSprite.visible = false
 	waterSprite.get_child(0).emitting = false # Only child
@@ -112,6 +114,7 @@ func enter_liquid_state():
 	transform_audio.play()
 	apply_shake()
 	playerSprite.visible = false
+	pushing.visible = false
 	
 	waterSprite.visible = true
 	waterSprite.get_child(0).emitting = true
@@ -140,6 +143,7 @@ func enter_gas_state():
 	transform_audio.play()
 	apply_shake()
 	playerSprite.visible = false
+	pushing.visible = false
 	
 	waterSprite.visible = false
 	waterSprite.get_child(0).emitting = false
@@ -185,7 +189,7 @@ func test_colision():
 			collider.apply_central_impulse(test_collision.get_normal() * -push_force)
 
 # Called by the Fan node
-var blown_force = 200
+var blown_force = 280
 var being_blown_away = false
 func be_blown_away(dir):
 	jump_audio.play()
@@ -215,17 +219,34 @@ func manage_anims():
 	if velocity.x < 0:
 		# Look to the left
 		playerSprite.flip_h = true
-	else:
-		if velocity.x>0:
+		pushing.flip_h = true
+		detect_pushing.target_position.x = -64
+	elif velocity.x > 0:
 			# Look to the right
 			playerSprite.flip_h = false
+			pushing.flip_h = false
+			detect_pushing.target_position.x = 64
 	
 	if is_on_floor():
+		if detect_pushing.is_colliding():
+			var col = detect_pushing.get_collider()
+			if col.is_in_group("MovableBox") and current_state == STATES.Solid:
+				playerSprite.visible = false
+				pushing.visible = true
+			else:
+				playerSprite.visible = true
+				pushing.visible = false
+		else:
+			playerSprite.visible = true
+			pushing.visible = false
+		
 		if abs(velocity.x) == 0:
 			anim.play("idle")
 		else:
 			anim.play("run")
 	else:
+		playerSprite.visible = true
+		pushing.visible = false
 		if velocity.y < 0:
 			anim.play("jump")
 		else:
