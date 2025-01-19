@@ -1,5 +1,6 @@
-[gd_scene load_steps=31 format=4 uid="uid://d3do7swgrfyay"]
+[gd_scene load_steps=32 format=4 uid="uid://d3do7swgrfyay"]
 
+[ext_resource type="Texture2D" uid="uid://dpuuap7w1cas" path="res://assets/art/bg01.svg" id="1_iytmq"]
 [ext_resource type="PackedScene" uid="uid://c4fvyx6tpkewg" path="res://scenes/camera.tscn" id="1_pcy4m"]
 [ext_resource type="Texture2D" uid="uid://c3kb4oqyo5as1" path="res://assets/art/tileset.png" id="2_bre4m"]
 [ext_resource type="PackedScene" uid="uid://cmyjc4hlqgnx4" path="res://scenes/door.tscn" id="2_uugg7"]
@@ -137,13 +138,13 @@ sources/0 = SubResource("TileSetAtlasSource_rqfef")
 
 [node name="TrapsRoom" type="Node2D"]
 
-[node name="BGColor" type="ColorRect" parent="."]
-modulate = Color(0.423529, 0.486275, 0.564706, 1)
+[node name="BGColor" type="TextureRect" parent="."]
+modulate = Color(0.513726, 0.568627, 0.576471, 1)
 offset_left = -15.0
 offset_top = -11.0
 offset_right = 1169.0
 offset_bottom = 669.0
-color = Color(0.442084, 0.51923, 0.631342, 1)
+texture = ExtResource("1_iytmq")
 metadata/_edit_lock_ = true
 
 [node name="Environment" type="Node2D" parent="."]
