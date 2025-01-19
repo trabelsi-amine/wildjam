@@ -14,7 +14,7 @@ extends Node2D
 @onready var target: Marker2D = $Marker2D
 @onready var player_interface: Control = $"../../PlayerInterfaceCanvas/PlayerInterface"
 
-var player = null
+#var player = null
 # Used for look at the center of the player sprite instead of the bottom
 var player_offset = Vector2(0, -30)
 # If true, change light color
@@ -26,21 +26,21 @@ var hit_color = Color.FIREBRICK
 
 func _ready():
 	look_at(target.global_position)
-	set_player_ref()
-
-func set_player_ref():
-	if Global.player: # Not null
-		player = Global.player
-	else:
-		await get_tree().create_timer(0.5).timeout
-		set_player_ref()
+	#set_player_ref()
+#
+#func set_player_ref():
+	#if Global.player: # Not null
+		#player = Global.player
+	#else:
+		#await get_tree().create_timer(0.5).timeout
+		#set_player_ref()
 
 func _physics_process(_delta: float) -> void:
 	# Reset vars to default. If the player is not within range of the light, nothing changes
 	seeing_player = false
 	ray.rotation = 0
 	
-	if player: # Not null
+	if Global.player: # Not null
 		# Vector to the target (middle of the light)
 		var view_vec = target.position
 		# The camera is rotated by the look_at method in the _ready function
@@ -48,7 +48,7 @@ func _physics_process(_delta: float) -> void:
 		view_vec = view_vec.rotated(-rotation)
 		
 		# Vector to the player
-		var player_vec = player.global_position + player_offset - global_position
+		var player_vec = Global.player.global_position + player_offset - global_position
 		# The camera is rotated by the look_at method in the _ready function
 			# So now I 'remove' this rotation of the vector
 		player_vec = player_vec.rotated(-rotation)
@@ -68,7 +68,7 @@ func _physics_process(_delta: float) -> void:
 		# If (unsigned) angle is <= than limit
 		if abs(angle) <= light_angle:
 			# RayCast rotates to look at the player
-			ray.look_at(player.global_position + player_offset)
+			ray.look_at(Global.player.global_position + player_offset)
 	
 	# If RayCast hits something...
 	if ray.is_colliding():
