@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://d1cjeghsy64a"]
+[gd_scene load_steps=11 format=3 uid="uid://d1cjeghsy64a"]
 
 [ext_resource type="Texture2D" uid="uid://bq7cw0ulmahjb" path="res://assets/art/becoming light-Sheet.png" id="1_nx4vc"]
+[ext_resource type="Script" path="res://scripts/fade.gd" id="2_233sl"]
 
 [sub_resource type="Animation" id="Animation_syaqq"]
 length = 0.001
@@ -68,6 +69,7 @@ scale = Vector2(1.66, 1.66)
 texture = ExtResource("1_nx4vc")
 hframes = 7
 vframes = 7
+script = ExtResource("2_233sl")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -78,3 +80,9 @@ libraries = {
 tree_root = SubResource("AnimationNodeStateMachine_15cpu")
 anim_player = NodePath("../AnimationPlayer")
 parameters/BlendTree/TimeScale/scale = 0.25
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+
+[connection signal="animation_finished" from="AnimationTree" to="." method="TheEndAnimation"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
