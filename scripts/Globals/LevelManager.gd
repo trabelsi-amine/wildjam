@@ -10,9 +10,6 @@ var Score:float
 
 func NextLevel():
 	CurrentLevelIndex += 1
-	call_deferred("NLDeffered")
-
-func NLDeffered():
 	get_tree().change_scene_to_file(Levels[CurrentLevelIndex])
 
 func KillPlayer():
